@@ -1,5 +1,7 @@
 package Mighty_Cards;
 
+import java.util.ArrayList;
+
 public class Hero implements ITarget {
 
 	Match match;
@@ -107,5 +109,12 @@ public class Hero implements ITarget {
 		// TODO - implement Hero.removeMinion
 		throw new UnsupportedOperationException();
 	}
-
+        
+        public int getHitPoints(){
+            return hitPoints;
+        }
+        
+        public void SetHitPoints(int hitPoints){
+            this.hitPoints = hitPoints;
+        }
 }

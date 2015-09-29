@@ -47,4 +47,11 @@ public class Minion implements ITarget {
 		throw new UnsupportedOperationException();
 	}
 
+        public int getHitPoints(){
+            return hitPoints;
+        }
+        
+        public void SetHitPoints(int hitPoints){
+            this.hitPoints = hitPoints;
+        }
 }

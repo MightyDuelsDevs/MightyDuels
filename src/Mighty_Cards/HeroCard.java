@@ -16,8 +16,9 @@ public abstract class HeroCard extends Card {
 	 * @param magicalBlock
 	 * @param healValue
 	 */
-	public HeroCard(int physicalDamage, int magicalDamage, int physicalBlock, int magicalBlock, int healValue) {
-		// TODO - implement HeroCard.HeroCard
+	public HeroCard(String name, String filename, String description, int physicalDamage, int magicalDamage, int physicalBlock, int magicalBlock, int healValue){
+		super(name, filename, description);
+                // TODO - implement HeroCard.HeroCard
 		throw new UnsupportedOperationException();
 	}
 

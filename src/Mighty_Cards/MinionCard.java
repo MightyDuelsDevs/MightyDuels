@@ -24,7 +24,8 @@ public abstract class MinionCard extends Card {
 	 * @param magicalDamage
 	 * @param hitPoints
 	 */
-	public MinionCard(int physicalDamage, int magicalDamage, int hitPoints) {
+	public MinionCard(String name, String filename, String description, int physicalDamage, int magicalDamage, int hitPoints) {
+            super(name, filename, description);
 		// TODO - implement MinionCard.MinionCard
 		throw new UnsupportedOperationException();
 	}

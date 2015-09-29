@@ -14,7 +14,7 @@ public class Player {
 	 * @param username
 	 * @param password
 	 */
-	public Player(String username, String password) throws UnkownUsername, IncorrectPassword {
+	public Player(String username, String password) /* throws UnkownUsername, IncorrectPassword */{
 		// TODO - implement Player.Player
 		throw new UnsupportedOperationException();
 	}
@@ -73,5 +73,4 @@ public class Player {
 		// TODO - implement Player.changeIcon
 		throw new UnsupportedOperationException();
 	}
-
 }
