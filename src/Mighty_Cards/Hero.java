@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Hero implements ITarget {
 
 	Match match;
-	private int hitPoints;
+	private int hitPoints = 50;
 	private boolean finished;
 
 	/**
