@@ -43,7 +43,7 @@ public class Game {
     }
 
     /**
-     * 
+     *
      * @return the list of 30 cards
      */
     public ArrayList<Card> getCards() {
@@ -54,14 +54,15 @@ public class Game {
      *
      * @param username the player username
      * @param password the player password
-     * @return boolean returns true when the register has succeded and false when the username already exist
+     * @return boolean returns true when the register has succeded and false
+     * when the username already exist
      */
     public boolean register(String username, String password) {
-        if (username != null && password != null) {
-            Player newplayer = new Player(username, password);
-            return true;
+        if (username.isEmpty() || password.isEmpty()) {
+            return false;
         }
-        return false;
+        Player newplayer = new Player(username, password);
+        return true;
     }
 
     /**

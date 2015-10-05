@@ -8,9 +8,9 @@ public class Icon {
 
     /**
      *
-     * @param id
-     * @param ratinglock
-     * @param filename
+     * @param id the icon id
+     * @param ratinglock the icon rating cap
+     * @param filename the icon filename
      */
 <span class="fc" id="L15">    public Icon(int id, int ratinglock, String filename) {</span>
 <span class="fc" id="L16">        this.id = id;</span>
@@ -18,16 +18,28 @@ public class Icon {
 <span class="fc" id="L18">        this.fileName = filename;</span>
 <span class="fc" id="L19">    }</span>
 
+    /**
+     * 
+     * @return the ID from the icon
+     */
     public int getId() {
-<span class="fc" id="L22">        return this.id;</span>
+<span class="fc" id="L26">        return this.id;</span>
     }
 
+    /**
+     * 
+     * @return the rating cap from the icon
+     */
     public int getRatingLock() {
-<span class="fc" id="L26">        return this.ratingLock;</span>
+<span class="fc" id="L34">        return this.ratingLock;</span>
     }
 
+    /**
+     * 
+     * @return the filename of the icon
+     */
     public String getFileName() {
-<span class="fc" id="L30">        return this.fileName;</span>
+<span class="fc" id="L42">        return this.fileName;</span>
     }
 
 }
