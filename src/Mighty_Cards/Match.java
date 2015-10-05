@@ -46,26 +46,6 @@ public class Match {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param H1
-	 */
-        //todo remove?
-	public void setHero1(Hero H1) {
-		// TODO - implement Match.setHero1
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param H2
-	 */
-        //todo remove?
-	public void setHero2(Hero H2) {
-		// TODO - implement Match.setHero2
-		throw new UnsupportedOperationException();
-	}
-
 	public GameState getGameState() {
 		return this.gameState;
 	}

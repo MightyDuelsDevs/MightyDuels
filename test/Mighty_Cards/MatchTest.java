@@ -89,34 +89,6 @@ public class MatchTest {
     }
 
     /**
-     * Test of setHero1 method, of class Match.
-     */
-    @Test
-    public void testSetHero1() {
-        System.out.println("setHero1");
-        Hero H1 = null;
-        Match instance = null;
-        //wrong method?
-        instance.setHero1(H1);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setHero2 method, of class Match.
-     */
-    @Test
-    public void testSetHero2() {
-        System.out.println("setHero2");
-        Hero H2 = null;
-        Match instance = null;
-        //wrong method?
-        instance.setHero2(H2);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-     /**
      * Test of concede method, of class Match.
      */
     @Test
