@@ -5,7 +5,10 @@
  */
 package Mighty_Cards;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -117,7 +120,14 @@ public class GameTest {
         Game instance = this.game;
         Match expResult = new Match(player);
         Match result = instance.startMatch(player);
-        assertEquals("didn't start the correct match", true, expResult.equals(result));
+        try {
+            Field field = Match.class.getDeclaredField("player");
+            field.setAccessible(true);
+            assertEquals(player,field.get(expResult));
+            assertEquals(player,field.get(result));
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
+            Logger.getLogger(MatchTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Somthing went wrong!");
+        }
     }
-
 }
