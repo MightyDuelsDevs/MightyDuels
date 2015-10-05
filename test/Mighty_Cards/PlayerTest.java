@@ -97,14 +97,14 @@ public class PlayerTest {
     @Test
     public void testgetWins() {
         Player x = new Player("Username", "Password");
-        x.setWins(1);
+        x.setWins();
         assertEquals(x.getWins(), 1);
     }
 
     @Test
     public void testsetWins() {
         Player x = new Player("Username", "Password");
-        x.setWins(1);
+        x.setWins();
         assertEquals(x.getWins(), 1);
 
     }
@@ -112,19 +112,23 @@ public class PlayerTest {
     @Test
     public void testgetLoses() {
         Player x = new Player("Username", "Password");
-        x.setLoses(1);
+        x.setLoses();
         assertEquals(x.getLosses(), 1);
     }
 
     @Test
     public void testsetLoses() {
         Player x = new Player("Username", "Password");
-        x.setLoses(1);
+        x.setLoses();
         assertEquals(x.getLosses(), 1);
     }
 
     @Test
     public void testchangeIcon() {
+        Player x = new Player("Username", "Password");
+        Icon i = new Icon(2, 500, null);
+        x.setIconId(i.getId());
+        assertEquals("Iconid's zijn ongelijk",x.getIconId(), i.getId());
         
 
     }
