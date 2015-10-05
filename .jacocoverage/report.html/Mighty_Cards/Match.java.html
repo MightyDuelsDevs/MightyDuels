@@ -5,49 +5,56 @@ public class Match {
 	private int turns;
 	private GameState gameState;
 
+        private Player player1;
+        private Player player2;
+        
+        private Hero hero1;
+        private Hero hero2;
+        
 	private void determineGameState() {
 		// TODO - implement Match.determineGameState
-<span class="nc" id="L10">		throw new UnsupportedOperationException();</span>
+<span class="nc" id="L16">		throw new UnsupportedOperationException();</span>
 	}
 
 	private void processTurn() {
 		// TODO - implement Match.processTurn
-<span class="nc" id="L15">		throw new UnsupportedOperationException();</span>
+<span class="nc" id="L21">		throw new UnsupportedOperationException();</span>
 	}
 
 	/**
 	 * 
 	 * @param P1
 	 */
-<span class="fc" id="L22">	public Match(Player P1) {</span>
-		
-<span class="fc" id="L24">	}</span>
+<span class="fc" id="L28">	public Match(Player P1) {</span>
+<span class="fc" id="L29">		player1 = P1;</span>
+<span class="fc" id="L30">                hero1 = new Hero(this,P1,new Deck());//todo deck</span>
+<span class="fc" id="L31">                gameState = GameState.Waiting;</span>
+<span class="fc" id="L32">	}</span>
 
 	/**
 	 * 
 	 * @param P2
 	 */
 	public void addPlayer2(Player P2) {
-		// TODO - implement Match.addPlayer2
-<span class="nc" id="L32">		throw new UnsupportedOperationException();</span>
-	}
+<span class="fc" id="L39">		player2 = P2;</span>
+<span class="fc" id="L40">                hero2 = new Hero(this,P2,new Deck());</span>
+<span class="fc" id="L41">                gameState = GameState.Active;</span>
+<span class="fc" id="L42">	}</span>
 
 	public int getTurns() {
-<span class="fc" id="L36">		return this.turns;</span>
+<span class="fc" id="L45">		return this.turns;</span>
 	}
 
 	public Hero getHero1() {
-		// TODO - implement Match.getHero1
-<span class="fc" id="L41">		throw new UnsupportedOperationException();</span>
+<span class="fc" id="L49">		return hero1;</span>
 	}
 
 	public Hero getHero2() {
-		// TODO - implement Match.getHero2
-<span class="fc" id="L46">		throw new UnsupportedOperationException();</span>
+<span class="fc" id="L53">		return hero2;</span>
 	}
 
 	public GameState getGameState() {
-<span class="fc" id="L50">		return this.gameState;</span>
+<span class="fc" id="L57">		return this.gameState;</span>
 	}
 
 	/**
@@ -55,9 +62,12 @@ public class Match {
 	 * @param hero
 	 */
 	public void concede(Hero hero) {
+<span class="fc" id="L65">            gameState = GameState.Defined;</span>
+<span class="fc" id="L66">            hero.SetHitPoints(0);</span>
+            
 		// TODO - implement Match.concede
-<span class="nc" id="L59">		throw new UnsupportedOperationException();</span>
-	}
+            //	throw new UnsupportedOperationException();
+<span class="fc" id="L70">	}</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

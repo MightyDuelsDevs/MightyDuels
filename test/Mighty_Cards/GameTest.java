@@ -117,7 +117,7 @@ public class GameTest {
         Game instance = this.game;
         Match expResult = new Match(player);
         Match result = instance.startMatch(player);
-        assertEquals("didn't start the correct match", expResult, result);
+        assertEquals("didn't start the correct match", true, expResult.equals(result));
     }
 
 }
