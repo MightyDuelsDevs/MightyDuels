@@ -13,8 +13,9 @@ public abstract class Card {
 	 * @param description
 	 */
 	public Card(String name, String filename, String description) {
-		// TODO - implement Card.Card
-		throw new UnsupportedOperationException();
+                this.name = name;
+                this.filename = filename;
+                this.description = description;
 	}
 
 	public String getName() {
@@ -28,5 +29,10 @@ public abstract class Card {
 	public String getDescription() {
 		return this.description;
 	}
-
+        
+        protected void testForNegativeValue(int test){
+            if(test < 0){
+                throw new IllegalArgumentException();
+            }
+        }
 }

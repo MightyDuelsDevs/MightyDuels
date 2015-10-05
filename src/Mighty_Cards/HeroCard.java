@@ -1,6 +1,8 @@
 package Mighty_Cards;
 
-public abstract class HeroCard extends Card {
+import java.lang.IllegalArgumentException;
+
+public class HeroCard extends Card {
 
 	private int physicalDamage;
 	private int magicalDamage;
@@ -18,8 +20,17 @@ public abstract class HeroCard extends Card {
 	 */
 	public HeroCard(String name, String filename, String description, int physicalDamage, int magicalDamage, int physicalBlock, int magicalBlock, int healValue){
 		super(name, filename, description);
-                // TODO - implement HeroCard.HeroCard
-		throw new UnsupportedOperationException();
+                testForNegativeValue(physicalDamage);
+                testForNegativeValue(magicalDamage);
+                testForNegativeValue(physicalBlock);
+                testForNegativeValue(magicalBlock);
+                testForNegativeValue(healValue);
+                
+                this.physicalDamage = physicalDamage;
+                this.magicalDamage = magicalDamage;
+                this.physicalBlock = physicalBlock;
+                this.magicalBlock = magicalBlock;
+                this.healValue = healValue;
 	}
 
 	public int getPhysicalDamage() {
@@ -41,5 +52,10 @@ public abstract class HeroCard extends Card {
 	public int getHealValue() {
 		return this.healValue;
 	}
-
+        
+//        private void testForNegativeValue(int test){
+//            if(test < 0){
+//                throw new IllegalArgumentException();
+//            }
+//        }
 }
