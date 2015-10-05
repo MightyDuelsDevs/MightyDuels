@@ -5,6 +5,9 @@
  */
 package Mighty_Cards;
 
+import java.lang.reflect.Field;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,22 +24,22 @@ public class MatchTest {
     public MatchTest() {
     }
     
+        static Player p1, p2;
+        static Match m;
+    
     @BeforeClass
     public static void setUpClass() {
+        p1 = new Player("Player1","pass");
+        p2 = new Player("Player2","pass");
+        m = new Match(p1);
     }
     
     @AfterClass
     public static void tearDownClass() {
     }
     
-    Player p1, p2;
-    Match m;
-    
     @Before
     public void setUp() {
-        p1 = new Player("Player1","pass");
-        p2 = new Player("Player2","pass");
-        m = new Match(p1);
     }
     
     @After
@@ -67,25 +70,24 @@ public class MatchTest {
     }
 
     /**
-     * Test of getHero1 method, of class Match.
+     * Test of getHero method, of class Match.
      */
     @Test
-    public void testGetHero1() {
+    public void testGetHero() {
         System.out.println("getHero1");
-        Hero result = m.getHero1();
-        //assertEquals(result.getPlayer(), p1);
-        fail("Missing method.");
-    }
-
-    /**
-     * Test of getHero2 method, of class Match.
-     */
-    @Test
-    public void testGetHero2() {
-        System.out.println("getHero2");
-                Hero result = m.getHero2();
-        //assertEquals(result.getPlayer(), p2);
-        fail("Missing method.");
+        Hero h1 = m.getHero1();
+        Hero h2 = m.getHero2();
+        assertNotSame(h1,h2);
+        try {
+            Field field = Hero.class.getDeclaredField("player");
+            field.setAccessible(true);
+            assertEquals(p1,field.get(h1));
+            assertEquals(p2,field.get(h2));
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
+            Logger.getLogger(MatchTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Somthing went wrong!");
+        }
+        
     }
 
     /**
