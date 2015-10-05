@@ -5,6 +5,7 @@
  */
 package Mighty_Cards;
 
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,6 +20,7 @@ import static org.junit.Assert.*;
 public class Playertest {
 
     public Playertest() {
+
     }
 
     @BeforeClass
@@ -31,6 +33,7 @@ public class Playertest {
 
     @Before
     public void setUp() {
+
     }
 
     @After
@@ -44,12 +47,15 @@ public class Playertest {
     // public void hello() {}
     @Test
     public void testgetUsername() {
-
+        Player x = new Player("Username", "Password");
+        assertEquals(x.getUsername(), "Username");
     }
 
     @Test
     public void testgetIconId() {
-
+        Player x = new Player("Username", "Password");
+        x.setIconId(1);
+        assertEquals(x.getIconId(), 1);
     }
 
     /**
@@ -58,12 +64,16 @@ public class Playertest {
      */
     @Test
     public void testsetIconId() {
-
+        Player x = new Player("Username", "Password");
+        x.setIconId(1);
+        assertEquals(x.getIconId(), 1);
     }
 
     @Test
     public void testgetRating() {
-
+        Player x = new Player("Username", "Password");
+        x.setRating(1);
+        assertEquals(x.getRating(), 1);
     }
 
     /**
@@ -72,39 +82,50 @@ public class Playertest {
      */
     @Test
     public void testsetRating() {
-
+        Player x = new Player("Username", "Password");
+        x.setRating(1);
+        assertEquals(x.getRating(), 1);
     }
 
     @Test
-    public void testgetMatches() {
-
+    public void testMatches() {
+        Player x = new Player("Username", "Password");
+        x.setMatches(1);
+        assertEquals(x.getMatches(), 1);
     }
-
+ 
     @Test
     public void testgetWins() {
-
+        Player x = new Player("Username", "Password");
+        x.setWins(1);
+        assertEquals(x.getWins(), 1);
     }
 
     @Test
     public void testsetWins() {
-        // TODO - implement Player.setWins
+        Player x = new Player("Username", "Password");
+        x.setWins(1);
+        assertEquals(x.getWins(), 1);
 
     }
 
     @Test
     public void testgetLoses() {
-
+        Player x = new Player("Username", "Password");
+        x.setLoses(1);
+        assertEquals(x.getLosses(), 1);
     }
 
     @Test
     public void testsetLoses() {
-        // TODO - implement Player.setLoses
-
+        Player x = new Player("Username", "Password");
+        x.setLoses(1);
+        assertEquals(x.getLosses(), 1);
     }
 
     @Test
     public void testchangeIcon() {
-        // TODO - implement Player.changeIcon
+        
 
     }
 }
