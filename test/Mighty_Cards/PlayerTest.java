@@ -125,6 +125,10 @@ public class PlayerTest {
 
     @Test
     public void testchangeIcon() {
+        Player x = new Player("Username", "Password");
+        Icon i = new Icon(2, 500, null);
+        x.setIconId(i.getId());
+        assertEquals("Iconid's zijn ongelijk",x.getIconId(), i.getId());
         
 
     }
