@@ -66,6 +66,10 @@ public class HeroTest {
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
         
         Deck deck = new Deck();
+        
+        testHero.setDeck(deck);
+        assertEquals(testHero.getDeck(), deck);
+        
         deck.addCard(new HeroCard("testname", "testFilename", "testDescription", 1, 1, 1, 1, 1) {});
         
         testHero.setDeck(deck);

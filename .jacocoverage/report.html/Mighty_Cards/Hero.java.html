@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Hero implements ITarget {
 
 	private Match match;
-<span class="nc" id="L8">	private int hitPoints = 50;</span>
+<span class="fc" id="L8">	private int hitPoints = 50;</span>
 	private boolean finished;
         private Deck deck;
         private Player player;
@@ -19,19 +19,19 @@ public class Hero implements ITarget {
 	 * @param player
 	 * @param deck
 	 */
-<span class="nc" id="L22">	public Hero(Match match, Player player, Deck deck) {</span>
+<span class="fc" id="L22">	public Hero(Match match, Player player, Deck deck) {</span>
 		// TODO - implement Hero.Hero
-<span class="nc" id="L24">		this.match = match;</span>
-<span class="nc" id="L25">                this.player = player;</span>
-<span class="nc" id="L26">                this.deck = deck;</span>
-<span class="nc" id="L27">	}</span>
+<span class="fc" id="L24">		this.match = match;</span>
+<span class="fc" id="L25">                this.player = player;</span>
+<span class="fc" id="L26">                this.deck = deck;</span>
+<span class="fc" id="L27">	}</span>
 
         /**
          * Gets the deck of the player
          * @return deck of type Deck
          */
 	public Deck getDeck() {
-<span class="nc" id="L34">		return deck;</span>
+<span class="fc" id="L34">		return deck;</span>
 	}
 
 	/**
@@ -39,15 +39,15 @@ public class Hero implements ITarget {
 	 * @param deck
 	 */
 	public void setDeck(Deck deck) {
-<span class="nc" id="L42">		this.deck = deck;</span>
-<span class="nc" id="L43">	}</span>
+<span class="fc" id="L42">		this.deck = deck;</span>
+<span class="fc" id="L43">	}</span>
 
         /**
          * returns if the player is finished with his turn
          * @return if player is finished with boolean
          */
 	public boolean getFinished() {
-<span class="nc" id="L50">		return this.finished;</span>
+<span class="fc" id="L50">		return this.finished;</span>
 	}
 
 	/**
@@ -55,15 +55,15 @@ public class Hero implements ITarget {
 	 * @param finished
 	 */
 	public void setFinished(boolean finished) {
-<span class="nc" id="L58">		this.finished = finished;</span>
-<span class="nc" id="L59">	}</span>
+<span class="fc" id="L58">		this.finished = finished;</span>
+<span class="fc" id="L59">	}</span>
 
         /**
          * returns the minions of the player
          * @return the minions of the Hero in an ArrayList&lt;Minion&gt;
          */
 	public ArrayList&lt;Minion&gt; getMinions() {
-<span class="nc" id="L66">		return minions;</span>
+<span class="fc" id="L66">		return minions;</span>
 	}
 
 	/**
@@ -71,15 +71,15 @@ public class Hero implements ITarget {
 	 * @param minions
 	 */
 	public void setMinions(ArrayList&lt;Minion&gt; minions) {
-<span class="nc" id="L74">		this.minions = minions;</span>
-<span class="nc" id="L75">	}</span>
+<span class="fc" id="L74">		this.minions = minions;</span>
+<span class="fc" id="L75">	}</span>
 
         /**
          * returns the cards of the player
          * @return the cards of the Hero in an ArrayList&lt;Card&gt;
          */
 	public ArrayList&lt;Card&gt; getInHand() {
-<span class="nc" id="L82">		return cardsInHand;</span>
+<span class="fc" id="L82">		return cardsInHand;</span>
 	}
 
 	/**
@@ -87,15 +87,15 @@ public class Hero implements ITarget {
 	 * @param inHand
 	 */
 	public void setNewHand(ArrayList&lt;Card&gt; inHand) {
-<span class="nc" id="L90">		this.cardsInHand = inHand;</span>
-<span class="nc" id="L91">	}</span>
+<span class="fc" id="L90">		this.cardsInHand = inHand;</span>
+<span class="fc" id="L91">	}</span>
 
         /**
          * returns the card played by the player
          * @return the card played by the Hero as Card
          */
 	public Card getCardPlayed() {
-<span class="nc" id="L98">		return cardPlayed;</span>
+<span class="fc" id="L98">		return cardPlayed;</span>
 	}
 
 	/**
@@ -103,8 +103,8 @@ public class Hero implements ITarget {
 	 * @param cardPlayed
 	 */
 	public void setCardPlayed(Card cardPlayed) {
-<span class="nc" id="L106">		this.cardPlayed = cardPlayed;</span>
-<span class="nc" id="L107">	}</span>
+<span class="fc" id="L106">		this.cardPlayed = cardPlayed;</span>
+<span class="fc" id="L107">	}</span>
 
         /**
 	 * grabs cards from the deck and sets the cards in hand.
@@ -112,7 +112,7 @@ public class Hero implements ITarget {
 	 */
 	public void pullCards() {
 		// TODO - implement Hero.pullCards
-<span class="nc" id="L115">		throw new UnsupportedOperationException();</span>
+<span class="fc" id="L115">		throw new UnsupportedOperationException();</span>
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class Hero implements ITarget {
 	 */
 	public boolean playCard(Card card) {
 		// TODO - implement Hero.playCard
-<span class="nc" id="L125">		throw new UnsupportedOperationException();</span>
+<span class="fc" id="L125">		throw new UnsupportedOperationException();</span>
 	}
 
 	/**
@@ -130,15 +130,15 @@ public class Hero implements ITarget {
 	 * @param minion
 	 */
 	public void removeMinion(Minion minion) {
-<span class="nc" id="L133">		minions.remove(minion);</span>
-<span class="nc" id="L134">	}</span>
+<span class="fc" id="L133">		minions.remove(minion);</span>
+<span class="fc" id="L134">	}</span>
         
         /**
          * returns the current hitPoints of the Hero
 	 * @return the hitPoints of the Hero
 	 */
         public int getHitPoints(){
-<span class="nc" id="L141">            return hitPoints;</span>
+<span class="fc" id="L141">            return hitPoints;</span>
         }
         
         /**
@@ -146,7 +146,7 @@ public class Hero implements ITarget {
 	 * @param hitPoints
 	 */
         public void SetHitPoints(int hitPoints){
-<span class="nc" id="L149">            this.hitPoints = hitPoints;</span>
-<span class="nc" id="L150">        }</span>
+<span class="fc" id="L149">            this.hitPoints = hitPoints;</span>
+<span class="fc" id="L150">        }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
