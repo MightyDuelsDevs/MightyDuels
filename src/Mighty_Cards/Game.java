@@ -4,58 +4,64 @@ import java.util.ArrayList;
 
 public class Game {
 
-	private Game instance;
-	private Render render;
+    private static Game instance;
+    private Render render;
+    private ArrayList<Icon> icons;
+    private ArrayList<Card> cards;
+    private Player player;
+    private Match match;
 
-	private Game() {
-		// TODO - implement Game.Game
-		throw new UnsupportedOperationException();
-	}
+    private Game() {
+        // Exists only to defeat instantiation.        
+    }
 
-	public ArrayList<Icon> getIcon() {
-		// TODO - implement Game.getIcon
-		throw new UnsupportedOperationException();
-	}
+    public ArrayList<Icon> getIcon() {
+        return this.icons;
+    }
 
-	/**
-	 * return instance??instance=new game();
-	 */
-	public Game getInstance() {
-		return this.instance;
-	}
+    /**
+     * return instance??instance=new game();
+     *
+     * @return this game instance
+     */
+    public static Game getInstance() {
+        if (instance == null) {
+            instance = new Game();
+        }
+        return instance;
+    }
 
-	/**
-	 * 
-	 * @param username
-	 * @param password
-	 */
-	public Player login(String username, String password) {
-		// TODO - implement Game.login
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param username
+     * @param password
+     * @return player
+     */
+    public Player login(String username, String password) {
+        return this.player;
+    }
 
-	public ArrayList<Card> getCards() {
-		// TODO - implement Game.getCards
-		throw new UnsupportedOperationException();
-	}
+    public ArrayList<Card> getCards() {
+        return this.cards;
+    }
 
-	/**
-	 * 
-	 * @param username
-	 * @param password
-	 */
-	public boolean register(String username, String password) {
-		// TODO - implement Game.register
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param username
+     * @param password
+     * @return boolean
+     */
+    public boolean register(String username, String password) {
+        return false;
+    }
 
-	/**
-	 * 
-	 * @param player
-	 */
-	public Match startMatch(Player player) {
-		// TODO - implement Game.startMatch
-		throw new UnsupportedOperationException();
-	}
+    /**
+     *
+     * @param player
+     * @return match
+     */
+    public Match startMatch(Player player) {
+        return this.match;
+    }
 
 }
