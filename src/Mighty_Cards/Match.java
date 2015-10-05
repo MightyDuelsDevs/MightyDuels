@@ -5,6 +5,12 @@ public class Match {
 	private int turns;
 	private GameState gameState;
 
+        private Player player1;
+        private Player player2;
+        
+        private Hero hero1;
+        private Hero hero2;
+        
 	private void determineGameState() {
 		// TODO - implement Match.determineGameState
 		throw new UnsupportedOperationException();
@@ -20,7 +26,9 @@ public class Match {
 	 * @param P1
 	 */
 	public Match(Player P1) {
-		
+		player1 = P1;
+                hero1 = new Hero(this,P1,new Deck());//todo deck
+                gameState = GameState.Waiting;
 	}
 
 	/**
@@ -28,8 +36,9 @@ public class Match {
 	 * @param P2
 	 */
 	public void addPlayer2(Player P2) {
-		// TODO - implement Match.addPlayer2
-		throw new UnsupportedOperationException();
+		player2 = P2;
+                hero2 = new Hero(this,P2,new Deck());
+                gameState = GameState.Active;
 	}
 
 	public int getTurns() {
@@ -37,13 +46,11 @@ public class Match {
 	}
 
 	public Hero getHero1() {
-		// TODO - implement Match.getHero1
-		throw new UnsupportedOperationException();
+		return hero1;
 	}
 
 	public Hero getHero2() {
-		// TODO - implement Match.getHero2
-		throw new UnsupportedOperationException();
+		return hero2;
 	}
 
 	public GameState getGameState() {
@@ -55,8 +62,11 @@ public class Match {
 	 * @param hero
 	 */
 	public void concede(Hero hero) {
+            gameState = GameState.Defined;
+            hero.SetHitPoints(0);
+            
 		// TODO - implement Match.concede
-		throw new UnsupportedOperationException();
+            //	throw new UnsupportedOperationException();
 	}
 
 }
