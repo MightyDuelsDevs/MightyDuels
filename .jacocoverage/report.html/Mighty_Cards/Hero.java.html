@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Hero.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MightyDuels&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Mighty_Cards</a> &gt; <span class="el_source">Hero.java</span></div><h1>Hero.java</h1><pre class="source lang-java linenums">package Mighty_Cards;
+
+import java.util.ArrayList;
+
+public class Hero implements ITarget {
+
+	private Match match;
+<span class="nc" id="L8">	private int hitPoints = 50;</span>
+	private boolean finished;
+        private Deck deck;
+        private Player player;
+        private ArrayList&lt;Minion&gt; minions;
+        private ArrayList&lt;Card&gt; cardsInHand;
+        private Card cardPlayed;
+
+	/**
+	 * 
+	 * @param match
+	 * @param player
+	 * @param deck
+	 */
+<span class="nc" id="L22">	public Hero(Match match, Player player, Deck deck) {</span>
+		// TODO - implement Hero.Hero
+<span class="nc" id="L24">		this.match = match;</span>
+<span class="nc" id="L25">                this.player = player;</span>
+<span class="nc" id="L26">                this.deck = deck;</span>
+<span class="nc" id="L27">	}</span>
+
+        /**
+         * Gets the deck of the player
+         * @return deck of type Deck
+         */
+	public Deck getDeck() {
+<span class="nc" id="L34">		return deck;</span>
+	}
+
+	/**
+	 * Sets the deck of the player
+	 * @param deck
+	 */
+	public void setDeck(Deck deck) {
+<span class="nc" id="L42">		this.deck = deck;</span>
+<span class="nc" id="L43">	}</span>
+
+        /**
+         * returns if the player is finished with his turn
+         * @return if player is finished with boolean
+         */
+	public boolean getFinished() {
+<span class="nc" id="L50">		return this.finished;</span>
+	}
+
+	/**
+	 * sets if the player is finished
+	 * @param finished
+	 */
+	public void setFinished(boolean finished) {
+<span class="nc" id="L58">		this.finished = finished;</span>
+<span class="nc" id="L59">	}</span>
+
+        /**
+         * returns the minions of the player
+         * @return the minions of the Hero in an ArrayList&lt;Minion&gt;
+         */
+	public ArrayList&lt;Minion&gt; getMinions() {
+<span class="nc" id="L66">		return minions;</span>
+	}
+
+	/**
+	 * sets the minions of the player
+	 * @param minions
+	 */
+	public void setMinions(ArrayList&lt;Minion&gt; minions) {
+<span class="nc" id="L74">		this.minions = minions;</span>
+<span class="nc" id="L75">	}</span>
+
+        /**
+         * returns the cards of the player
+         * @return the cards of the Hero in an ArrayList&lt;Card&gt;
+         */
+	public ArrayList&lt;Card&gt; getInHand() {
+<span class="nc" id="L82">		return cardsInHand;</span>
+	}
+
+	/**
+	 * sets the hand of the player
+	 * @param inHand
+	 */
+	public void setNewHand(ArrayList&lt;Card&gt; inHand) {
+<span class="nc" id="L90">		this.cardsInHand = inHand;</span>
+<span class="nc" id="L91">	}</span>
+
+        /**
+         * returns the card played by the player
+         * @return the card played by the Hero as Card
+         */
+	public Card getCardPlayed() {
+<span class="nc" id="L98">		return cardPlayed;</span>
+	}
+
+	/**
+	 * sets the card played by the Hero
+	 * @param cardPlayed
+	 */
+	public void setCardPlayed(Card cardPlayed) {
+<span class="nc" id="L106">		this.cardPlayed = cardPlayed;</span>
+<span class="nc" id="L107">	}</span>
+
+        /**
+	 * grabs cards from the deck and sets the cards in hand.
+         * it uses the setNewHand method
+	 */
+	public void pullCards() {
+		// TODO - implement Hero.pullCards
+<span class="nc" id="L115">		throw new UnsupportedOperationException();</span>
+	}
+
+	/**
+	 * tries to play the card the Player selected
+	 * @param card
+         * @return if the method succeeded
+	 */
+	public boolean playCard(Card card) {
+		// TODO - implement Hero.playCard
+<span class="nc" id="L125">		throw new UnsupportedOperationException();</span>
+	}
+
+	/**
+	 * removes the minions from the ArrayList of minions
+	 * @param minion
+	 */
+	public void removeMinion(Minion minion) {
+<span class="nc" id="L133">		minions.remove(minion);</span>
+<span class="nc" id="L134">	}</span>
+        
+        /**
+         * returns the current hitPoints of the Hero
+	 * @return the hitPoints of the Hero
+	 */
+        public int getHitPoints(){
+<span class="nc" id="L141">            return hitPoints;</span>
+        }
+        
+        /**
+         * sets the hitPoints of the Hero
+	 * @param hitPoints
+	 */
+        public void SetHitPoints(int hitPoints){
+<span class="nc" id="L149">            this.hitPoints = hitPoints;</span>
+<span class="nc" id="L150">        }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

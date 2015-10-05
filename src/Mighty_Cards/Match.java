@@ -20,8 +20,7 @@ public class Match {
 	 * @param P1
 	 */
 	public Match(Player P1) {
-		// TODO - implement Match.Match
-		throw new UnsupportedOperationException();
+		
 	}
 
 	/**

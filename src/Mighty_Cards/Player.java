@@ -15,8 +15,7 @@ public class Player {
 	 * @param password
 	 */
 	public Player(String username, String password) /* throws UnkownUsername, IncorrectPassword */{
-		// TODO - implement Player.Player
-		throw new UnsupportedOperationException();
+		this.username = username;
 	}
 
 	public String getUsername() {

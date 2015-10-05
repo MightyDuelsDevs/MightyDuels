@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Card.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MightyDuels&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Mighty_Cards</a> &gt; <span class="el_source">Card.java</span></div><h1>Card.java</h1><pre class="source lang-java linenums">package Mighty_Cards;
+
+public abstract class Card {
+
+	private String name;
+	private String filename;
+	private String description;
+
+	/**
+	 * Constructor
+	 * @param name The name of the card
+	 * @param filename The path to the image that represents the card
+	 * @param description The description of the card
+	 */
+<span class="fc" id="L15">	public Card(String name, String filename, String description) {</span>
+<span class="fc" id="L16">                this.name = name;</span>
+<span class="fc" id="L17">                this.filename = filename;</span>
+<span class="fc" id="L18">                this.description = description;</span>
+<span class="fc" id="L19">	}</span>
+        
+        /**
+         * Get the name of the card
+         * @return The name of the card
+         */
+	public String getName() {
+<span class="fc" id="L26">		return this.name;</span>
+	}
+        
+        /**
+         * Get the path to the image that represents the card
+         * @return The path to the image that represents the card
+         */
+	public String getFilename() {
+<span class="fc" id="L34">		return this.filename;</span>
+	}
+        
+        /**
+         * Get the description of the card
+         * @return The description of the card
+         */
+	public String getDescription() {
+<span class="fc" id="L42">		return this.description;</span>
+	}
+        
+        /**
+         * Check if given int is a negative value
+         * @param test The number that will be tested for a negative value
+         */
+        protected void testForNegativeValue(int test){
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if(test &lt; 0){</span>
+<span class="fc" id="L51">                throw new IllegalArgumentException();</span>
+            }
+<span class="fc" id="L53">        }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

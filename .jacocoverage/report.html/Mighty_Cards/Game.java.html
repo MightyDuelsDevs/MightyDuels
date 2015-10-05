@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MightyDuels&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Mighty_Cards</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package Mighty_Cards;
+
+import java.util.ArrayList;
+
+public class Game {
+
+    private static Game instance;
+    private Render render;
+    private ArrayList&lt;Icon&gt; icons;
+    private ArrayList&lt;Card&gt; cards;
+    private Player player;
+    private Match match;
+
+<span class="fc" id="L14">    private Game() {</span>
+        // Exists only to defeat instantiation.        
+<span class="fc" id="L16">    }</span>
+
+    public ArrayList&lt;Icon&gt; getIcon() {
+<span class="fc" id="L19">        return this.icons;</span>
+    }
+
+    /**
+     * return instance??instance=new game();
+     *
+     * @return this game instance
+     */
+    public static Game getInstance() {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (instance == null) {</span>
+<span class="fc" id="L29">            instance = new Game();</span>
+        }
+<span class="fc" id="L31">        return instance;</span>
+    }
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @return player
+     */
+    public Player login(String username, String password) {
+<span class="nc" id="L41">        return this.player;</span>
+    }
+
+    public ArrayList&lt;Card&gt; getCards() {
+<span class="fc" id="L45">        return this.cards;</span>
+    }
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @return boolean
+     */
+    public boolean register(String username, String password) {
+<span class="fc" id="L55">        return false;</span>
+    }
+
+    /**
+     *
+     * @param player
+     * @return match
+     */
+    public Match startMatch(Player player) {
+<span class="nc" id="L64">        return this.match;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

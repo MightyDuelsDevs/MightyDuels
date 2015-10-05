@@ -48,7 +48,7 @@ public class HeroTest {
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
-        Deck expResult = null;
+        Deck expResult = testDeck;
         
         Deck result = testHero.getDeck();
         assertEquals(expResult, result);
@@ -224,7 +224,8 @@ public class HeroTest {
         Card result = testHero.getCardPlayed();
         assertEquals(expResult, result);
 
-        testHero.setCardPlayed(new HeroCard("testname", "testFilename", "testDescription", 1, 1, 1, 1, 1) {});
+        expResult = new HeroCard("testname", "testFilename", "testDescription", 1, 1, 1, 1, 1) {};
+        testHero.setCardPlayed(expResult);
         result = testHero.getCardPlayed();
         assertEquals(expResult, result);
     }

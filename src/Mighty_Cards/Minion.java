@@ -12,8 +12,10 @@ public class Minion implements ITarget {
 	 * @param minionCard
 	 */
 	public Minion(MinionCard minionCard) {
-		// TODO - implement Minion.Minion
-		throw new UnsupportedOperationException();
+		this.physicalDamage = minionCard.getPhysicalDamage();
+                this.magicalDamage = minionCard.getMagicalDamage();
+                this.maxHitPoints = minionCard.getHitPoints();
+                this.hitPoints = maxHitPoints;
 	}
 
 	public void Attack() {

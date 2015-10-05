@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MinionCard.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MightyDuels&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Mighty_Cards</a> &gt; <span class="el_source">MinionCard.java</span></div><h1>MinionCard.java</h1><pre class="source lang-java linenums">package Mighty_Cards;
+
+public class MinionCard extends Card {
+
+	private int physicalDamage;
+	private int magicalDamage;
+	private int hitPoints;
+
+	/**
+	 * Constructor
+         * Check if any number that is given as a parameter is a negative value. If so throw an illegalArgumentException
+	 * @param physicalDamage The physical strength of a card
+	 * @param magicalDamage The magical strength of a card
+	 * @param hitPoints The amount of health a minion has 
+	 */
+	public MinionCard(String name, String filename, String description, int physicalDamage, int magicalDamage, int hitPoints) {
+<span class="fc" id="L17">            super(name, filename, description);</span>
+<span class="fc" id="L18">                testForNegativeValue(physicalDamage);</span>
+<span class="fc" id="L19">                testForNegativeValue(magicalDamage);</span>
+<span class="fc" id="L20">                testForNegativeValue(hitPoints);</span>
+                
+<span class="fc" id="L22">                this.physicalDamage = physicalDamage;    </span>
+<span class="fc" id="L23">                this.magicalDamage = magicalDamage;</span>
+<span class="fc" id="L24">		this.hitPoints = hitPoints;</span>
+<span class="fc" id="L25">	}</span>
+        
+        /**
+         * Get the physical strength of a card
+         * @return The physical strength of a card
+         */
+	public int getPhysicalDamage() {
+<span class="fc" id="L32">		return this.physicalDamage;</span>
+	}
+        
+        /**
+         * Get the magical strength of a card
+         * @return The magical strength of a card
+         */
+	public int getMagicalDamage() {
+<span class="fc" id="L40">		return this.magicalDamage;</span>
+	}
+        
+        /**
+         * Get the amount of health a minion has 
+         * @return The amount of health a minion has 
+         */
+	public int getHitPoints() {
+<span class="fc" id="L48">		return this.hitPoints;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
