@@ -4,9 +4,14 @@ import java.util.ArrayList;
 
 public class Hero implements ITarget {
 
-	Match match;
+	private Match match;
 	private int hitPoints = 50;
 	private boolean finished;
+        private Deck deck;
+        private Player player;
+        private ArrayList<Minion> minions;
+        private ArrayList<Card> cardsInHand;
+        private Card cardPlayed;
 
 	/**
 	 * 
@@ -16,85 +21,104 @@ public class Hero implements ITarget {
 	 */
 	public Hero(Match match, Player player, Deck deck) {
 		// TODO - implement Hero.Hero
-		throw new UnsupportedOperationException();
+		this.match = match;
+                this.player = player;
+                this.deck = deck;
 	}
 
+        /**
+         * Gets the deck of the player
+         * @return deck of type Deck
+         */
 	public Deck getDeck() {
-		// TODO - implement Hero.getDeck
-		throw new UnsupportedOperationException();
+		return deck;
 	}
 
 	/**
-	 * 
+	 * Sets the deck of the player
 	 * @param deck
 	 */
 	public void setDeck(Deck deck) {
-		// TODO - implement Hero.setDeck
-		throw new UnsupportedOperationException();
+		this.deck = deck;
 	}
 
+        /**
+         * returns if the player is finished with his turn
+         * @return if player is finished with boolean
+         */
 	public boolean getFinished() {
 		return this.finished;
 	}
 
 	/**
-	 * 
+	 * sets if the player is finished
 	 * @param finished
 	 */
 	public void setFinished(boolean finished) {
 		this.finished = finished;
 	}
 
+        /**
+         * returns the minions of the player
+         * @return the minions of the Hero in an ArrayList<Minion>
+         */
 	public ArrayList<Minion> getMinions() {
-		// TODO - implement Hero.getMinions
-		throw new UnsupportedOperationException();
+		return minions;
 	}
 
 	/**
-	 * 
+	 * sets the minions of the player
 	 * @param minions
 	 */
 	public void setMinions(ArrayList<Minion> minions) {
-		// TODO - implement Hero.setMinions
-		throw new UnsupportedOperationException();
+		this.minions = minions;
 	}
 
+        /**
+         * returns the cards of the player
+         * @return the cards of the Hero in an ArrayList<Card>
+         */
 	public ArrayList<Card> getInHand() {
-		// TODO - implement Hero.getInHand
-		throw new UnsupportedOperationException();
+		return cardsInHand;
 	}
 
 	/**
-	 * 
+	 * sets the hand of the player
 	 * @param inHand
 	 */
 	public void setNewHand(ArrayList<Card> inHand) {
-		// TODO - implement Hero.setNewHand
-		throw new UnsupportedOperationException();
+		this.cardsInHand = inHand;
 	}
 
+        /**
+         * returns the card played by the player
+         * @return the card played by the Hero as Card
+         */
 	public Card getCardPlayed() {
-		// TODO - implement Hero.getCardPlayed
-		throw new UnsupportedOperationException();
+		return cardPlayed;
 	}
 
 	/**
-	 * 
+	 * sets the card played by the Hero
 	 * @param cardPlayed
 	 */
 	public void setCardPlayed(Card cardPlayed) {
-		// TODO - implement Hero.setCardPlayed
-		throw new UnsupportedOperationException();
+		this.cardPlayed = cardPlayed;
 	}
 
+        /**
+	 * grabs cards from the deck and sets the cards in hand.
+         * it uses the setNewHand method
+	 */
 	public void pullCards() {
 		// TODO - implement Hero.pullCards
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * 
+	 * tries to play the card the Player selected
 	 * @param card
+         * @return if the method succeeded
 	 */
 	public boolean playCard(Card card) {
 		// TODO - implement Hero.playCard
@@ -102,18 +126,25 @@ public class Hero implements ITarget {
 	}
 
 	/**
-	 * 
+	 * removes the minions from the ArrayList of minions
 	 * @param minion
 	 */
 	public void removeMinion(Minion minion) {
-		// TODO - implement Hero.removeMinion
-		throw new UnsupportedOperationException();
+		minions.remove(minion);
 	}
         
+        /**
+         * returns the current hitPoints of the Hero
+	 * @return the hitPoints of the Hero
+	 */
         public int getHitPoints(){
             return hitPoints;
         }
         
+        /**
+         * sets the hitPoints of the Hero
+	 * @param hitPoints
+	 */
         public void SetHitPoints(int hitPoints){
             this.hitPoints = hitPoints;
         }
