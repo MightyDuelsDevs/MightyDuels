@@ -5,6 +5,16 @@ import java.util.ArrayList;
 public class Deck {
 
 	private String name;
+        
+        public Deck()
+        {
+            
+        }
+        
+        public Deck(String name)
+        {
+            this.name = name;
+        }
 
 	/**
 	 * 

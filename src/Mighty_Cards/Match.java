@@ -51,6 +51,7 @@ public class Match {
 	 * 
 	 * @param H1
 	 */
+        //todo remove?
 	public void setHero1(Hero H1) {
 		// TODO - implement Match.setHero1
 		throw new UnsupportedOperationException();
@@ -60,6 +61,7 @@ public class Match {
 	 * 
 	 * @param H2
 	 */
+        //todo remove?
 	public void setHero2(Hero H2) {
 		// TODO - implement Match.setHero2
 		throw new UnsupportedOperationException();
