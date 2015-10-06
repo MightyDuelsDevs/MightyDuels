@@ -26,6 +26,9 @@ public class Hero implements ITarget {
         this.match = match;
         this.player = player;
         this.deck = deck;
+        
+        this.minions = new ArrayList<>();
+        this.cardsInHand = new ArrayList<>();
     }
 
     /**
@@ -119,8 +122,8 @@ public class Hero implements ITarget {
     }
 
     /**
-     * grabs cards from the deck and sets the cards in hand. it uses the
-     * setNewHand method
+     * grabs cards from the deck and sets the cards in hand. 
+     * it uses the setNewHand method
      */
     public void pullCards() {
         ArrayList<Card> cards = deck.getCards();
@@ -139,10 +142,10 @@ public class Hero implements ITarget {
      * tries to play the card the Player selected
      *
      * @param card
-     * @return if the method succeeded
+     * @return boolean if the method succeeded
      */
     public boolean playCard(Card card) {
-        if (this.minions.size() >= 2) {
+        if (this.getMinions().size() >= 2) {
             if (card instanceof MinionCard) {
                 return false;
             }

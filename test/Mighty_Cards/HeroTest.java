@@ -131,7 +131,7 @@ public class HeroTest {
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
         
         
-        ArrayList<Minion> expResult = null;
+        ArrayList<Minion> expResult = new ArrayList<>();
         ArrayList<Minion> result = testHero.getMinions();
         assertEquals(expResult, result);
         
@@ -176,7 +176,7 @@ public class HeroTest {
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
         
-        ArrayList<Card> expResult = null;
+        ArrayList<Card> expResult = new ArrayList<>();
         ArrayList<Card> result = testHero.getInHand();
         assertEquals(expResult, result);
 

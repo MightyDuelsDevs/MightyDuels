@@ -1,152 +1,182 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Hero.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;MightyDuels&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Mighty_Cards</a> &gt; <span class="el_source">Hero.java</span></div><h1>Hero.java</h1><pre class="source lang-java linenums">package Mighty_Cards;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Hero implements ITarget {
 
-	private Match match;
-<span class="fc" id="L8">	private int hitPoints = 50;</span>
-	private boolean finished;
-        private Deck deck;
-        private Player player;
-        private ArrayList&lt;Minion&gt; minions;
-        private ArrayList&lt;Card&gt; cardsInHand;
-        private Card cardPlayed;
+    private Match match;
+<span class="fc" id="L9">    private int hitPoints = 50;</span>
+    private boolean finished;
+    private Deck deck;
+    private Player player;
+    private ArrayList&lt;Minion&gt; minions;
+    private ArrayList&lt;Card&gt; cardsInHand;
+    private Card cardPlayed;
+<span class="fc" id="L16">    private Random randomCard = new Random();</span>
 
-	/**
-	 * 
-	 * @param match
-	 * @param player
-	 * @param deck
-	 */
-<span class="fc" id="L22">	public Hero(Match match, Player player, Deck deck) {</span>
-		// TODO - implement Hero.Hero
-<span class="fc" id="L24">		this.match = match;</span>
-<span class="fc" id="L25">                this.player = player;</span>
-<span class="fc" id="L26">                this.deck = deck;</span>
-<span class="fc" id="L27">	}</span>
+    /**
+     *
+     * @param match
+     * @param player
+     * @param deck
+     */
+<span class="fc" id="L24">    public Hero(Match match, Player player, Deck deck) {</span>
+        // TODO - implement Hero.Hero
+<span class="fc" id="L26">        this.match = match;</span>
+<span class="fc" id="L27">        this.player = player;</span>
+<span class="fc" id="L28">        this.deck = deck;</span>
+<span class="fc" id="L29">    }</span>
 
-        /**
-         * Gets the deck of the player
-         * @return deck of type Deck
-         */
-	public Deck getDeck() {
-<span class="fc" id="L34">		return deck;</span>
-	}
+    /**
+     * Gets the deck of the player
+     *
+     * @return deck of type Deck
+     */
+    public Deck getDeck() {
+<span class="fc" id="L37">        return deck;</span>
+    }
 
-	/**
-	 * Sets the deck of the player
-	 * @param deck
-	 */
-	public void setDeck(Deck deck) {
-<span class="fc" id="L42">		this.deck = deck;</span>
-<span class="fc" id="L43">	}</span>
+    /**
+     * Sets the deck of the player
+     *
+     * @param deck
+     */
+    public void setDeck(Deck deck) {
+<span class="fc" id="L46">        this.deck = deck;</span>
+<span class="fc" id="L47">    }</span>
 
-        /**
-         * returns if the player is finished with his turn
-         * @return if player is finished with boolean
-         */
-	public boolean getFinished() {
-<span class="fc" id="L50">		return this.finished;</span>
-	}
+    /**
+     * returns if the player is finished with his turn
+     *
+     * @return if player is finished with boolean
+     */
+    public boolean getFinished() {
+<span class="fc" id="L55">        return this.finished;</span>
+    }
 
-	/**
-	 * sets if the player is finished
-	 * @param finished
-	 */
-	public void setFinished(boolean finished) {
-<span class="fc" id="L58">		this.finished = finished;</span>
-<span class="fc" id="L59">	}</span>
+    /**
+     * sets if the player is finished
+     *
+     * @param finished
+     */
+    public void setFinished(boolean finished) {
+<span class="fc" id="L64">        this.finished = finished;</span>
+<span class="fc" id="L65">    }</span>
 
-        /**
-         * returns the minions of the player
-         * @return the minions of the Hero in an ArrayList&lt;Minion&gt;
-         */
-	public ArrayList&lt;Minion&gt; getMinions() {
-<span class="fc" id="L66">		return minions;</span>
-	}
+    /**
+     * returns the minions of the player
+     *
+     * @return the minions of the Hero in an ArrayList&lt;Minion&gt;
+     */
+    public ArrayList&lt;Minion&gt; getMinions() {
+<span class="fc" id="L73">        return minions;</span>
+    }
 
-	/**
-	 * sets the minions of the player
-	 * @param minions
-	 */
-	public void setMinions(ArrayList&lt;Minion&gt; minions) {
-<span class="fc" id="L74">		this.minions = minions;</span>
-<span class="fc" id="L75">	}</span>
+    /**
+     * sets the minions of the player
+     *
+     * @param minions
+     */
+    public void setMinions(ArrayList&lt;Minion&gt; minions) {
+<span class="fc" id="L82">        this.minions = minions;</span>
+<span class="fc" id="L83">    }</span>
 
-        /**
-         * returns the cards of the player
-         * @return the cards of the Hero in an ArrayList&lt;Card&gt;
-         */
-	public ArrayList&lt;Card&gt; getInHand() {
-<span class="fc" id="L82">		return cardsInHand;</span>
-	}
+    /**
+     * returns the cards of the player
+     *
+     * @return the cards of the Hero in an ArrayList&lt;Card&gt;
+     */
+    public ArrayList&lt;Card&gt; getInHand() {
+<span class="fc" id="L91">        return cardsInHand;</span>
+    }
 
-	/**
-	 * sets the hand of the player
-	 * @param inHand
-	 */
-	public void setNewHand(ArrayList&lt;Card&gt; inHand) {
-<span class="fc" id="L90">		this.cardsInHand = inHand;</span>
-<span class="fc" id="L91">	}</span>
+    /**
+     * sets the hand of the player
+     *
+     * @param inHand
+     */
+    public void setNewHand(ArrayList&lt;Card&gt; inHand) {
+<span class="fc" id="L100">        this.cardsInHand = inHand;</span>
+<span class="fc" id="L101">    }</span>
 
-        /**
-         * returns the card played by the player
-         * @return the card played by the Hero as Card
-         */
-	public Card getCardPlayed() {
-<span class="fc" id="L98">		return cardPlayed;</span>
-	}
+    /**
+     * returns the card played by the player
+     *
+     * @return the card played by the Hero as Card
+     */
+    public Card getCardPlayed() {
+<span class="fc" id="L109">        return cardPlayed;</span>
+    }
 
-	/**
-	 * sets the card played by the Hero
-	 * @param cardPlayed
-	 */
-	public void setCardPlayed(Card cardPlayed) {
-<span class="fc" id="L106">		this.cardPlayed = cardPlayed;</span>
-<span class="fc" id="L107">	}</span>
+    /**
+     * sets the card played by the Hero
+     *
+     * @param cardPlayed
+     */
+    public void setCardPlayed(Card cardPlayed) {
+<span class="fc" id="L118">        this.cardPlayed = cardPlayed;</span>
+<span class="fc" id="L119">    }</span>
 
-        /**
-	 * grabs cards from the deck and sets the cards in hand.
-         * it uses the setNewHand method
-	 */
-	public void pullCards() {
-		// TODO - implement Hero.pullCards
-<span class="fc" id="L115">		throw new UnsupportedOperationException();</span>
-	}
+    /**
+     * grabs cards from the deck and sets the cards in hand. 
+     * it uses the setNewHand method
+     */
+    public void pullCards() {
+<span class="nc" id="L126">        ArrayList&lt;Card&gt; cards = deck.getCards();</span>
+<span class="nc" id="L127">        ArrayList&lt;Card&gt; cardsInHand = new ArrayList&lt;&gt;();</span>
 
-	/**
-	 * tries to play the card the Player selected
-	 * @param card
-         * @return if the method succeeded
-	 */
-	public boolean playCard(Card card) {
-		// TODO - implement Hero.playCard
-<span class="fc" id="L125">		throw new UnsupportedOperationException();</span>
-	}
-
-	/**
-	 * removes the minions from the ArrayList of minions
-	 * @param minion
-	 */
-	public void removeMinion(Minion minion) {
-<span class="fc" id="L133">		minions.remove(minion);</span>
-<span class="fc" id="L134">	}</span>
-        
-        /**
-         * returns the current hitPoints of the Hero
-	 * @return the hitPoints of the Hero
-	 */
-        public int getHitPoints(){
-<span class="fc" id="L141">            return hitPoints;</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        for (int i = 1; i &lt;= 3; i++) {</span>
+<span class="nc" id="L130">            int cardPosition = randomCard.nextInt(29);</span>
+<span class="nc" id="L131">            cardsInHand.add(cards.get(cardPosition));</span>
+<span class="nc" id="L132">            cards.remove(cardPosition);</span>
         }
-        
-        /**
-         * sets the hitPoints of the Hero
-	 * @param hitPoints
-	 */
-        public void SetHitPoints(int hitPoints){
-<span class="fc" id="L149">            this.hitPoints = hitPoints;</span>
-<span class="fc" id="L150">        }</span>
+
+<span class="nc" id="L135">        this.setNewHand(cardsInHand);</span>
+<span class="nc" id="L136">    }</span>
+
+    /**
+     * tries to play the card the Player selected
+     *
+     * @param card
+     * @return boolean if the method succeeded
+     */
+    public boolean playCard(Card card) {
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        if (this.minions.size() &gt;= 2) {</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">            if (card instanceof MinionCard) {</span>
+<span class="nc" id="L147">                return false;</span>
+            }
+        }
+
+<span class="nc" id="L151">        this.setCardPlayed(card);</span>
+<span class="nc" id="L152">        return true;</span>
+    }
+
+    /**
+     * removes the minions from the ArrayList of minions
+     *
+     * @param minion
+     */
+    public void removeMinion(Minion minion) {
+<span class="fc" id="L161">        minions.remove(minion);</span>
+<span class="fc" id="L162">    }</span>
+
+    /**
+     * returns the current hitPoints of the Hero
+     *
+     * @return the hitPoints of the Hero
+     */
+    public int getHitPoints() {
+<span class="fc" id="L170">        return hitPoints;</span>
+    }
+
+    /**
+     * sets the hitPoints of the Hero
+     *
+     * @param hitPoints
+     */
+    public void SetHitPoints(int hitPoints) {
+<span class="fc" id="L179">        this.hitPoints = hitPoints;</span>
+<span class="fc" id="L180">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
