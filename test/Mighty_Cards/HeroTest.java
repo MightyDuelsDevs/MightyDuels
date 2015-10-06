@@ -282,8 +282,43 @@ public class HeroTest {
         boolean result = testHero.playCard(testCard);
         assertTrue(result);
         assertNotNull(testHero.getCardPlayed());
+        
+        MinionCard testMinionCard = new MinionCard("testname", "testFilename", "testDescription", 1, 1, 1) {};
+        Minion testMinion = new Minion(testMinionCard);
+        ArrayList minions = new ArrayList();
+        minions.add(testMinion);
+        minions.add(testMinion);
+        testHero.setMinions(minions);
+        
+        result = testHero.playCard(testCard);
+        assertTrue(result);
+        assertNotNull(testHero.getCardPlayed());
     }
 
+        /**
+     * Test of playCard method, of class Hero.
+     */
+    @Test
+    public void testPlayCardMinions() {
+        System.out.println("playCard");
+        Player testPlayer = new Player("testName", "testPass");
+        Match testMatch = new Match(testPlayer);
+        Deck testDeck = new Deck();
+        Hero testHero = new Hero(testMatch, testPlayer, testDeck);
+
+        
+        MinionCard testMinionCard = new MinionCard("testname", "testFilename", "testDescription", 1, 1, 1) {};
+        Minion testMinion = new Minion(testMinionCard);
+        ArrayList minions = new ArrayList();
+        minions.add(testMinion);
+        minions.add(testMinion);
+        testHero.setMinions(minions);
+        
+                
+        boolean result = testHero.playCard(testMinionCard);
+        assertTrue(!result);
+        assertNull(testHero.getCardPlayed());
+    }
     /**
      * Test of removeMinion method, of class Hero.
      */

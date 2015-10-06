@@ -148,11 +148,14 @@ public class Hero implements ITarget {
         if (this.getMinions().size() >= 2) {
             if (card instanceof MinionCard) {
                 return false;
+            } else{
+                this.setCardPlayed(card);
+                return true;
             }
+        } else{
+            this.setCardPlayed(card);
+            return true;
         }
-
-        this.setCardPlayed(card);
-        return true;
     }
 
     /**
