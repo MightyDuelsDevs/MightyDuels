@@ -5,7 +5,10 @@
  */
 package Mighty_Cards;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -107,6 +110,39 @@ public class GameTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testRegisterFalse1() {
+        System.out.println("register");
+        String username = "";
+        String password = "Test1234";
+        Game instance = this.game;
+        boolean expResult = false;
+        boolean result = instance.register(username, password);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testRegisterFalse2() {
+        System.out.println("register");
+        String username = "";
+        String password = "";
+        Game instance = this.game;
+        boolean expResult = false;
+        boolean result = instance.register(username, password);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testRegisterFalse3() {
+        System.out.println("register");
+        String username = "Pyrion";
+        String password = "";
+        Game instance = this.game;
+        boolean expResult = false;
+        boolean result = instance.register(username, password);
+        assertEquals(expResult, result);
+    }
+
     /**
      * Test of startMatch method, of class Game.
      */
@@ -117,7 +153,16 @@ public class GameTest {
         Game instance = this.game;
         Match expResult = new Match(player);
         Match result = instance.startMatch(player);
-        assertEquals("didn't start the correct match", expResult, result);
+        try {
+            Field field = Match.class.getDeclaredField("player1");
+            field.setAccessible(true);
+            System.out.println(field.get(expResult));
+            System.out.println(field.get(result));
+            assertEquals(player, field.get(expResult));
+            assertEquals(player, field.get(result));
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
+            Logger.getLogger(MatchTest.class.getName()).log(Level.SEVERE, null, ex);
+            fail("Somthing went wrong!");
+        }
     }
-
 }

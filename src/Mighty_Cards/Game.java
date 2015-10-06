@@ -33,34 +33,45 @@ public class Game {
 
     /**
      *
-     * @param username
-     * @param password
-     * @return player
+     * @param username the player username
+     * @param password the player password
+     * @return player returns the player that gets logged in
      */
     public Player login(String username, String password) {
+        this.player = new Player(username, password);
         return this.player;
     }
 
+    /**
+     *
+     * @return the list of 30 cards
+     */
     public ArrayList<Card> getCards() {
         return this.cards;
     }
 
     /**
      *
-     * @param username
-     * @param password
-     * @return boolean
+     * @param username the player username
+     * @param password the player password
+     * @return boolean returns true when the register has succeded and false
+     * when the username already exist
      */
     public boolean register(String username, String password) {
-        return false;
+        if (username.isEmpty() || password.isEmpty()) {
+            return false;
+        }
+        Player newplayer = new Player(username, password);
+        return true;
     }
 
     /**
      *
      * @param player
-     * @return match
+     * @return match creates a match with the param player
      */
     public Match startMatch(Player player) {
+        this.match = new Match(player);
         return this.match;
     }
 
