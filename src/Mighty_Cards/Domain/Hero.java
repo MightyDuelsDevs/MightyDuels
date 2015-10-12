@@ -1,4 +1,4 @@
-package Mighty_Cards;
+package Mighty_Cards.Domain;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -10,6 +10,7 @@ public class Hero implements ITarget {
     private boolean finished;
     private Deck deck;
     private Player player;
+    
     private ArrayList<Minion> minions;
     private ArrayList<Card> cardsInHand;
     private Card cardPlayed;
@@ -172,6 +173,7 @@ public class Hero implements ITarget {
      *
      * @return the hitPoints of the Hero
      */
+    @Override
     public int getHitPoints() {
         return hitPoints;
     }

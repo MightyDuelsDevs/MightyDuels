@@ -3,8 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mighty_Cards;
+package Mighty_Cards.DomainTest;
 
+import Mighty_Cards.Domain.MinionCard;
+import Mighty_Cards.Domain.Card;
+import Mighty_Cards.Domain.Player;
+import Mighty_Cards.Domain.Hero;
+import Mighty_Cards.Domain.Minion;
+import Mighty_Cards.Domain.HeroCard;
+import Mighty_Cards.Domain.Deck;
+import Mighty_Cards.Domain.Match;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

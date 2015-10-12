@@ -1,4 +1,4 @@
-package Mighty_Cards;
+package Mighty_Cards.Domain;
 
 public class Match {
 

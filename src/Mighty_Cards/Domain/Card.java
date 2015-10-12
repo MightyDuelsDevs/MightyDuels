@@ -1,4 +1,4 @@
-package Mighty_Cards;
+package Mighty_Cards.Domain;
 
 public abstract class Card {
 
@@ -46,7 +46,7 @@ public abstract class Card {
          * Check if given int is a negative value
          * @param test The number that will be tested for a negative value
          */
-        protected void testForNegativeValue(int test){
+        public void testForNegativeValue(int test){
             if(test < 0){
                 throw new IllegalArgumentException();
             }
