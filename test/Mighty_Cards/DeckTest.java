@@ -71,8 +71,9 @@ public class DeckTest {
 
         @Test
         public void testRemoveCard() {
-            list.add(c1);
-            list.remove(c1);
+            deck.addCard(c1);
+            deck.removeCard(c1);
+            list = deck.getCards();
             int resultSize = list.size();
             Assert.assertEquals("Fout, verwacht 0", 0, resultSize);
 	}
