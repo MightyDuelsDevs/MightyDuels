@@ -74,8 +74,8 @@ public class MinionTest {
     
         @Test
 	public void testAttack() {
-            m1.Attack();
             m1.setITarget(m2);
+            m1.Attack();
             int result = m2.getHitPoints();
             Assert.assertEquals("Fout, verwacht 2", 2, result);
 	}
@@ -103,17 +103,15 @@ public class MinionTest {
             ITarget enemyMinion = m2;
             m1.setITarget(enemyMinion);
             ITarget expected = m1.getITarget();
-            Assert.assertEquals("Fout, verwacht 'enemyMinion'", "enemyMinion", expected);
+            Assert.assertEquals("Fout, verwacht 'enemyMinion'", enemyMinion, expected);
 	}
 
         @Test
 	public void testSetITarget() {
-            int initHP = hero2.getHitPoints();
-            System.out.println("initial HitPoints: " + initHP);
-            m1.setITarget(hero2);
-            m1.Attack();
-            int afterHP = hero2.getHitPoints();
-            Assert.assertEquals("Fout, verwacht xx", initHP - 4, afterHP);
+            ITarget enemyMinion = m2;
+            m1.setITarget(enemyMinion);
+            ITarget expected = m1.getITarget();
+            Assert.assertEquals("Fout, verwacht 'enemyMinion'", enemyMinion, expected);
 	}
 
         @Test
