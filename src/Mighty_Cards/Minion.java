@@ -6,7 +6,8 @@ public class Minion implements ITarget {
 	private int magicalDamage;
 	private int maxHitPoints;
 	private int hitPoints;
-
+        private ITarget target;
+        
 	/**
 	 * 
 	 * @param minionCard
@@ -19,8 +20,8 @@ public class Minion implements ITarget {
 	}
 
 	public void Attack() {
-		// TODO - implement Minion.Attack
-		throw new UnsupportedOperationException();
+		ITarget target = this.getITarget();
+                target.SetHitPoints(target.getHitPoints() - this.getPhysicalDamage() - this.getMagicalDamage());
 	}
 
 	public int getPhysicalDamage() {
@@ -36,8 +37,7 @@ public class Minion implements ITarget {
 	}
 
 	public ITarget getITarget() {
-		// TODO - implement Minion.getITarget
-		throw new UnsupportedOperationException();
+            return target;
 	}
 
 	/**
@@ -45,8 +45,7 @@ public class Minion implements ITarget {
 	 * @param iTarget
 	 */
 	public void setITarget(ITarget iTarget) {
-		// TODO - implement Minion.setITarget
-		throw new UnsupportedOperationException();
+            this.target = iTarget;    
 	}
 
         public int getHitPoints(){

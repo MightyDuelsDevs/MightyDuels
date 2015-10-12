@@ -25,7 +25,7 @@ public class DeckTest {
     public DeckTest() {
     }
     
-    ArrayList<Card> lijstje;
+    ArrayList<Card> list;
     MinionCard c1;
     Deck deck;
     
@@ -39,7 +39,7 @@ public class DeckTest {
     
     @Before
     public void setUp() {
-        lijstje = new ArrayList<>();
+        list = new ArrayList<>();
         c1 = new MinionCard("Grim","C:/Downloads/Grim.jpg","Grim is a really strong physical dmg card",3,0,4) {};
         deck = new Deck("Deck1");
     }
@@ -56,22 +56,24 @@ public class DeckTest {
     
         @Test
         public void testAddCard() {
-            lijstje.add(c1);
-            int resultSize = lijstje.size();
+            deck.addCard(c1);
+            list = deck.getCards();
+            int resultSize = list.size();
+            System.out.println("Result = " + resultSize);
             Assert.assertEquals("Fout, verwacht 1", 1, resultSize);
-            lijstje.add(c1);
-            // Er mogen maar 2 dezelfde kaarten in één deck zitten.
-            lijstje.add(c1);
-            int result = lijstje.size();
+            deck.addCard(c1);
+            // It's only possible to have 2 equal cards.
+            deck.addCard(c1);
+            int result = list.size();
             Assert.assertEquals("Fout, verwacht 2", 2, result);
 	}
         
 
         @Test
         public void testRemoveCard() {
-            lijstje.add(c1);
-            lijstje.remove(c1);
-            int resultSize = lijstje.size();
+            list.add(c1);
+            list.remove(c1);
+            int resultSize = list.size();
             Assert.assertEquals("Fout, verwacht 0", 0, resultSize);
 	}
         
@@ -95,13 +97,9 @@ public class DeckTest {
             System.out.println("getCards");
             int i = 0;
             ArrayList<Card> cards = new ArrayList<>();
-            cards.add(c1);
+            deck.addCard(c1);
             cards = deck.getCards();
-            for(Card c : cards)
-            {
-                i++;
-            }
-            Assert.assertEquals("Fout, verwacht 1", 1, i);
+            Assert.assertEquals("Fout, verwacht 1", 1, cards.size());
 	}
 
 }

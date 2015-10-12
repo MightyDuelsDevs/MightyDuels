@@ -5,15 +5,20 @@ import java.util.ArrayList;
 public class Deck {
 
 	private String name;
+        private ArrayList<Card> cards;
+        
+        private int first;
+        private int last;
         
         public Deck()
         {
-            
+            cards = new ArrayList<>();
         }
         
         public Deck(String name)
         {
             this.name = name;
+            cards = new ArrayList<>();
         }
 
 	/**
@@ -21,8 +26,12 @@ public class Deck {
 	 * @param card
 	 */
 	public void addCard(Card card) {
-		// TODO - implement Deck.addCard
-		throw new UnsupportedOperationException();
+            first = cards.indexOf(card);
+            last = cards.lastIndexOf(card);
+            if(first == last)
+            {
+                cards.add(card);
+            }
 	}
 
 	/**
@@ -30,8 +39,7 @@ public class Deck {
 	 * @param card
 	 */
 	public void removeCard(Card card) {
-		// TODO - implement Deck.removeCard
-		throw new UnsupportedOperationException();
+            cards.remove(card);
 	}
 
 	/**
@@ -47,8 +55,7 @@ public class Deck {
 	}
 
 	public ArrayList<Card> getCards() {
-		// TODO - implement Deck.getCards
-		throw new UnsupportedOperationException();
+            return this.cards;
 	}
 
 }
