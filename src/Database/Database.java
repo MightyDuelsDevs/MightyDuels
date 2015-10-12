@@ -22,16 +22,16 @@ public class Database {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Failed to find driver.");
             return;
         }
 
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:oracle:simplefan:@192.168.2.14:1521:orcl", "MightyDuels", "MSPW");
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@192.168.2.14:1521/orcl", "MightyDuels", "MDPW");
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Failed to find server.");
             return;
         }
 
