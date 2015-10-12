@@ -126,17 +126,17 @@ public class Hero implements ITarget {
      * it uses the setNewHand method
      */
     public void pullCards() {
-<span class="nc" id="L129">        ArrayList&lt;Card&gt; cards = deck.getCards();</span>
-<span class="nc" id="L130">        ArrayList&lt;Card&gt; cardsInHand = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L129">        ArrayList&lt;Card&gt; cards = deck.getCards();</span>
+<span class="fc" id="L130">        ArrayList&lt;Card&gt; cardsInHand = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L132" title="All 2 branches missed.">        for (int i = 1; i &lt;= 3; i++) {</span>
-<span class="nc" id="L133">            int cardPosition = randomCard.nextInt(29);</span>
-<span class="nc" id="L134">            cardsInHand.add(cards.get(cardPosition));</span>
-<span class="nc" id="L135">            cards.remove(cardPosition);</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        for (int i = 1; i &lt;= 3; i++) {</span>
+<span class="fc" id="L133">            int cardPosition = randomCard.nextInt(29);</span>
+<span class="fc" id="L134">            cardsInHand.add(cards.get(cardPosition));</span>
+<span class="fc" id="L135">            cards.remove(cardPosition);</span>
         }
 
-<span class="nc" id="L138">        this.setNewHand(cardsInHand);</span>
-<span class="nc" id="L139">    }</span>
+<span class="fc" id="L138">        this.setNewHand(cardsInHand);</span>
+<span class="fc" id="L139">    }</span>
 
     /**
      * tries to play the card the Player selected

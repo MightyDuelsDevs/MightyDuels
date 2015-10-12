@@ -5,50 +5,57 @@ import java.util.ArrayList;
 public class Deck {
 
 	private String name;
+        private ArrayList&lt;Card&gt; cards;
+        
+        private int first;
+        private int last;
         
         public Deck()
-<span class="fc" id="L10">        {</span>
-            
-<span class="fc" id="L12">        }</span>
+<span class="fc" id="L14">        {</span>
+<span class="fc" id="L15">            cards = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L16">        }</span>
         
         public Deck(String name)
-<span class="fc" id="L15">        {</span>
-<span class="fc" id="L16">            this.name = name;</span>
-<span class="fc" id="L17">        }</span>
+<span class="fc" id="L19">        {</span>
+<span class="fc" id="L20">            this.name = name;</span>
+<span class="fc" id="L21">            cards = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L22">        }</span>
 
 	/**
 	 * 
 	 * @param card
 	 */
 	public void addCard(Card card) {
-		// TODO - implement Deck.addCard
-<span class="fc" id="L25">		throw new UnsupportedOperationException();</span>
-	}
+<span class="fc" id="L29">            first = cards.indexOf(card);</span>
+<span class="fc" id="L30">            last = cards.lastIndexOf(card);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">            if(first == last)</span>
+            {
+<span class="fc" id="L33">                cards.add(card);</span>
+            }
+<span class="fc" id="L35">	}</span>
 
 	/**
 	 * 
 	 * @param card
 	 */
 	public void removeCard(Card card) {
-		// TODO - implement Deck.removeCard
-<span class="nc" id="L34">		throw new UnsupportedOperationException();</span>
-	}
+<span class="nc" id="L42">            cards.remove(card);</span>
+<span class="nc" id="L43">	}</span>
 
 	/**
 	 * 
 	 * @param name
 	 */
 	public void setName(String name) {
-<span class="fc" id="L42">		this.name = name;</span>
-<span class="fc" id="L43">	}</span>
+<span class="fc" id="L50">		this.name = name;</span>
+<span class="fc" id="L51">	}</span>
 
 	public String getName() {
-<span class="fc" id="L46">		return this.name;</span>
+<span class="fc" id="L54">		return this.name;</span>
 	}
 
 	public ArrayList&lt;Card&gt; getCards() {
-		// TODO - implement Deck.getCards
-<span class="fc" id="L51">		throw new UnsupportedOperationException();</span>
+<span class="fc" id="L58">            return this.cards;</span>
 	}
 
 }

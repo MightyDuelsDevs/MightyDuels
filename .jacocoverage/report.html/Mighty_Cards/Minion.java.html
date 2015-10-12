@@ -6,38 +6,38 @@ public class Minion implements ITarget {
 	private int magicalDamage;
 	private int maxHitPoints;
 	private int hitPoints;
-
+        private ITarget target;
+        
 	/**
 	 * 
 	 * @param minionCard
 	 */
-<span class="fc" id="L14">	public Minion(MinionCard minionCard) {</span>
-<span class="fc" id="L15">		this.physicalDamage = minionCard.getPhysicalDamage();</span>
-<span class="fc" id="L16">                this.magicalDamage = minionCard.getMagicalDamage();</span>
-<span class="fc" id="L17">                this.maxHitPoints = minionCard.getHitPoints();</span>
-<span class="fc" id="L18">                this.hitPoints = maxHitPoints;</span>
-<span class="fc" id="L19">	}</span>
+<span class="fc" id="L15">	public Minion(MinionCard minionCard) {</span>
+<span class="fc" id="L16">		this.physicalDamage = minionCard.getPhysicalDamage();</span>
+<span class="fc" id="L17">                this.magicalDamage = minionCard.getMagicalDamage();</span>
+<span class="fc" id="L18">                this.maxHitPoints = minionCard.getHitPoints();</span>
+<span class="fc" id="L19">                this.hitPoints = maxHitPoints;</span>
+<span class="fc" id="L20">	}</span>
 
 	public void Attack() {
-		// TODO - implement Minion.Attack
-<span class="fc" id="L23">		throw new UnsupportedOperationException();</span>
-	}
+<span class="fc" id="L23">		ITarget target = this.getITarget();</span>
+<span class="fc" id="L24">                target.SetHitPoints(target.getHitPoints() - this.getPhysicalDamage() - this.getMagicalDamage());</span>
+<span class="fc" id="L25">	}</span>
 
 	public int getPhysicalDamage() {
-<span class="nc" id="L27">		return this.physicalDamage;</span>
+<span class="fc" id="L28">		return this.physicalDamage;</span>
 	}
 
 	public int getMagicalDamage() {
-<span class="fc" id="L31">		return this.magicalDamage;</span>
+<span class="fc" id="L32">		return this.magicalDamage;</span>
 	}
 
 	public int getMaxHitPoints() {
-<span class="fc" id="L35">		return this.maxHitPoints;</span>
+<span class="fc" id="L36">		return this.maxHitPoints;</span>
 	}
 
 	public ITarget getITarget() {
-		// TODO - implement Minion.getITarget
-<span class="nc" id="L40">		throw new UnsupportedOperationException();</span>
+<span class="fc" id="L40">            return target;</span>
 	}
 
 	/**
@@ -45,16 +45,15 @@ public class Minion implements ITarget {
 	 * @param iTarget
 	 */
 	public void setITarget(ITarget iTarget) {
-		// TODO - implement Minion.setITarget
-<span class="fc" id="L49">		throw new UnsupportedOperationException();</span>
-	}
+<span class="fc" id="L48">            this.target = iTarget;    </span>
+<span class="fc" id="L49">	}</span>
 
         public int getHitPoints(){
-<span class="fc" id="L53">            return hitPoints;</span>
+<span class="fc" id="L52">            return hitPoints;</span>
         }
         
         public void SetHitPoints(int hitPoints){
-<span class="fc" id="L57">            this.hitPoints = hitPoints;</span>
-<span class="fc" id="L58">        }</span>
+<span class="fc" id="L56">            this.hitPoints = hitPoints;</span>
+<span class="fc" id="L57">        }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

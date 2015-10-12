@@ -261,6 +261,10 @@ public class HeroTest {
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
         
+        for(int i = 0; i < 30; i++){
+            testDeck.addCard(new HeroCard("testname", "testFilename", "testDescription", 1, 1, 1, 1, 1) {});
+        }
+        
         testHero.pullCards();
         
         ArrayList<Card> result = testHero.getInHand();
