@@ -130,8 +130,8 @@ public class PlayerTest {
         Player x = new Player("Username", "Password");
         Icon i = new Icon(2, 500, null);
         x.setIconId(i.getId());
-        assertEquals("Iconid's zijn ongelijk",x.getIconId(), i.getId());
-        
-
+        Icon i2 = new Icon(3, 550, null);
+        x.changeIcon(i2);
+        assertEquals("Iconid's zijn ongelijk",x.getIconId(), i2.getId());
     }
 }
