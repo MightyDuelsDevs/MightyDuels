@@ -22,6 +22,7 @@ public class Minion implements ITarget {
 	public void Attack() {
 		ITarget target = this.getITarget();
                 target.SetHitPoints(target.getHitPoints() - this.getPhysicalDamage() - this.getMagicalDamage());
+                //self.SetHitPoint(hp-target.etc) //zie I.23 van Analyzedocument.docx
 	}
 
 	public int getPhysicalDamage() {
