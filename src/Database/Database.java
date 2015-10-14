@@ -9,7 +9,10 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,12 +24,13 @@ public class Database {
     private static final String user = "MightyDuels";
     private static final String password = "MDPW";
     private static Connection connection = null;
+    private static Database instance;
 
     /**
      * Open Database connection for the First time Searches driver Searches URL
      * tests connection Keeps connection open
      */
-    public static void Database() {
+    private Database() {
         System.out.println("-------- Oracle JDBC Connection Initializing------");
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -80,13 +84,20 @@ public class Database {
             System.out.println("Failed to close connection!");
         }
     }
-    
+
     /**
      * Check if connection is opened
+     *
      * @return returns true if database connection is open
      * @throws java.sql.SQLException
      */
     public static boolean checkConnection() throws SQLException {
+        if (connection == null) {
+            openConnection();
+        } else if (connection.isClosed()) {
+            openConnection();
+        }
+
         return !connection.isClosed();
     }
 
@@ -118,20 +129,32 @@ public class Database {
      * @return
      * @throws SQLException
      */
-    public static ResultSet selectRecordFromTable(String statement) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+    public static ArrayList<ArrayList> selectRecordFromTable(String statement) throws SQLException {
+        Statement selectStatement = null;
+        ArrayList<ArrayList> dataSet = new ArrayList<>();
+        
         try {
-            openConnection();
-            preparedStatement = connection.prepareStatement(statement);
-            resultSet = preparedStatement.executeQuery();
+            selectStatement = connection.createStatement();
+            ResultSet resultSet = selectStatement.executeQuery(statement);
+            
+            ResultSetMetaData data = resultSet.getMetaData();
+            while (resultSet.next()) {
+                ArrayList<String> columnData = new ArrayList<>();
+                
+                for(int i = 1; i <= data.getColumnCount(); i++){
+                    columnData.add(resultSet.getString(i));
+                }
+                
+                dataSet.add(columnData);
+            }
+            
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
+            if (selectStatement != null) {
+                selectStatement.close();
             }
         }
-        return resultSet;
+        return dataSet;
     }
 }

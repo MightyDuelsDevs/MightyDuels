@@ -48,7 +48,8 @@ public abstract class Card {
          */
         public void testForNegativeValue(int test){
             if(test < 0){
-                throw new IllegalArgumentException();
+                //Commented because we might make cards that have negative values.
+                //throw new IllegalArgumentException();
             }
         }
 }
