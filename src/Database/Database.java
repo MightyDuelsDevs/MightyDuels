@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Ramòn Janssen
+ * @author Ramòn Janssen & Martijn van Buul
  */
 public class Database {
 
@@ -25,11 +25,9 @@ public class Database {
     /**
      * Open Database connection for the First time Searches driver Searches URL
      * tests connection Keeps connection open
-     * @param args arguments
      */
-    public static void main(String[] args) {
+    public static void Database() {
         System.out.println("-------- Oracle JDBC Connection Initializing------");
-
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
@@ -81,6 +79,15 @@ public class Database {
         } catch (SQLException ex) {
             System.out.println("Failed to close connection!");
         }
+    }
+    
+    /**
+     * Check if connection is openened
+     * @return returns true if database connection is open
+     * @throws java.sql.SQLException
+     */
+    public static boolean checkConnection() throws SQLException {
+        return !connection.isClosed();
     }
 
     /**
