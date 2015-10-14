@@ -7,17 +7,28 @@ package Database;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  *
- * @author Martijn
+ * @author Ramòn Janssen
  */
 public class Database {
-    
-    public static void main(String[] argv) {
 
-        System.out.println("-------- Oracle JDBC Connection Testing ------");
+    private static final String url = "jdbc:oracle:thin:@192.168.2.14:1521/orcl";
+    private static final String user = "MightyDuels";
+    private static final String password = "MDPW";
+    private static Connection connection = null;
+
+    /**
+     * Open Database connection for the First time Searches driver Searches URL
+     * tests connection Keeps connection open
+     * @param args arguments
+     */
+    public static void main(String[] args) {
+        System.out.println("-------- Oracle JDBC Connection Initializing------");
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -26,19 +37,94 @@ public class Database {
             return;
         }
 
-        Connection connection = null;
-
         try {
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@192.168.2.14:1521/orcl", "MightyDuels", "MDPW");
+            connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            System.out.println("Failed to find server.");
+            System.out.println("Failed to find server: " + url + " (Denk aan secLab)");
             return;
         }
 
         if (connection != null) {
-            System.out.println("You made it, take control your database now!");
+            System.out.println("Succes.");
         } else {
             System.out.println("Failed to make connection!");
         }
+    }
+
+    /**
+     * Opens connection
+     */
+    public static void openConnection() {
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(url, user, password);
+            } catch (SQLException e) {
+                System.out.println("Failed to find server: " + url);
+                return;
+            }
+            if (connection != null) {
+                System.out.println("Succes.");
+            } else {
+                System.out.println("Failed to make connection!");
+            }
+        } else {
+            System.out.println("Connection to " + url + " is already opened");
+        }
+    }
+
+    /**
+     * Closes connection
+     */
+    public static void closeConnection() {
+        try {
+            connection.close();
+        } catch (SQLException ex) {
+            System.out.println("Failed to close connection!");
+        }
+    }
+
+    /**
+     * Inserts a Record into a table
+     *
+     * @param statement The executable SQL statement (DML)
+     * @throws SQLException
+     */
+    public static void insertRecordIntoTable(String statement) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        try {
+            openConnection();
+            preparedStatement = connection.prepareStatement(statement);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+        }
+    }
+
+    //resultset execute
+    /**
+     *
+     * @param statement The executable SQL statement (Select)
+     * @return
+     * @throws SQLException
+     */
+    public static ResultSet selectRecordFromTable(String statement) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            openConnection();
+            preparedStatement = connection.prepareStatement(statement);
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+        }
+        return resultSet;
     }
 }
