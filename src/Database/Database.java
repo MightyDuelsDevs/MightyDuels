@@ -82,7 +82,7 @@ public class Database {
     }
     
     /**
-     * Check if connection is openened
+     * Check if connection is opened
      * @return returns true if database connection is open
      * @throws java.sql.SQLException
      */
