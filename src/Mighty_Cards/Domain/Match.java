@@ -12,8 +12,19 @@ public class Match {
         private Hero hero2;
         
 	private void determineGameState() {
-            // TODO - implement Match.determineGameState
-            throw new UnsupportedOperationException();
+            if(player2 == null){
+                gameState = GameState.Waiting;
+                return;
+            }
+            if(hero1.getHitPoints()<=0 ^ hero2.getHitPoints() <= 0){//^= XOR true+false = true, false+false = false and true+true=false
+                gameState = GameState.Defined;
+                return;
+            }
+            if(hero1.getHitPoints()>0 && hero2.getHitPoints()>0){
+                gameState = GameState.Active;
+                return;
+            }
+            gameState = GameState.Tie;
 	}
 
 	private void processTurn() {
