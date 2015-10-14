@@ -12,23 +12,27 @@ public class Player {
     /**
      *
      * @param username
-     * @param password
+     * @param iconId
+     * @param rating
+     * @param wins
+     * @param losses
      */
     /*
      Moet er een methode komen die het wachtwoord wegschrijft naar de database? 
      Of willen we het wachtwoord opslaan op de player?
      */
-    public Player(String username, String password) /* throws UnkownUsername, IncorrectPassword */ {
+    public Player(String username, int iconId, int rating, int wins, int losses) /* throws UnkownUsername, IncorrectPassword */ {
         this.username = username;
-        this.iconId = 0;
-        this.wins = 0;
-        this.losses = 0;
-        this.rating = 0;
+        this.iconId = iconId;
+        this.wins = wins;
+        this.losses = losses;
+        this.rating = rating;
     }
 
     /**
      * Returns the username of the player
-     * @return 
+     *
+     * @return
      */
     public String getUsername() {
         return this.username;
@@ -36,7 +40,8 @@ public class Player {
 
     /**
      * Returns the IconID of the player
-     * @return 
+     *
+     * @return
      */
     public int getIconId() {
         return this.iconId;
@@ -53,7 +58,8 @@ public class Player {
 
     /**
      * * Returns the Rating of the player
-     * @return 
+     *
+     * @return
      */
     public int getRating() {
         return this.rating;
@@ -70,7 +76,8 @@ public class Player {
 
     /**
      * * Returns the number of matches the player has played
-     * @return 
+     *
+     * @return
      */
     public int getMatches() {
         return this.matches;
@@ -83,7 +90,8 @@ public class Player {
 
     /**
      * Returns the number of wins te player has made in the past
-     * @return 
+     *
+     * @return
      */
     public int getWins() {
         return this.wins;
@@ -98,7 +106,8 @@ public class Player {
 
     /**
      * Gets the number of losses the player has made
-     * @return 
+     *
+     * @return
      */
     public int getLosses() {
         return this.losses;
@@ -114,9 +123,14 @@ public class Player {
 
     /**
      *
-     * @param icon @param rating
      */
     public void changeIcon(Icon icon) {
         this.iconId = icon.getId();
     }
+
+    @Override
+    public String toString() {
+        return "Username: " + this.getUsername() + " IconID: " + this.getIconId() + " Rating: " + this.getRating() + " Wins: " + this.getWins() + " Losses: " + this.getLosses();
+    }
+
 }

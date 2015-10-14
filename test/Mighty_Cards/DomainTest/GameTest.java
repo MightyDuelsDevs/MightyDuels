@@ -83,7 +83,7 @@ public class GameTest {
         String username = "Pyrion";
         String password = "test1234";
         Game instance = this.game;
-        player = new Player(username, password);
+        player = new Player(username, 0, 0, 0, 0);
         Player expResult = player;
         Player result = instance.login(username, password);
         assertEquals("didn't create the correct player", expResult.getUsername(), result.getUsername());

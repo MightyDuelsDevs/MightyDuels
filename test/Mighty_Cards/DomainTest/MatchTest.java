@@ -33,8 +33,8 @@ public class MatchTest {
     
     @BeforeClass
     public static void setUpClass() {
-        p1 = new Player("Player1","pass");
-        p2 = new Player("Player2","pass");
+        p1 = new Player("Player1", 0, 0, 0, 0);
+        p2 = new Player("Player2", 0, 0, 0, 0);
         m = new Match(p1);
     }
     
