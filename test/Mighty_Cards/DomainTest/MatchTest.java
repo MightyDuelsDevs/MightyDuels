@@ -28,14 +28,12 @@ public class MatchTest {
     public MatchTest() {
     }
     
-        static Player p1, p2;
-        static Match m;
+        private Player p1, p2;
+        private Match m;
     
     @BeforeClass
     public static void setUpClass() {
-        p1 = new Player("Player1", 0, 0, 0, 0);
-        p2 = new Player("Player2", 0, 0, 0, 0);
-        m = new Match(p1);
+        
     }
     
     @AfterClass
@@ -44,6 +42,9 @@ public class MatchTest {
     
     @Before
     public void setUp() {
+        p1 = new Player("Player1", 0, 0, 0, 0);
+        p2 = new Player("Player2", 0, 0, 0, 0);
+        m = new Match(p1);
     }
     
     @After
@@ -78,6 +79,9 @@ public class MatchTest {
      */
     @Test
     public void testGetHero() {
+        
+        m.addPlayer2(p2);
+        
         System.out.println("getHero1");
         Hero h1 = m.getHero1();
         Hero h2 = m.getHero2();
@@ -99,6 +103,9 @@ public class MatchTest {
      */
     @Test
     public void testConcede() {
+        
+        m.addPlayer2(p2);
+        
         System.out.println("concede");
         m.concede(m.getHero1());
         assertEquals(GameState.Defined,m.getGameState());//check if game is finished

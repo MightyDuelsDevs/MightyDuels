@@ -13,6 +13,9 @@ public class Match {
         private Hero hero1;
         private Hero hero2;
         
+        /**
+         * check's the players health and updates the gamestate according to their health
+         */
 	private void determineGameState() {
             if(player2 == null){
                 gameState = GameState.Waiting;
@@ -29,6 +32,9 @@ public class Match {
             gameState = GameState.Tie;
 	}
 
+        /**
+         * Processes one turn. (card's played, minion attacks and gamestate update)
+         */
 	private void processTurn() {
             Card p1 = hero1.getCardPlayed();
             Card p2 = hero2.getCardPlayed();
