@@ -95,6 +95,7 @@ public class Match {
             
             //todo here or somwere else?
             determineGameState();
+            turns++;
 	}
 
 	/**
@@ -104,7 +105,8 @@ public class Match {
 	public Match(Player P1) {
             player1 = P1;
             hero1 = new Hero(this,P1,new Deck());//todo deck
-            gameState = GameState.Waiting;
+            determineGameState();
+            //gameState = GameState.Waiting;
 	}
 
 	/**
@@ -114,7 +116,8 @@ public class Match {
 	public void addPlayer2(Player P2) {
             player2 = P2;
             hero2 = new Hero(this,P2,new Deck());
-            gameState = GameState.Active;
+            determineGameState();
+            //gameState = GameState.Active;
 	}
 
 	public int getTurns() {
@@ -138,11 +141,9 @@ public class Match {
 	 * @param hero
 	 */
 	public void concede(Hero hero) {
-            gameState = GameState.Defined;
+            //gameState = GameState.Defined;
             hero.SetHitPoints(0);
-            
-            // TODO - implement Match.concede
-            //	throw new UnsupportedOperationException();
+            determineGameState();
 	}
 
 }
