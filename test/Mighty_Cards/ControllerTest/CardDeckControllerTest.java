@@ -6,6 +6,7 @@
 package Mighty_Cards.ControllerTest;
 
 import Controller.CardDeckController;
+import Mighty_Cards.Domain.Card;
 import Mighty_Cards.Domain.Deck;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
@@ -22,24 +23,35 @@ import static org.junit.Assert.*;
  * @author Loek
  */
 public class CardDeckControllerTest {
-    
+
     public CardDeckControllerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
+    }
+
+    /**
+     * Test of GetAllCArds method, of class CardDeckController.
+     */
+    @Test
+    public void testGetAllCards() {
+        System.out.println("TestgetAllCards");
+        String expResult = "Fireblast";
+        ArrayList<Card> cards = CardDeckController.allCards;
+        assertEquals("Name incorrect expected " + expResult + "recieved: " + cards.get(1).getName(), expResult, cards.get(1).getName());
     }
 
     /**
@@ -51,17 +63,19 @@ public class CardDeckControllerTest {
         int deckID = 1;
         String expResult = "DELADECK";
         Deck result = CardDeckController.getDeck(deckID);
-        assertEquals("Results Don't Match, Expected Deck name = " +expResult + "Result: " + result.getName(),expResult, result.getName());
-        fail("The test case is a prototype.");
+        assertEquals("Results Don't Match, Expected Deck name = " + expResult + "Result: " + result.getName(), expResult, result.getName());
+
     }
-      /**
-     * Test of getDeck method, of class CardDeckController. <-- Expectes an Exception
+
+    /**
+     * Test of getDeck method, of class CardDeckController. <-- Expectes an
+     * Exception
      */
     @Test(expected = SQLException.class)
     public void testGetDeckException() {
         System.out.println("TestgetDeckException");
         int deckID = 6000;
-        Deck result = CardDeckController.getDeck(deckID);        
+        Deck result = CardDeckController.getDeck(deckID);
         fail("The Deckid was " + deckID + "No such information in database, test failed");
     }
 
@@ -75,18 +89,20 @@ public class CardDeckControllerTest {
         int expResult = 1;
         ArrayList<Deck> result = CardDeckController.getDecksFromPlayer(playerID);
         assertEquals(expResult, result.size());
-        fail("The expected result did not match the output expected number of decks : " + expResult + " Actual : " + result.size() );
+        fail("The expected result did not match the output expected number of decks : " + expResult + " Actual : " + result.size());
     }
-     /**
-     * Test of getDecksFromPlayer method, of class CardDeckController. <-- Expected SQLException
+
+    /**
+     * Test of getDecksFromPlayer method, of class CardDeckController. <--
+     * Expected SQLException
      */
-        @Test(expected = SQLException.class)
-        public void testGetDecksFromPlayerException() {
+    @Test(expected = SQLException.class)
+    public void testGetDecksFromPlayerException() {
         System.out.println("TestgetDecksFromPlayer");
         int playerID = 6000;
         int expResult = 1;
         ArrayList<Deck> result = CardDeckController.getDecksFromPlayer(playerID);
         fail("The Deckid was " + playerID + "No such information in database, test failed");
     }
-    
+
 }
