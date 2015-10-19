@@ -176,7 +176,7 @@ public class PlayerIconController {
             } else {
                 System.out.println("Database connection is lost.");
             }
-        } catch (SQLException ex) {
+        } catch (SQLException ex) { 
             Logger.getLogger(PlayerIconController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
