@@ -1,6 +1,8 @@
 package Mighty_Cards.Domain;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Match {
 
@@ -12,6 +14,8 @@ public class Match {
         
         private Hero hero1;
         private Hero hero2;
+        
+        Timer timer;
         
         /**
          * check's the players health and updates the gamestate according to their health
@@ -107,6 +111,21 @@ public class Match {
             hero1 = new Hero(this,P1,new Deck());//todo deck
             determineGameState();
             //gameState = GameState.Waiting;
+            timer = new Timer();
+            timer.schedule(new TimerTask(){
+                @Override
+                public void run() {
+                    if(gameState != GameState.Active){
+                        if(gameState == GameState.Defined || gameState == GameState.Tie){
+                            timer.cancel();//quit if the game has finished
+                            return;
+                        }
+                    }
+                    if(hero1.getFinished() && hero2.getFinished()){
+                        processTurn();
+                    }
+                }
+            }, 0, 10);
 	}
 
 	/**
