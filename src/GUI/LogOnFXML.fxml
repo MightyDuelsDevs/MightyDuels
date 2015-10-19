@@ -23,7 +23,7 @@
             <TextField fx:id="tfUserName" promptText="User name" />
             <Button fx:id="btnLogOn" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnLogOn_OnClick" text="Log On" GridPane.rowIndex="2" />
             <Button fx:id="btnRegister" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnRegister_OnClick" text="Register" GridPane.rowIndex="3" />
-            <PasswordField fx:id="tfPassWord" GridPane.rowIndex="1" />
+            <PasswordField fx:id="tfPassWord" promptText="wachtwoord" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

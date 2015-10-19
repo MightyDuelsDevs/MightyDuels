@@ -75,6 +75,7 @@ public class DeckFXMLController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Mighty Duels");
     }
 
     @FXML
@@ -84,6 +85,7 @@ public class DeckFXMLController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Mighty Duels");
     }
 
     @Override
@@ -99,11 +101,11 @@ public class DeckFXMLController implements Initializable {
         //Look which one is selected
         if (rbDeck1.isSelected()) {
             ivSelectedDeck.setImage(ivDeck1.getImage());
-        } else if(rbDeck2.isSelected()) {
+        } else if (rbDeck2.isSelected()) {
             ivSelectedDeck.setImage(ivDeck2.getImage());
-        } else if(rbDeck3.isSelected()) {
+        } else if (rbDeck3.isSelected()) {
             ivSelectedDeck.setImage(ivDeck3.getImage());
-        } else if(rbDeck4.isSelected()) {
+        } else if (rbDeck4.isSelected()) {
             ivSelectedDeck.setImage(ivDeck4.getImage());
         }
 //        ivSelectedDeck.setImage(image);

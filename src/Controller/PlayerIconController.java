@@ -176,7 +176,7 @@ public class PlayerIconController {
             } else {
                 System.out.println("Database connection is lost.");
             }
-        } catch (SQLException ex) { 
+        } catch (SQLException ex) {
             Logger.getLogger(PlayerIconController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -195,6 +195,15 @@ public class PlayerIconController {
             }
         }
         return unlockedIcons;
+    }
+
+    /**
+     * Function to get the logged in player
+     *
+     * @return Returnes the logged in player
+     */
+    public Player getLoggedInPlayer() {
+        return players.get(0);
     }
 
 }

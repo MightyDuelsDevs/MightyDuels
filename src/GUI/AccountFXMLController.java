@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Controller.PlayerIconController;
 import Mighty_Cards.Domain.Icon;
 import java.io.IOException;
 import java.net.URL;
@@ -19,10 +20,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 //
-import javafx.geometry.HPos;
 import Mighty_Cards.Domain.Player;
 import java.util.ArrayList;
-import javafx.geometry.Pos;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
@@ -39,6 +38,8 @@ public class AccountFXMLController implements Initializable {
      */
     private Stage stage;
     private Parent root;
+    private PlayerIconController playerIconController;
+    private Player loggedInPlayer;
 
     @FXML
     private Label lblAccountName;
@@ -74,6 +75,7 @@ public class AccountFXMLController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Mighty Duels");
     }
 
     @FXML
@@ -85,39 +87,25 @@ public class AccountFXMLController implements Initializable {
         stage.show();
     }
 
-    public String getTitle() {
-        return stage.getTitle();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //Player class with only a UserName. Is that possible ? 
-        //String userName = stage.getTitle(); //This does not work;
-        Player p = new Player("Stan", "ab");
-        //lblAccountName.setText(p.getUsername());
-        lblAmountOfGames.setText("" + p.getMatches());
-        lblAmountOfWins.setText("" + p.getWins());
-        lblAmountOfLosses.setText("" + p.getLosses());
-        lblTheRating.setText("" + p.getRating());
+        loggedInPlayer = playerIconController.getLoggedInPlayer();
+        lblAccountName.setText(loggedInPlayer.getUsername());
+        lblAmountOfGames.setText("" + loggedInPlayer.getMatches());
+        lblAmountOfWins.setText("" + loggedInPlayer.getWins());
+        lblAmountOfLosses.setText("" + loggedInPlayer.getLosses());
+        lblTheRating.setText("" + loggedInPlayer.getRating());
 
         // Load all the Icons from the Database. Set them into a list.
-        icons = new ArrayList<>();
-        Icon i1 = new Icon(1, 2200, "Rank1Icon");
-        icons.add(i1);
-        icons.add(i1);
-        icons.add(i1);
-        icons.add(i1);
+        icons = playerIconController.getIcons(loggedInPlayer.getRating());
 
         final ToggleGroup tg = new ToggleGroup();
         int l = 1;
         int i = 0;
         int j = 0;
         for (Icon icon : icons) {
-            //gpIcons.add(new Label("Hey"), i, j); // Use RadioButton & ImageView in stead of Label
             RadioButton rbIcon = new RadioButton("Icon " + l);
             rbIcon.setToggleGroup(tg);
-            // ColumnConsrtaint
             //rbIcon.setHAlignment(Pos.BOTTOM_CENTER);
             gpIcons.add(rbIcon, i, j);
 
@@ -128,10 +116,5 @@ public class AccountFXMLController implements Initializable {
                 i = 0;
             }
         }
-//        Image image = new Image("Stannis_S05E09.jpg");
-//        ImageView iv = new ImageView();
-//        iv.setImage(image);
-//        gpIcons.add(iv, 0,0);
     }
-
 }

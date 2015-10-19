@@ -15,16 +15,20 @@
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="0.0" prefWidth="0.0" />
         </columnConstraints>
         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="tfUserName" promptText="Username" />
-            <Button fx:id="btnRegisterAccount" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnRegisterAccount_OnClick" text="Register Account" GridPane.rowIndex="3" />
-            <PasswordField fx:id="tfPassWord" promptText="Password" GridPane.rowIndex="1" />
-            <PasswordField fx:id="tfPassWordRe" promptText="Re password" GridPane.rowIndex="2" />
+            <TextField fx:id="tfUserName" promptText="Username" GridPane.rowIndex="1" />
+            <Button fx:id="btnRegisterAccount" alignment="BASELINE_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnRegisterAccount_OnClick" text="Register Account" GridPane.rowIndex="4" />
+            <PasswordField fx:id="tfPassWord" promptText="Password" GridPane.rowIndex="2" />
+            <PasswordField fx:id="tfPassWordRe" promptText="Re password" GridPane.rowIndex="3" />
+            <TextField fx:id="tfEmail" promptText="Email" />
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBack_OnClick" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>

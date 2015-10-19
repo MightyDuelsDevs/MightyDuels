@@ -53,6 +53,7 @@ public class MainScreenFXMLController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Mighty Duels");
     }
 
     @FXML
@@ -62,6 +63,7 @@ public class MainScreenFXMLController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Mighty Duels");
     }
 
     @FXML
@@ -71,23 +73,20 @@ public class MainScreenFXMLController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        stage.setTitle("Mighty Duels");
     }
 
     @FXML
     private void btnAccount_OnClick(ActionEvent event) throws IOException {
-        stage = (Stage) btnLogOut.getScene().getWindow();
+        stage = (Stage) btnAccount.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("AccountFXML.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        stage.setTitle("Stanniez");
+        stage.setTitle("Mighty Duels");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //Get the Player which is logged on.
-        //Player player = ...
     }
-
 }

@@ -5,10 +5,10 @@
  */
 package GUI;
 
+import Controller.PlayerIconController;
 import Mighty_Cards.Domain.Player;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -29,6 +30,9 @@ public class RegisterFXMLController implements Initializable {
 
     private Stage stage;
     private Parent root;
+
+    @FXML
+    private TextField tfEmail;
 
     @FXML
     private TextField tfUserName;
@@ -42,58 +46,74 @@ public class RegisterFXMLController implements Initializable {
     @FXML
     private Button btnRegisterAccount;
 
+    @FXML
+    private Button btnBack;
+
     Player player;
-    private ArrayList<String> usernames;
+
+    private PlayerIconController playerIconController;
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //Load all the Usernames from the accounts from the database into a List.
-        usernames = new ArrayList<>();
-        //Player stan = new Player("Stanniez", "ss");
-        //Test
-        usernames.add("Stanniez");
-        //usernames = database .. .. .. .. (To get all the Usernames);
+
     }
 
     /**
-     * Adds the account to the database and goes to the MainScreen if everything is filled in correctly.
-     * Fields are correct: 
-     *  If both Fields are filled.
-     *  If the Username is unique.
-     *  If the two password fields are the same.
+     * Adds the account to the database and goes to the MainScreen if everything
+     * is filled in correctly. Fields are correct: If both Fields are filled. If
+     * the Username is unique. If the two password fields are the same.
+     *
      * @param event
-     * @throws IOException 
+     * @throws IOException
      */
     @FXML
     private void btnRegisterAccount_OnClick(ActionEvent event) throws IOException {
         //Check  if  the UserName already exists
         //If not, Check if the 2 inserted passwords match. If they do, Make the Account.
-        if (tfUserName.getText().isEmpty() || tfPassWord.getText().isEmpty() || tfPassWordRe.getText().isEmpty()) {
-            System.out.println("You have to fill both fields.");
-            return;
+        if (tfEmail.getText().isEmpty() || tfUserName.getText().isEmpty() || tfPassWord.getText().isEmpty() || tfPassWordRe.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fill all the fields.", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
+            int result = playerIconController.signUpPlayer(tfEmail.getText(), tfUserName.getText(), tfPassWord.getText(), tfPassWordRe.getText());
+            switch (result) {
+                case 0:
+                    JOptionPane.showMessageDialog(null, "An unexpected error occurred.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("An unexpected error occurred.");
+                case 1:
+                    JOptionPane.showMessageDialog(null, "The two inserted passwords do NOT match.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("The two inserted passwords do NOT match.");
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Account already exists.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("Account already exists in the datbase.");
+                case 3:
+                    //Add the Player to the database.
+                    stage = (Stage) btnRegisterAccount.getScene().getWindow();
+                    root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                    stage.setTitle("Mighty Duels");
+                    System.out.println("Account succesfully registered");
+                default:
+                    JOptionPane.showMessageDialog(null, "An unexpected error occurred.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("An unexpected error occurred.");
+            }
+        }
+    }
 
-            player = new Player(tfUserName.getText(), tfPassWord.getText());
-        }
-        
-        if (usernames.contains(player.getUsername())) {
-            System.out.println("Account already exists in the datbase.");
-        } else if (!tfPassWord.getText().equals(tfPassWordRe.getText())) {
-            System.out.println("The two inserted passwords do NOT match.");
-        } else {
-            System.out.println("Account succesfully registered");
-            //Add the Player to the database.
-            // db.addPlayer(player);
-            stage = (Stage) btnRegisterAccount.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        }
+    @FXML
+    private void btnBack_OnClick(ActionEvent event) throws IOException {
+        stage = (Stage) btnBack.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Mighty Duels");
     }
 
 }
