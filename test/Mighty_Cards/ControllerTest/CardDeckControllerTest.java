@@ -23,7 +23,8 @@ import static org.junit.Assert.*;
  * @author Loek
  */
 public class CardDeckControllerTest {
-
+    
+    CardDeckController cardDeckController;
     public CardDeckControllerTest() {
     }
 
@@ -37,6 +38,7 @@ public class CardDeckControllerTest {
 
     @Before
     public void setUp() {
+        new CardDeckController();
     }
 
     @After
@@ -50,7 +52,7 @@ public class CardDeckControllerTest {
     public void testGetAllCards() {
         System.out.println("TestgetAllCards");
         String expResult = "Fireblast";
-        ArrayList<Card> cards = CardDeckController.allCards;
+        ArrayList<Card> cards = cardDeckController.allCards;
         assertEquals("Name incorrect expected " + expResult + "recieved: " + cards.get(1).getName(), expResult, cards.get(1).getName());
     }
 
@@ -62,7 +64,7 @@ public class CardDeckControllerTest {
         System.out.println("TestgetDeck");
         int deckID = 1;
         String expResult = "DELADECK";
-        Deck result = CardDeckController.getDeck(deckID);
+        Deck result = cardDeckController.getDeck(deckID);
         assertEquals("Results Don't Match, Expected Deck name = " + expResult + "Result: " + result.getName(), expResult, result.getName());
 
     }
@@ -75,7 +77,7 @@ public class CardDeckControllerTest {
     public void testGetDeckException() {
         System.out.println("TestgetDeckException");
         int deckID = 6000;
-        Deck result = CardDeckController.getDeck(deckID);
+        Deck result = cardDeckController.getDeck(deckID);
         fail("The Deckid was " + deckID + "No such information in database, test failed");
     }
 
@@ -87,7 +89,7 @@ public class CardDeckControllerTest {
         System.out.println("TestgetDecksFromPlayer");
         int playerID = 1;
         int expResult = 1;
-        ArrayList<Deck> result = CardDeckController.getDecksFromPlayer(playerID);
+        ArrayList<Deck> result = cardDeckController.getDecksFromPlayer(playerID);
         assertEquals(expResult, result.size());
         fail("The expected result did not match the output expected number of decks : " + expResult + " Actual : " + result.size());
     }
@@ -101,7 +103,7 @@ public class CardDeckControllerTest {
         System.out.println("TestgetDecksFromPlayer");
         int playerID = 6000;
         int expResult = 1;
-        ArrayList<Deck> result = CardDeckController.getDecksFromPlayer(playerID);
+        ArrayList<Deck> result = cardDeckController.getDecksFromPlayer(playerID);
         fail("The Deckid was " + playerID + "No such information in database, test failed");
     }
 
