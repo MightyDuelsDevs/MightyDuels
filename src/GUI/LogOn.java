@@ -26,6 +26,7 @@ public class LogOn extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setTitle("Mighty Duels");
+        primaryStage.setResizable(false);
     }
 
     /**

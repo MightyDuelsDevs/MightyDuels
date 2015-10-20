@@ -21,11 +21,12 @@ public class Player {
      Moet er een methode komen die het wachtwoord wegschrijft naar de database? 
      Of willen we het wachtwoord opslaan op de player?
      */
-    public Player(String username, int iconId, int rating, int wins, int losses) /* throws UnkownUsername, IncorrectPassword */ {
+    public Player(String username, int iconId, int rating, int wins, int losses, int matches) /* throws UnkownUsername, IncorrectPassword */ {
         this.username = username;
         this.iconId = iconId;
         this.wins = wins;
         this.losses = losses;
+        this.matches = matches;
         this.rating = rating;
     }
 

@@ -170,8 +170,9 @@ public class PlayerIconController {
                     int rating = Integer.parseInt(column.get(5));
                     int wins = Integer.parseInt(column.get(7));
                     int losses = Integer.parseInt(column.get(8));
+                    int matches = Integer.parseInt(column.get(6));
 
-                    players.add(new Player(username, iconId, rating, wins, losses));
+                    players.add(new Player(username, iconId, rating, wins, losses, matches));
                 }
             } else {
                 System.out.println("Database connection is lost.");

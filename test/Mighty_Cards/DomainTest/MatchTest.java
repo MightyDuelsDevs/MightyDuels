@@ -42,8 +42,8 @@ public class MatchTest {
     
     @Before
     public void setUp() {
-        p1 = new Player("Player1", 0, 0, 0, 0);
-        p2 = new Player("Player2", 0, 0, 0, 0);
+        p1 = new Player("Player1", 0, 0, 0, 0, 0);
+        p2 = new Player("Player2", 0, 0, 0, 0, 0);
         m = new Match(p1);
     }
     

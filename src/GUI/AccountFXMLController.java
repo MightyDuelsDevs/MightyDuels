@@ -19,11 +19,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.geometry.HPos;
 //
 import Mighty_Cards.Domain.Player;
+import java.io.File;
 import java.util.ArrayList;
+import javafx.geometry.VPos;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -33,12 +38,9 @@ import javafx.scene.layout.GridPane;
  */
 public class AccountFXMLController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
     private Stage stage;
     private Parent root;
-    private PlayerIconController playerIconController;
+    private final PlayerIconController playerIconController = new PlayerIconController();
     private Player loggedInPlayer;
 
     @FXML
@@ -65,7 +67,7 @@ public class AccountFXMLController implements Initializable {
     @FXML
     private Button btnBack;
 
-    private ArrayList<Icon> icons;
+    private ArrayList<Icon> icons = new ArrayList<>();
 
     @FXML
     private void btnSaveIcon_OnClick(ActionEvent event) throws IOException {
@@ -90,11 +92,11 @@ public class AccountFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loggedInPlayer = playerIconController.getLoggedInPlayer();
-        lblAccountName.setText(loggedInPlayer.getUsername());
-        lblAmountOfGames.setText("" + loggedInPlayer.getMatches());
-        lblAmountOfWins.setText("" + loggedInPlayer.getWins());
-        lblAmountOfLosses.setText("" + loggedInPlayer.getLosses());
-        lblTheRating.setText("" + loggedInPlayer.getRating());
+        lblAccountName.setText(" " + loggedInPlayer.getUsername());
+        lblTheRating.setText(" " + loggedInPlayer.getRating());
+        lblAmountOfGames.setText(" " + loggedInPlayer.getMatches());
+        lblAmountOfWins.setText(" " + loggedInPlayer.getWins());
+        lblAmountOfLosses.setText(" " + loggedInPlayer.getLosses());
 
         // Load all the Icons from the Database. Set them into a list.
         icons = playerIconController.getIcons(loggedInPlayer.getRating());
@@ -104,14 +106,23 @@ public class AccountFXMLController implements Initializable {
         int i = 0;
         int j = 0;
         for (Icon icon : icons) {
-            RadioButton rbIcon = new RadioButton("Icon " + l);
+            // Icon Image
+            File file = new File(icon.getFileName());
+            Image image = new Image(file.toURI().toString());
+            ImageView ivIcon = new ImageView(image);
+            gpIcons.setHalignment(ivIcon, HPos.CENTER);
+            gpIcons.add(ivIcon, i, j);
+            // Icon RadioButton
+            String iconID = "" + (l < 10 ? " " + l : l);
+            RadioButton rbIcon = new RadioButton("Icon " + iconID);
             rbIcon.setToggleGroup(tg);
-            //rbIcon.setHAlignment(Pos.BOTTOM_CENTER);
+            gpIcons.setHalignment(rbIcon, HPos.CENTER);
+            gpIcons.setValignment(rbIcon, VPos.BOTTOM);
             gpIcons.add(rbIcon, i, j);
 
             i++;
             l++;
-            if (i == 3) {
+            if (i == 4) {
                 j++;
                 i = 0;
             }

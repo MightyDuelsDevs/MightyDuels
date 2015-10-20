@@ -51,8 +51,8 @@ public class MinionTest {
 
     @Before
     public void setUp() {
-        p1 = new Player("Stan", 0, 0, 0, 0);
-        p2 = new Player("Mark", 0, 0, 0, 0);
+        p1 = new Player("Stan", 0, 0, 0, 0, 0);
+        p2 = new Player("Mark", 0, 0, 0, 0, 0);
         match = new Match(p1);
         deck1 = new Deck("Deckje");
         hero1 = new Hero(match, p1, deck1); // Waarom heeft hero nog een player als de player al in Match zit ?¿?
