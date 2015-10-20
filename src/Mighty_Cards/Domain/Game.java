@@ -11,7 +11,7 @@ public class Game {
     private Player player;
     private Match match;
 
-    private Game() {
+    public Game() {
         // Exists only to defeat instantiation.        
     }
 
