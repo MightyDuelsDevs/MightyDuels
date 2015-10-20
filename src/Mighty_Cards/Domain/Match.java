@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Controller for an match between two players
+ */
 public class Match {
 
 	private int turns;
@@ -47,11 +50,13 @@ public class Match {
             //create new minions
             if(p1 instanceof MinionCard){
                 Minion m = new Minion((MinionCard)p1);
+                hero1.getMinions().add(m);
                 //hero1.addMinion(m);
                 //todo set target somhow?
             }
             if(p2 instanceof MinionCard){
                 Minion m = new Minion((MinionCard)p2);
+                hero2.getMinions().add(m);
                 //hero2.addMinion(m);
                 //todo set target somhow?
             }
@@ -103,12 +108,12 @@ public class Match {
 	}
 
 	/**
-	 * 
-	 * @param P1
+	 * Create a new instance of match with P1 as the first player/hero
+	 * @param P1 The first player
 	 */
 	public Match(Player P1) {
             player1 = P1;
-            hero1 = new Hero(this,P1,new Deck());//todo deck
+            hero1 = new Hero(this,player1,new Deck());//todo deck
             determineGameState();
             //gameState = GameState.Waiting;
             timer = new Timer();
@@ -129,8 +134,8 @@ public class Match {
 	}
 
 	/**
-	 * 
-	 * @param P2
+	 * Adds a second player as hero 2
+	 * @param P2 the second player
 	 */
 	public void addPlayer2(Player P2) {
             player2 = P2;
@@ -139,25 +144,41 @@ public class Match {
             //gameState = GameState.Active;
 	}
 
+        /**
+         * Get the amount of turns passed
+         * @return The amount of turns
+         */
 	public int getTurns() {
             return this.turns;
 	}
 
-	public Hero getHero1() {
+        /**
+         * Get the first hero
+         * @return the first hero object
+         */
+        public Hero getHero1() {
             return hero1;
 	}
 
+        /**
+         * Get the second hero
+         * @return the second hero object
+         */
 	public Hero getHero2() {
             return hero2;
 	}
 
+        /**
+         * Get the current gamestate
+         * @return the current game state
+         */
 	public GameState getGameState() {
             return this.gameState;
 	}
 
 	/**
-	 * 
-	 * @param hero
+	 * Concede a match, this will make a player force lose
+	 * @param hero The hero that concedes
 	 */
 	public void concede(Hero hero) {
             //gameState = GameState.Defined;
