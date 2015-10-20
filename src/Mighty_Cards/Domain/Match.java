@@ -125,7 +125,7 @@ public class Match {
                         processTurn();
                     }
                 }
-            }, 0, 10);
+            }, 0, 100);
 	}
 
 	/**
