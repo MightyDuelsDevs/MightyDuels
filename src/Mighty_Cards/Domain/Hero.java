@@ -183,6 +183,7 @@ public class Hero implements ITarget {
      *
      * @param hitPoints
      */
+    @Override
     public void SetHitPoints(int hitPoints) {
         this.hitPoints = hitPoints;
     }
