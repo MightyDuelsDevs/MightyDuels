@@ -89,7 +89,7 @@ public class AccountFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loggedInPlayer = playerIconController.getLoggedInPlayer();
+        loggedInPlayer = new Player("RONGEN", 2, 150, 10, 140);
         lblAccountName.setText(loggedInPlayer.getUsername());
         lblAmountOfGames.setText("" + loggedInPlayer.getMatches());
         lblAmountOfWins.setText("" + loggedInPlayer.getWins());

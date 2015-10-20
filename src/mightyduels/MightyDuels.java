@@ -20,7 +20,6 @@ public class MightyDuels {
     public static void main(String[] args) {
         new CardDeckController();
         new PlayerIconController();
-        
     }
     
 }

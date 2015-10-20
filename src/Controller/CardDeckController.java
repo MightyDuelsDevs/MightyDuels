@@ -27,6 +27,11 @@ public class CardDeckController {
         allCards = getAllCards();
     }
 
+    
+    /**
+     * Method to get all the cards from the database ad save them in a local variable.
+     * @return Returns all the cards that are used in the game.
+     */
     private ArrayList<Card> getAllCards() {
         String statement = "SELECT * FROM CARD";
         ArrayList<Card> cards = new ArrayList<>();
@@ -70,6 +75,12 @@ public class CardDeckController {
         return cards;
     }
     
+    /**
+     * Function that returns a complete deck.
+     * It uses the local variable that contains all the cards.
+     * @param deckID, ID of the deck in the database.
+     * @return Returns the deck corresponding with the "deckID".
+     */
     static public Deck getDeck(int deckID){
         String statement = String.format("SELECT * FROM DECK WHERE ID = %1$s", deckID);
         Deck deck = new Deck();
@@ -93,6 +104,12 @@ public class CardDeckController {
         return deck;
     }
     
+    /**
+     * Function that returns all the decks of a single player.
+     * It uses the local variable that contains all the cards.
+     * @param playerID, ID of the player in the database.
+     * @return Returns all the decks of the player corresponding with the "playerID".
+     */
     static public ArrayList<Deck> getDecksFromPlayer(int playerID) {
         String statement = String.format("SELECT * FROM DECK WHERE PLAYERID = %1$s", playerID);
         ArrayList<Deck> decks = new ArrayList<>();
