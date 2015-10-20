@@ -38,7 +38,7 @@ public class Game {
      * @return player returns the player that gets logged in
      */
     public Player login(String username, String password) {
-        this.player = new Player(username, 0, 0, 0, 0, 0); //TODO!!!
+        this.player = new Player(0, username, 0, 0, 0, 0, 0); //TODO!!!
         return this.player;
     }
 
@@ -61,7 +61,7 @@ public class Game {
         if (username.isEmpty() || password.isEmpty()) {
             return false;
         }
-        Player newplayer = new Player(username, 0, 0, 0, 0, 0); //TODO!!!
+        Player newplayer = new Player(0, username, 0, 0, 0, 0, 0); //TODO!!!
         return true;
     }
 

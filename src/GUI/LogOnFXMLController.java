@@ -66,6 +66,7 @@ public class LogOnFXMLController implements Initializable {
                 JOptionPane.showMessageDialog(null, "Username & Password do not match.", "Error", JOptionPane.INFORMATION_MESSAGE);
                 tfPassWord.setText("");
             } else {
+                mightyduels.MightyDuels.loggedInPlayer = player;
                 //Give the player to the next page;
                 stage = (Stage) btnLogOn.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));

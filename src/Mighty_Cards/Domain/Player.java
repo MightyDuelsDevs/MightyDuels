@@ -2,6 +2,7 @@ package Mighty_Cards.Domain;
 
 public class Player {
 
+    private int id;
     private final String username;
     private int iconId;
     private int rating;
@@ -11,6 +12,7 @@ public class Player {
 
     /**
      *
+     * @param id
      * @param username
      * @param iconId
      * @param rating
@@ -21,7 +23,8 @@ public class Player {
      Moet er een methode komen die het wachtwoord wegschrijft naar de database? 
      Of willen we het wachtwoord opslaan op de player?
      */
-    public Player(String username, int iconId, int rating, int wins, int losses, int matches) /* throws UnkownUsername, IncorrectPassword */ {
+    public Player(int id, String username, int iconId, int rating, int wins, int losses, int matches) /* throws UnkownUsername, IncorrectPassword */ {
+        this.id = id;
         this.username = username;
         this.iconId = iconId;
         this.wins = wins;
@@ -127,6 +130,22 @@ public class Player {
      */
     public void changeIcon(Icon icon) {
         this.iconId = icon.getId();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

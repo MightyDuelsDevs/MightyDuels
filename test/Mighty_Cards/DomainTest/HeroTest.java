@@ -52,7 +52,7 @@ public class HeroTest {
     @Test
     public void testGetDeck() {
         System.out.println("getDeck");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -68,7 +68,7 @@ public class HeroTest {
     @Test
     public void testSetDeck() {
         System.out.println("setDeck");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -91,7 +91,7 @@ public class HeroTest {
     @Test
     public void testFinished() {
         System.out.println("getFinished");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -114,7 +114,7 @@ public class HeroTest {
     @Test
     public void testSetFinished() {
         System.out.println("setFinished");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -133,7 +133,7 @@ public class HeroTest {
     @Test
     public void testGetMinions() {
         System.out.println("getMinions");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -158,7 +158,7 @@ public class HeroTest {
     @Test
     public void testSetMinions() {
         System.out.println("setMinions");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -179,7 +179,7 @@ public class HeroTest {
     @Test
     public void testGetInHand() {
         System.out.println("getInHand");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -208,7 +208,7 @@ public class HeroTest {
     @Test
     public void testSetNewHand() {
         System.out.println("setNewHand");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -233,7 +233,7 @@ public class HeroTest {
     @Test
     public void testGetCardPlayed() {
         System.out.println("getCardPlayed");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -255,7 +255,7 @@ public class HeroTest {
     @Test
     public void testSetCardPlayed() {
         System.out.println("setCardPlayed");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -272,7 +272,7 @@ public class HeroTest {
     @Test
     public void testPullCards() {
         System.out.println("pullCards");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -294,7 +294,7 @@ public class HeroTest {
     @Test
     public void testPlayCard() {
         System.out.println("playCard");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -324,7 +324,7 @@ public class HeroTest {
     @Test
     public void testPlayCardMinions() {
         System.out.println("playCard");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -348,7 +348,7 @@ public class HeroTest {
     @Test
     public void testRemoveMinion() {
         System.out.println("removeMinion");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -374,7 +374,7 @@ public class HeroTest {
     @Test
     public void testGetHitPoints() {
         System.out.println("getHitPoints");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
@@ -396,7 +396,7 @@ public class HeroTest {
     @Test
     public void testSetHitPoints() {
         System.out.println("SetHitPoints");
-        Player testPlayer = new Player("testName", 0, 0, 0, 0, 0);
+        Player testPlayer = new Player(0, "testName", 0, 0, 0, 0, 0);
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);

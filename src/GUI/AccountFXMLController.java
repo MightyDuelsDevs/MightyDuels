@@ -91,7 +91,7 @@ public class AccountFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loggedInPlayer = playerIconController.getLoggedInPlayer();
+        loggedInPlayer = mightyduels.MightyDuels.loggedInPlayer;
         lblAccountName.setText(" " + loggedInPlayer.getUsername());
         lblTheRating.setText(" " + loggedInPlayer.getRating());
         lblAmountOfGames.setText(" " + loggedInPlayer.getMatches());

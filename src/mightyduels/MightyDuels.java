@@ -6,13 +6,15 @@
 package mightyduels;
 
 import Controller.*;
-
+import Mighty_Cards.Domain.Player;
 
 /**
  *
  * @author rick-
  */
 public class MightyDuels {
+
+    public static Player loggedInPlayer = null; //TODO <- not this
 
     /**
      * @param args the command line arguments
@@ -22,4 +24,5 @@ public class MightyDuels {
         new PlayerIconController();
     }
     
+
 }

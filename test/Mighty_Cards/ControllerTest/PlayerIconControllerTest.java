@@ -48,7 +48,7 @@ public class PlayerIconControllerTest {
     public void testcreatePlayer() {
         System.out.println("createPlayer");
         Player testPlayer = PlayerIconController.createPlayer("RONGEN");
-        Player expResult = new Player("RONGEN", 1, 150, 140, 20);
+        Player expResult = new Player(2, "RONGEN", 1, 150, 140, 20, 10);
         
         assertEquals(expResult.getUsername(), testPlayer.getUsername());
         assertEquals(expResult.getIconId(), testPlayer.getIconId());
@@ -85,7 +85,7 @@ public class PlayerIconControllerTest {
     public void testLogInPlayer() {
         System.out.println("logInPlayer");
         Player testPlayer = PlayerIconController.logInPlayer("RONGEN", "LDASY781EDHEE7SJD72");
-        Player expResult = new Player("RONGEN", 1, 150, 140, 20);
+        Player expResult = new Player(2, "RONGEN", 1, 150, 140, 20, 10);
         
         assertEquals(expResult.getUsername(), testPlayer.getUsername());
         assertEquals(expResult.getIconId(), testPlayer.getIconId());
