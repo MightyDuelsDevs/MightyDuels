@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="768" prefWidth="1024" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AccountFXMLController">
+<AnchorPane id="AnchorPane" fx:id="apAccount" prefHeight="768" prefWidth="1024" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AccountFXMLController">
     <children>
-        <Button fx:id="btnBack" layoutX="14.0" layoutY="723.0" mnemonicParsing="false" onAction="#btnBack_OnClick" text="Terug" />
-        <GridPane gridLinesVisible="true" layoutX="789.0" layoutY="13.0" prefHeight="359.0" prefWidth="221.0">
+      <ImageView fitHeight="768.0" fitWidth="1024.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Account%20Page.png" />
+         </image>
+      </ImageView>
+        <Button fx:id="btnSaveIcon" layoutX="71.0" layoutY="610.0" mnemonicParsing="false" onAction="#btnSaveIcon_OnClick" opacity="0.0" prefHeight="48.0" prefWidth="388.0" text="Save Icon" />
+        <Button fx:id="btnBack" layoutX="523.0" layoutY="610.0" mnemonicParsing="false" onAction="#btnBack_OnClick" opacity="0.0" prefHeight="48.0" prefWidth="388.0" text="Terug" />
+        <GridPane gridLinesVisible="true" layoutX="789.0" layoutY="130.0" prefHeight="359.0" prefWidth="221.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="85.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="136.0" />
@@ -36,8 +43,7 @@
                 <Label layoutX="72.0" layoutY="137.0" text="Account name:" GridPane.halignment="LEFT" />
             </children>
         </GridPane>
-        <Button fx:id="btnSaveIcon" layoutX="305.0" layoutY="642.0" mnemonicParsing="false" onAction="#btnSaveIcon_OnClick" text="Save Icon" />
-        <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="610.0" prefWidth="758.0" vbarPolicy="ALWAYS">
+        <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="581.0" prefWidth="758.0" vbarPolicy="ALWAYS">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1540.0" prefWidth="740.0">
                     <children>
