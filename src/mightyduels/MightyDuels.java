@@ -52,7 +52,7 @@ public class MightyDuels {
         new PlayerIconController();
         log.info("Starting main application");
         SplashScreen splash = SplashScreen.getSplashScreen();
-        splash.close();
+        if(splash!=null)splash.close();
         LogOn.main(args);
     }
     
