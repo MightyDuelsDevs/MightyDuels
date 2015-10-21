@@ -29,7 +29,7 @@ public class CardDeckController {
 
     
     /**
-     * Method to get all the cards from the database ad save them in a local variable.
+     * Method to get all the cards from the database and save them in a local variable.
      * @return Returns all the cards that are used in the game.
      */
     private ArrayList<Card> getAllCards() {

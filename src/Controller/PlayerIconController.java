@@ -52,6 +52,19 @@ public class PlayerIconController {
         }
     }
 
+    static public void changePlayerIcon(int playerID, int iconID) {
+        String statement = "UPDATE PLAYER SET ICONID = " + iconID + " WHERE ID = " + playerID;
+        try {
+            if (Database.checkConnection()) {
+                Database.DMLRecordIntoTable(statement);
+            } else {
+                System.out.println("Database connection is lost.");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PlayerIconController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     /**
      * Function to check if a displayname already exists
      *
@@ -97,7 +110,7 @@ public class PlayerIconController {
                 }
                 if (Database.checkConnection()) {
                     if (checkIfPlayerExists(displayname.toUpperCase())) {
-                        Database.insertRecordIntoTable(statement);
+                        Database.DMLRecordIntoTable(statement);
                         return 3;
                     } else {
                         System.out.println("Displayname is already in use!");

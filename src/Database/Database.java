@@ -13,6 +13,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +21,8 @@ import java.util.ArrayList;
  */
 public class Database {
 
+    private static final Logger log = Logger.getLogger(Database.class.getName());
+    
     private static final String url = "jdbc:oracle:thin:@192.168.2.14:1521/orcl";
     private static final String user = "MightyDuels";
     private static final String password = "MDPW";
@@ -31,25 +34,25 @@ public class Database {
      * tests connection Keeps connection open
      */
     private Database() {
-        System.out.println("-------- Oracle JDBC Connection Initializing------");
+        log.info("Orcle JDBC Connection Initializing");
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
         } catch (ClassNotFoundException e) {
-            System.out.println("Failed to find driver.");
+            log.severe("Failed to find driver.");
             return;
         }
 
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            System.out.println("Failed to find server: " + url + " (Denk aan secLab)");
+            log.severe("Failed to find server: " + url + " (Denk aan secLab)");
             return;
         }
 
         if (connection != null) {
-            System.out.println("Succes.");
+            log.info("Succes.");
         } else {
-            System.out.println("Failed to make connection!");
+            log.severe("Failed to make connection!");
         }
     }
 
@@ -61,16 +64,16 @@ public class Database {
             try {
                 connection = DriverManager.getConnection(url, user, password);
             } catch (SQLException e) {
-                System.out.println("Failed to find server: " + url);
+                log.severe("Failed to find server: " + url);
                 return;
             }
             if (connection != null) {
-                System.out.println("Succes.");
+                log.info("Succes.");
             } else {
-                System.out.println("Failed to make connection!");
+                log.severe("Failed to make connection!");
             }
         } else {
-            System.out.println("Connection to " + url + " is already opened");
+            log.severe("Connection to " + url + " is already opened");
         }
     }
 
@@ -81,7 +84,7 @@ public class Database {
         try {
             connection.close();
         } catch (SQLException ex) {
-            System.out.println("Failed to close connection!");
+            log.severe("Failed to close connection!");
         }
     }
 
@@ -107,17 +110,17 @@ public class Database {
      * @param statement The executable SQL statement (DML)
      * @throws SQLException
      */
-    public static void insertRecordIntoTable(String statement) throws SQLException {
-        PreparedStatement preparedStatement = null;
+    public static void DMLRecordIntoTable(String statement) throws SQLException {
+        Statement DMLstatement = null;
         try {
-            openConnection();
-            preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.executeUpdate();
+            //openConnection();
+            DMLstatement = connection.createStatement();
+            DMLstatement.executeQuery(statement);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            log.severe(e.getMessage());
         } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
+            if (DMLstatement != null) {
+                DMLstatement.close();
             }
         }
     }
@@ -149,7 +152,7 @@ public class Database {
             }
             
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            log.severe(e.getMessage());
         } finally {
             if (selectStatement != null) {
                 selectStatement.close();
