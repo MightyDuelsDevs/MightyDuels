@@ -32,6 +32,12 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -46,6 +52,9 @@ public class AccountFXMLController implements Initializable {
     private final PlayerIconController playerIconController = new PlayerIconController();
     private Player loggedInPlayer;
 
+    @FXML
+    private AnchorPane apAccount;
+    
     @FXML
     private Label lblAccountName;
 
