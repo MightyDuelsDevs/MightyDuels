@@ -9,6 +9,7 @@ import Controller.*;
 import GUI.LogOn;
 import Mighty_Cards.Domain.Game;
 import Mighty_Cards.Domain.Player;
+import java.awt.SplashScreen;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,6 +51,8 @@ public class MightyDuels {
         log.info("Creating PlayerIconController");
         new PlayerIconController();
         log.info("Starting main application");
+        SplashScreen splash = SplashScreen.getSplashScreen();
+        splash.close();
         LogOn.main(args);
     }
     
