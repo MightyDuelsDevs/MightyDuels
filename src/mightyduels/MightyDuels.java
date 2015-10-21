@@ -13,6 +13,12 @@ import java.awt.SplashScreen;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 /**
  *
@@ -21,7 +27,7 @@ import java.util.logging.Logger;
 public class MightyDuels {
 
     private static final Logger log = Logger.getLogger(MightyDuels.class.getName());
-    
+
     public static Player loggedInPlayer = null; //TODO <- not this
     public static Game game;//TODO <- not this
 
@@ -33,7 +39,7 @@ public class MightyDuels {
         log.info("Initialising database");
         Database.Database.openConnection();
         try {
-            if(!Database.Database.checkConnection()){
+            if (!Database.Database.checkConnection()) {
                 log.severe("Connection was not opened!");
                 log.severe("Exiting...");
                 System.exit(1000);
@@ -52,9 +58,21 @@ public class MightyDuels {
         new PlayerIconController();
         log.info("Starting main application");
         SplashScreen splash = SplashScreen.getSplashScreen();
-        if(splash!=null)splash.close();
+        if (splash != null) {
+            splash.close();
+        }
         LogOn.main(args);
     }
-    
+
+    public static void navigate(Stage stage, Parent root, String title) {
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        title = title == null ? "Mighty Duels" : title;
+        stage.setTitle(title);
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
+        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
+    }
 
 }

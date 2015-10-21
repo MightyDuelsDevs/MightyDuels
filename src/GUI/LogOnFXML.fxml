@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="apLogOn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LogOnFXMLController">
+<AnchorPane id="apLogOn" maxHeight="451.0" maxWidth="362.0" minHeight="451.0" minWidth="362.0" pickOnBounds="false" prefHeight="451.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LogOnFXMLController">
     <children>
       <ImageView fitHeight="451.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true">
          <image>

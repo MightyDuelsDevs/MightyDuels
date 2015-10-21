@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -47,43 +46,34 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnDuel_OnClick(ActionEvent event) throws IOException {
-        // Search for a Match. If that's found, go to the Duel Page (it's logon because there ain't a duel page yet).
+        String title = "Let the Duel begin!!!";
         stage = (Stage) btnDuel.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Mighty Duels");
+        root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));// Todo duel
+        mightyduels.MightyDuels.navigate(stage, root, title);
     }
 
     @FXML
     private void btnNewDeck_OnClick(ActionEvent event) throws IOException {
+        String title = "Mighty Duels";
         stage = (Stage) btnNewDeck.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("DeckFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Mighty Duels");
+        mightyduels.MightyDuels.navigate(stage, root, title);
     }
 
     @FXML
     private void btnLogOut_OnClick(ActionEvent event) throws IOException {
+        String title = "Mighty Duels";
         stage = (Stage) btnLogOut.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Mighty Duels");
+        mightyduels.MightyDuels.navigate(stage, root, title);
     }
 
     @FXML
     private void btnAccount_OnClick(ActionEvent event) throws IOException {
+        String title = "Mighty Duels";
         stage = (Stage) btnAccount.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("AccountFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Mighty Duels");
+        mightyduels.MightyDuels.navigate(stage, root, title);
     }
 
     @Override

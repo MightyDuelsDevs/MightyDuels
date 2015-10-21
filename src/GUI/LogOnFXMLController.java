@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -68,12 +67,10 @@ public class LogOnFXMLController implements Initializable {
             } else {
                 mightyduels.MightyDuels.loggedInPlayer = player;
                 //Give the player to the next page;
+                String title = "Mighty Duels Welcome: " + player.getUsername();
                 stage = (Stage) btnLogOn.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-                stage.setTitle("Mighty Duels Welcome: " + player.getUsername());
+                mightyduels.MightyDuels.navigate(stage, root, title);
             }
         }
     }
@@ -86,12 +83,10 @@ public class LogOnFXMLController implements Initializable {
      */
     @FXML
     private void btnRegister_OnClick(ActionEvent event) throws IOException {
+        String title = "Mighty Duels";
         stage = (Stage) btnRegister.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("RegisterFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Mighty Duels");
+        mightyduels.MightyDuels.navigate(stage, root, title);
     }
 
     @Override

@@ -15,30 +15,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.geometry.HPos;
-//
 import Mighty_Cards.Domain.Player;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.EventHandler;
-import javafx.geometry.VPos;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -49,12 +37,9 @@ public class AccountFXMLController implements Initializable {
 
     private Stage stage;
     private Parent root;
-    private final PlayerIconController playerIconController = new PlayerIconController();
     private Player loggedInPlayer;
+    private static int selectedIcon = 0;
 
-    @FXML
-    private AnchorPane apAccount;
-    
     @FXML
     private Label lblAccountName;
 
@@ -79,79 +64,75 @@ public class AccountFXMLController implements Initializable {
     @FXML
     private Button btnBack;
 
+    @FXML
+    private ImageView ivSelectedIcon;
+
     private ArrayList<Icon> icons = new ArrayList<>();
 
     @FXML
     private void btnSaveIcon_OnClick(ActionEvent event) throws IOException {
         // Set the selected icon into the database.
-        stage = (Stage) btnSaveIcon.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Mighty Duels");
+        PlayerIconController.changePlayerIcon(loggedInPlayer.getId(), selectedIcon);
+        File file = new File("/Images/I" + selectedIcon + ".png");
+        Image image = new Image(file.toPath().toString(), 120, 120, false, false);
+        ivSelectedIcon.setImage(image);
+        JOptionPane.showMessageDialog(null, "You have succesfully changed your icon to Icon number: " + selectedIcon + ".", "Icon saved", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML
     private void btnBack_OnClick(ActionEvent event) throws IOException {
+        String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        mightyduels.MightyDuels.navigate(stage, root, title);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loggedInPlayer = mightyduels.MightyDuels.loggedInPlayer;
+        this.loggedInPlayer = mightyduels.MightyDuels.loggedInPlayer;
         lblAccountName.setText(" " + loggedInPlayer.getUsername());
         lblTheRating.setText(" " + loggedInPlayer.getRating());
         lblAmountOfGames.setText(" " + loggedInPlayer.getMatches());
         lblAmountOfWins.setText(" " + loggedInPlayer.getWins());
         lblAmountOfLosses.setText(" " + loggedInPlayer.getLosses());
 
+        File fileSI = new File("/Images/I" + loggedInPlayer.getIconId() + ".png");
+        Image imageSI = new Image(fileSI.toPath().toString(), 120, 120, false, false);
+        ivSelectedIcon.setImage(imageSI);
+        
+        
         // Load all the Icons from the Database. Set them into a list.
-        icons = playerIconController.getIcons(loggedInPlayer.getRating());
+        icons = PlayerIconController.getIcons(loggedInPlayer.getRating());
 
         final ToggleGroup tg = new ToggleGroup();
-        int l = 1;
-        int i = 0;
-        int j = 0;
+        int l = 1; // ID
+        int i = 0; // Collomn
+        int j = 0; // Row
         for (Icon icon : icons) {
             // Icon Image
             File file = new File(icon.getFileName() + ".png");
-            Image image = new Image(file.toPath().toString(), 185, 185, false, false);
+            Image image = new Image(file.toPath().toString(), 180, 180, false, false);
             ImageView ivIcon = new ImageView(image);
             ivIcon.setId("" + l);
-            ivIcon.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
-// TODO!!!!!!!!!!!!!!!!!!
-                @Override
-                public void handle(javafx.scene.input.MouseEvent event) {
-                    try {
-                        ImageView iv = (ImageView) this.clone();
-                        System.out.println(iv.getId());
-                    } catch (CloneNotSupportedException ex) {
-                        Logger.getLogger(AccountFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-
+            ivIcon.setOnMouseClicked((javafx.scene.input.MouseEvent event) -> {
+                ImageView iv = (ImageView) event.getSource();
+                JOptionPane.showMessageDialog(null, "You have selected Icon number: " + iv.getId() + ".", "Icon selected", JOptionPane.INFORMATION_MESSAGE);
+                AccountFXMLController.setSelectedIcon(Integer.parseInt(iv.getId()));
             });
             gpIcons.setHalignment(ivIcon, HPos.CENTER);
             gpIcons.add(ivIcon, i, j);
-            // Icon RadioButton
-            String iconID = "" + (l < 10 ? " " + l : l);
-            RadioButton rbIcon = new RadioButton("Icon " + iconID);
-            rbIcon.setToggleGroup(tg);
-            gpIcons.setHalignment(rbIcon, HPos.CENTER);
-            gpIcons.setValignment(rbIcon, VPos.BOTTOM);
-            gpIcons.add(rbIcon, i, j);
 
             i++;
             l++;
+
             if (i == 4) {
                 j++;
                 i = 0;
             }
         }
+    }
+
+    public static void setSelectedIcon(int id) {
+        selectedIcon = id;
     }
 }
