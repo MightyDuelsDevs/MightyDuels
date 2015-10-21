@@ -77,14 +77,14 @@ public class DatabaseTest {
     /**
      * Test of insertRecordIntoTable method, of class Database.
      */
-    @Test
-    public void testInsertRecordIntoTable() throws Exception {
-        System.out.println("insertRecordIntoTable");
-        String statement = "";
-        Database.insertRecordIntoTable(statement);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    @Test
+//    public void testInsertRecordIntoTable() throws Exception {
+//        System.out.println("insertRecordIntoTable");
+//        String statement = "";
+//        Database.DMLRecordIntoTable(statement);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 
     /**
      * Test of selectRecordFromTable method, of class Database.

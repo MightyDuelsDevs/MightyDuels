@@ -42,6 +42,17 @@ public class PlayerIconControllerTest {
     }
 
     /**
+     * Test of testchangePlayerIcon method, of class PlayerIconController.
+     */
+    @Test
+    public void testchangePlayerIcon() {
+        System.out.println("changePlayerIcon");
+
+        PlayerIconController.changePlayerIcon(1, 2);
+        //PlayerIconController.changePlayerIcon(1, 1);
+    }
+    
+    /**
      * Test of testcreatePlayer method, of class PlayerIconController.
      */
     @Test
