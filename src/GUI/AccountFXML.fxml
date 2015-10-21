@@ -39,17 +39,15 @@
         <Button fx:id="btnSaveIcon" layoutX="305.0" layoutY="642.0" mnemonicParsing="false" onAction="#btnSaveIcon_OnClick" text="Save Icon" />
         <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="610.0" prefWidth="758.0" vbarPolicy="ALWAYS">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="740.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1540.0" prefWidth="740.0">
                     <children>
-                        <GridPane fx:id="gpIcons" gridLinesVisible="true" prefHeight="1000.0" prefWidth="740.0"> <!-- 886 740 -->
+                        <GridPane fx:id="gpIcons" prefHeight="1540.0" prefWidth="740.0"> 
                             <columnConstraints>
                                 <ColumnConstraints hgrow="NEVER" minWidth="185.0" prefWidth="246.0" />
                                 <ColumnConstraints hgrow="NEVER" minWidth="185.0" prefWidth="246.0" />
                                 <ColumnConstraints hgrow="NEVER" minWidth="185.0" prefWidth="246.0" />
                                 <ColumnConstraints hgrow="NEVER" minWidth="185.0" prefWidth="246.0" />
                             </columnConstraints>
-                            <rowConstraints>
-                            </rowConstraints>
                         </GridPane>
                     </children>
                 </AnchorPane>

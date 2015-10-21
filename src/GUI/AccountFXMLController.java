@@ -22,14 +22,20 @@ import javafx.stage.Stage;
 import javafx.geometry.HPos;
 //
 import Mighty_Cards.Domain.Player;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.geometry.VPos;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 
 /**
  * FXML Controller class
@@ -107,9 +113,23 @@ public class AccountFXMLController implements Initializable {
         int j = 0;
         for (Icon icon : icons) {
             // Icon Image
-            File file = new File(icon.getFileName());
-            Image image = new Image(file.toURI().toString());
+            File file = new File(icon.getFileName() + ".png");
+            Image image = new Image(file.toPath().toString(), 185, 185, false, false);
             ImageView ivIcon = new ImageView(image);
+            ivIcon.setId("" + l);
+            ivIcon.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+// TODO!!!!!!!!!!!!!!!!!!
+                @Override
+                public void handle(javafx.scene.input.MouseEvent event) {
+                    try {
+                        ImageView iv = (ImageView) this.clone();
+                        System.out.println(iv.getId());
+                    } catch (CloneNotSupportedException ex) {
+                        Logger.getLogger(AccountFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
+            });
             gpIcons.setHalignment(ivIcon, HPos.CENTER);
             gpIcons.add(ivIcon, i, j);
             // Icon RadioButton
