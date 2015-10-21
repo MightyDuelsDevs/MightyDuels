@@ -111,17 +111,16 @@ public class Database {
      * @throws SQLException
      */
     public static void DMLRecordIntoTable(String statement) throws SQLException {
-        Statement Statement = null;
+        Statement DMLstatement = null;
         try {
             //openConnection();
-            Statement = connection.createStatement();
-            System.out.println(statement);
-            Statement.executeQuery(statement);
+            DMLstatement = connection.createStatement();
+            DMLstatement.executeQuery(statement);
         } catch (SQLException e) {
             log.severe(e.getMessage());
         } finally {
-            if (Statement != null) {
-                Statement.close();
+            if (DMLstatement != null) {
+                DMLstatement.close();
             }
         }
     }
