@@ -110,17 +110,18 @@ public class Database {
      * @param statement The executable SQL statement (DML)
      * @throws SQLException
      */
-    public static void insertRecordIntoTable(String statement) throws SQLException {
-        PreparedStatement preparedStatement = null;
+    public static void DMLRecordIntoTable(String statement) throws SQLException {
+        Statement Statement = null;
         try {
-            openConnection();
-            preparedStatement = connection.prepareStatement(statement);
-            preparedStatement.executeUpdate();
+            //openConnection();
+            Statement = connection.createStatement();
+            System.out.println(statement);
+            Statement.executeQuery(statement);
         } catch (SQLException e) {
             log.severe(e.getMessage());
         } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
+            if (Statement != null) {
+                Statement.close();
             }
         }
     }
