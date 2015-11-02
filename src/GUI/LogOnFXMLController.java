@@ -32,7 +32,6 @@ public class LogOnFXMLController implements Initializable {
      */
     private Stage stage;
     private Parent root;
-    private final PlayerIconController playerIconController = new PlayerIconController();
 
     @FXML
     private TextField tfUserName;
@@ -60,7 +59,7 @@ public class LogOnFXMLController implements Initializable {
         if (tfUserName.getText().isEmpty() || tfPassWord.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fill both fields.", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            Player player = playerIconController.logInPlayer(tfUserName.getText(), tfPassWord.getText());
+            Player player = PlayerIconController.logInPlayer(tfUserName.getText(), tfPassWord.getText());
             if (player == null) {
                 JOptionPane.showMessageDialog(null, "Username & Password do not match.", "Error", JOptionPane.INFORMATION_MESSAGE);
                 tfPassWord.setText("");

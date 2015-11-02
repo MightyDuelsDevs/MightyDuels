@@ -112,4 +112,19 @@ public class MatchTest {
         assertEquals(0,m.getHero1().getHitPoints());//check if helth is 0
     }
     
+     /**
+     * Test of startTurn method, of class Match.
+     */
+    @Test
+    public void teststartTurn() {
+        
+        Match testMatch = new Match(p1);
+        testMatch.addPlayer2(p2);
+        
+        testMatch.startTurn();
+        
+        Hero testHero = testMatch.getHero1();
+        
+        testHero.setHitPoints(0);
+    }
 }

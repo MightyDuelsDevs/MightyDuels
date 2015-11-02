@@ -1,10 +1,15 @@
 package Mighty_Cards.Domain;
 
+import java.util.logging.Logger;
+
+/**
+ * An class containing the fields and properies of an card
+ */
 public abstract class Card {
 
-	private String name;
-	private String filename;
-	private String description;
+	private final String name;
+	private final String filename;
+	private final String description;
 
 	/**
 	 * Constructor
@@ -48,6 +53,7 @@ public abstract class Card {
          */
         public void testForNegativeValue(int test){
             if(test < 0){
+                Logger.getLogger(Card.class.getName()).info(String.format("Value %s less then 0",test));
                 //Commented because we might make cards that have negative values.
                 //throw new IllegalArgumentException();
             }

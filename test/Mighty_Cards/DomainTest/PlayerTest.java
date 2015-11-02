@@ -92,7 +92,7 @@ public class PlayerTest {
     @Test
     public void testMatches() {
         Player x = new Player(0, "Username", 0, 0, 0, 0, 0);
-        x.setMatches(1);
+        x.setMatches();
         assertEquals(x.getMatches(), 1);
     }
  
@@ -133,5 +133,20 @@ public class PlayerTest {
         Icon i2 = new Icon(3, 550, null);
         x.changeIcon(i2);
         assertEquals("Iconid's zijn ongelijk",x.getIconId(), i2.getId());
+    }
+    
+    @Test
+    public void testgetID() {
+        Player x = new Player(1, "Username", 0, 0, 0, 0, 0);
+        int result = x.getId();
+        assertEquals("player ID's zijn ongelijk", result, 1);
+    }
+    
+    @Test
+    public void testsetID() {
+        Player x = new Player(1, "Username", 0, 0, 0, 0, 0);
+        x.setId(2);
+        int result = x.getId();
+        assertEquals("player ID's zijn ongelijk", result, 2);
     }
 }

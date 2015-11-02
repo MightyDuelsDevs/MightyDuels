@@ -140,6 +140,20 @@ public class GUIMatchController implements Initializable {
                             if (gridOpponentSide.getChildren().contains(pane)) {
                                 proceed = true;
                             }
+                            gridChooseCard.getChildren().clear();
+
+                            match.getHero2().setCardPlayed((Card)heroCardControls.get(count).getHeroCard());
+                            match.getHero2().setFinished(true);
+                            
+                            match.startTurn();
+
+                            
+                            gridYourSide.getChildren().remove(2);
+                            gridOpponentSide.getChildren().remove(2);
+                            
+                            yourHero.setHealth(match.getHero1().getHitPoints());
+                            opponentsHero.setHealth(match.getHero1().getHitPoints());
+                            drawCards();
                         }
                         gridChooseCard.getChildren().clear();
 

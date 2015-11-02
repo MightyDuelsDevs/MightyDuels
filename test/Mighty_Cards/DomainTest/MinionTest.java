@@ -76,7 +76,7 @@ public class MinionTest {
     @Test
     public void testAttack() {
         m1.setITarget(m2);
-        m1.Attack();
+        m1.attack();
         int result = m2.getHitPoints();
         Assert.assertEquals("Fout, verwacht 2", 2, result);
     }
@@ -123,7 +123,7 @@ public class MinionTest {
 
     @Test
     public void testSetHitPoints() {
-        m1.SetHitPoints(2);
+        m1.setHitPoints(2);
         Assert.assertEquals("Fout, verwacht 2", 2, m1.getHitPoints());
     }
 }

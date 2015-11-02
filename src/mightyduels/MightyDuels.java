@@ -51,9 +51,9 @@ public class MightyDuels {
         log.info("Creating Game instance");
         game = new Game();
         log.info("Creating CardDeckController");
-        new CardDeckController();
+        CardDeckController.cardDeckControllerInit();
         log.info("Creating PlayerIconController");
-        new PlayerIconController();
+        PlayerIconController.playerIconControllerInit();
         log.info("Starting main application");
         SplashScreen splash = SplashScreen.getSplashScreen();
         if (splash != null) {
@@ -62,6 +62,12 @@ public class MightyDuels {
         LogOn.main(args);
     }
 
+    /**
+     * Navigate to another scene
+     * @param stage the source stage
+     * @param root the root scene
+     * @param title the window title
+     */
     public static void navigate(Stage stage, Parent root, String title) {
         Scene scene = new Scene(root);
         stage.setScene(scene);

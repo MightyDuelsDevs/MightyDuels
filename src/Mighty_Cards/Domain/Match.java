@@ -2,8 +2,7 @@ package Mighty_Cards.Domain;
 
 import java.util.ArrayList;
 import java.util.Timer;
-import java.util.TimerTask;
-import java.util.logging.Level;
+//import java.util.TimerTask;
 import java.util.logging.Logger;
 
 /**
@@ -16,10 +15,10 @@ public class Match {
 	private int turns;
 	private GameState gameState;
 
-        private Player player1;
+        private final Player player1;
         private Player player2;
         
-        private Hero hero1;
+        private final Hero hero1;
         private Hero hero2;
         
         Timer timer;
@@ -75,8 +74,8 @@ public class Match {
             
             //log.info("Filter non hero attack, attack minions");
             //all not player attacks            
-            p1min.stream().filter((m)->m.getITarget()!=hero2).forEach((m)->m.Attack());//attack all not players
-            p2min.stream().filter((m)->m.getITarget()!=hero1).forEach((m)->m.Attack());//attack all not players
+            p1min.stream().filter((m)->m.getITarget()!=hero2).forEach((m)->m.attack());//attack all not players
+            p2min.stream().filter((m)->m.getITarget()!=hero1).forEach((m)->m.attack());//attack all not players
             
             //log.info("Remove dead minions");
             //remove dead minions
@@ -85,8 +84,8 @@ public class Match {
             
             //log.info("Filter hero attacks, attack hero");
             //all minion to player attacks
-            p1min.stream().filter((m)->m.getITarget()==hero2).forEach((m)->m.Attack());//attack hero2
-            p2min.stream().filter((m)->m.getITarget()==hero1).forEach((m)->m.Attack());//attack hero1
+            p1min.stream().filter((m)->m.getITarget()==hero2).forEach((m)->m.attack());//attack hero2
+            p2min.stream().filter((m)->m.getITarget()==hero1).forEach((m)->m.attack());//attack hero1
             
             //log.info("Process HeroCard attacks");
             //attack using cards
@@ -97,7 +96,7 @@ public class Match {
                 
                 int hp = hero2.getHitPoints();
                 //Matthijs
-                int pSchield = 0, mSchield=0, healing = 0, physicalDamageDone = 0, magicalDamageDone = 0, totalValue = 0;
+                int pSchield = 0, mSchield=0, healing = 0, physicalDamageDone, magicalDamageDone, totalValue;
                 if(p2 instanceof HeroCard){
                     //log.info(String.format("%s blocks %s with %s",player2.getUsername(),player1.getUsername(),p2.getName()));
                     HeroCard p2h = (HeroCard)p2;
@@ -115,13 +114,13 @@ public class Match {
                 }
                 totalValue = (physicalDamageDone + magicalDamageDone) + healing;
                 if(hp - totalValue > 50){
-                    hero2.SetHitPoints(50);
+                    hero2.setHitPoints(50);
                 }
                 else{
-                    hero2.SetHitPoints(hp - totalValue);
+                    hero2.setHitPoints(hp - totalValue);
                 }
                 
-                System.out.println("hero 2 heeft "+ hero2.getHitPoints() + " hp over");
+                log.info(String.format("hero 2 heeft %s hp over",hero2.getHitPoints()));
                 //Matthijs
             }
             if(p2 instanceof HeroCard){
@@ -129,7 +128,7 @@ public class Match {
                 HeroCard p2h = (HeroCard)p2;
                 int hp = hero1.getHitPoints();
                 //Matthijs
-                int pSchield = 0, mSchield=0, healing = 0, physicalDamageDone = 0, magicalDamageDone = 0, totalValue = 0;
+                int pSchield = 0, mSchield=0, healing = 0, physicalDamageDone, magicalDamageDone, totalValue;
                 if(p1 instanceof HeroCard){
                     //log.info(String.format("%s blocks %s with %s",player1.getUsername(),player2.getUsername(),p1.getName()));
                     HeroCard p1h = (HeroCard)p1;
@@ -147,12 +146,12 @@ public class Match {
                 }
                 totalValue = (physicalDamageDone + magicalDamageDone) + healing;
                 if(hp - totalValue > 50){
-                    hero1.SetHitPoints(50);
+                    hero1.setHitPoints(50);
                 }
                 else{
-                    hero1.SetHitPoints(hp - totalValue);
+                    hero1.setHitPoints(hp - totalValue);
                 }
-                System.out.println("hero 1 heeft "+ hero1.getHitPoints() + " hp over");
+                log.info(String.format("hero 1 heeft %s hp over",hero1.getHitPoints()));
                 //Matthijs
             }
             log.info("Turn finished");
@@ -242,11 +241,14 @@ public class Match {
 	 */
 	public void concede(Hero hero) {
             //gameState = GameState.Defined;
-            hero.SetHitPoints(0);
+            hero.setHitPoints(0);
             determineGameState();
 	}
         
-        public void StartTurn(){
+        /**
+         * Checks the match state and both players states and processes the turn.
+         */
+        public void startTurn(){
             determineGameState();
             if(gameState != GameState.Active){
                 if(gameState == GameState.Defined || gameState == GameState.Tie){

@@ -21,9 +21,12 @@ import java.util.logging.Logger;
  */
 public class CardDeckController {
 
-    public static ArrayList<Card> allCards;
+    private static ArrayList<Card> allCards;
 
-    public CardDeckController() {
+    /**
+     * Initialize the CardDeckController
+     */
+    public static void cardDeckControllerInit() {
         allCards = getAllCards();
     }
 
@@ -32,7 +35,9 @@ public class CardDeckController {
      * Method to get all the cards from the database and save them in a local variable.
      * @return Returns all the cards that are used in the game.
      */
-    private ArrayList<Card> getAllCards() {
+    public static ArrayList<Card> getAllCards() {
+        if(allCards != null) return allCards;
+        
         String statement = "SELECT * FROM CARD";
         ArrayList<Card> cards = new ArrayList<>();
         
@@ -71,8 +76,8 @@ public class CardDeckController {
         } catch (SQLException ex) {
             Logger.getLogger(PlayerIconController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return cards;
+        allCards=cards;
+        return allCards;
     }
     
     /**
@@ -81,7 +86,7 @@ public class CardDeckController {
      * @param deckID, ID of the deck in the database.
      * @return Returns the deck corresponding with the "deckID".
      */
-    static public Deck getDeck(int deckID){
+    public static Deck getDeck(int deckID){
         String statement = String.format("SELECT * FROM DECK WHERE ID = %1$s", deckID);
         Deck deck = new Deck();
 
@@ -110,7 +115,7 @@ public class CardDeckController {
      * @param playerID, ID of the player in the database.
      * @return Returns all the decks of the player corresponding with the "playerID".
      */
-    static public ArrayList<Deck> getDecksFromPlayer(int playerID) {
+    public static ArrayList<Deck> getDecksFromPlayer(int playerID) {
         String statement = String.format("SELECT * FROM DECK WHERE PLAYERID = %1$s", playerID);
         ArrayList<Deck> decks = new ArrayList<>();
 

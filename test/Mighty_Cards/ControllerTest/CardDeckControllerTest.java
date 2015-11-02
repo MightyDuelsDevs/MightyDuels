@@ -38,7 +38,7 @@ public class CardDeckControllerTest {
 
     @Before
     public void setUp() {
-        new CardDeckController();
+        CardDeckController.cardDeckControllerInit();
     }
 
     @After
@@ -52,7 +52,7 @@ public class CardDeckControllerTest {
     public void testGetAllCards() {
         System.out.println("TestgetAllCards");
         String expResult = "Fireblast";
-        ArrayList<Card> cards = cardDeckController.allCards;
+        ArrayList<Card> cards = CardDeckController.getAllCards();
         assertEquals("Name incorrect expected " + expResult + "recieved: " + cards.get(1).getName(), expResult, cards.get(1).getName());
     }
 

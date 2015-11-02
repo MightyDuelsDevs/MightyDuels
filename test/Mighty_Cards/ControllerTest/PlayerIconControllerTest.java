@@ -24,7 +24,7 @@ public class PlayerIconControllerTest {
     
     @Before
     public void setUp() {
-        new PlayerIconController();
+        PlayerIconController.playerIconControllerInit();
     }
     /**
      * Test of testcreateIcons method, of class PlayerIconController.
@@ -49,7 +49,7 @@ public class PlayerIconControllerTest {
         System.out.println("changePlayerIcon");
 
         PlayerIconController.changePlayerIcon(1, 2);
-        PlayerIconController.changePlayerIcon(1, 1);
+        //PlayerIconController.changePlayerIcon(1, 1);
     }
     
     /**
