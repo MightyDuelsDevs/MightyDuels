@@ -27,6 +27,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javax.swing.JOptionPane;
+import mightyduels.MightyDuels;
 
 /**
  * FXML Controller class
@@ -76,7 +77,8 @@ public class AccountFXMLController implements Initializable {
         File file = new File("/Images/I" + selectedIcon + ".png");
         Image image = new Image(file.toPath().toString(), 120, 120, false, false);
         ivSelectedIcon.setImage(image);
-        JOptionPane.showMessageDialog(null, "You have succesfully changed your icon to Icon number: " + selectedIcon + ".", "Icon saved", JOptionPane.INFORMATION_MESSAGE);
+        MightyDuels.loggedInPlayer.setIconId(selectedIcon);
+        //JOptionPane.showMessageDialog(null, "You have succesfully changed your icon to Icon number: " + selectedIcon + ".", "Icon saved", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @FXML

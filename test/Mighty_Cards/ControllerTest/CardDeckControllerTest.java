@@ -52,7 +52,7 @@ public class CardDeckControllerTest {
     public void testGetAllCards() {
         System.out.println("TestgetAllCards");
         String expResult = "Fireblast";
-        ArrayList<Card> cards = CardDeckController.getAllCards();
+        ArrayList<Card> cards = CardDeckController.getAllCardsFromDB();
         assertEquals("Name incorrect expected " + expResult + "recieved: " + cards.get(1).getName(), expResult, cards.get(1).getName());
     }
 

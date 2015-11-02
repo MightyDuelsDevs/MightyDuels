@@ -27,15 +27,18 @@ public class CardDeckController {
      * Initialize the CardDeckController
      */
     public static void cardDeckControllerInit() {
-        allCards = getAllCards();
+        allCards = getAllCardsFromDB();
     }
 
+    public static ArrayList<Card> getAllCards() {
+        return allCards;
+    }
     
     /**
      * Method to get all the cards from the database and save them in a local variable.
      * @return Returns all the cards that are used in the game.
      */
-    public static ArrayList<Card> getAllCards() {
+    public static ArrayList<Card> getAllCardsFromDB() {
         if(allCards != null) return allCards;
         
         String statement = "SELECT * FROM CARD";
