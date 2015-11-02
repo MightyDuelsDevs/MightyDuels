@@ -53,7 +53,7 @@ public class MightyDuels {
         log.info("Creating Game instance");
         game = new Game();
         log.info("Creating CardDeckController");
-        new CardDeckController();
+        CardDeckController.cardDeckControllerInit();
         log.info("Creating PlayerIconController");
         new PlayerIconController();
         log.info("Starting main application");

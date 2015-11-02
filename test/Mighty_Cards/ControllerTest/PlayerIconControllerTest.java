@@ -24,7 +24,7 @@ public class PlayerIconControllerTest {
     
     @Before
     public void setUp() {
-        new PlayerIconController();
+        PlayerIconController.playerIconControllerInit();
     }
     /**
      * Test of testcreateIcons method, of class PlayerIconController.
