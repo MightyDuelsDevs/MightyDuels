@@ -74,8 +74,8 @@ public class Match {
             
             //log.info("Filter non hero attack, attack minions");
             //all not player attacks            
-            p1min.stream().filter((m)->m.getITarget()!=hero2).forEach((m)->m.Attack());//attack all not players
-            p2min.stream().filter((m)->m.getITarget()!=hero1).forEach((m)->m.Attack());//attack all not players
+            p1min.stream().filter((m)->m.getITarget()!=hero2).forEach((m)->m.attack());//attack all not players
+            p2min.stream().filter((m)->m.getITarget()!=hero1).forEach((m)->m.attack());//attack all not players
             
             //log.info("Remove dead minions");
             //remove dead minions
@@ -84,8 +84,8 @@ public class Match {
             
             //log.info("Filter hero attacks, attack hero");
             //all minion to player attacks
-            p1min.stream().filter((m)->m.getITarget()==hero2).forEach((m)->m.Attack());//attack hero2
-            p2min.stream().filter((m)->m.getITarget()==hero1).forEach((m)->m.Attack());//attack hero1
+            p1min.stream().filter((m)->m.getITarget()==hero2).forEach((m)->m.attack());//attack hero2
+            p2min.stream().filter((m)->m.getITarget()==hero1).forEach((m)->m.attack());//attack hero1
             
             //log.info("Process HeroCard attacks");
             //attack using cards

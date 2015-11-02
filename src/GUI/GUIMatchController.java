@@ -137,7 +137,7 @@ public class GUIMatchController implements Initializable {
                             match.getHero2().setCardPlayed((Card)heroCardControls.get(count).getHeroCard());
                             match.getHero2().setFinished(true);
                             
-                            match.StartTurn();
+                            match.startTurn();
 
                             
                             gridYourSide.getChildren().remove(2);

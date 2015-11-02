@@ -121,7 +121,7 @@ public class MatchTest {
         Match testMatch = new Match(p1);
         testMatch.addPlayer2(p2);
         
-        testMatch.StartTurn();
+        testMatch.startTurn();
         
         Hero testHero = testMatch.getHero1();
         
