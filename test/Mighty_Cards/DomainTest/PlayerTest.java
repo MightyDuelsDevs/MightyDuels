@@ -92,7 +92,7 @@ public class PlayerTest {
     @Test
     public void testMatches() {
         Player x = new Player(0, "Username", 0, 0, 0, 0, 0);
-        x.setMatches(1);
+        x.setMatches();
         assertEquals(x.getMatches(), 1);
     }
  

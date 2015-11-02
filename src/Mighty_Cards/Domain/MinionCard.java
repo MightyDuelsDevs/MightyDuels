@@ -1,14 +1,20 @@
 package Mighty_Cards.Domain;
 
+/**
+ * An card that is an minion card containing it's attributes
+ */
 public class MinionCard extends Card {
 
-	private int physicalDamage;
-	private int magicalDamage;
-	private int hitPoints;
+	private final int physicalDamage;
+	private final int magicalDamage;
+	private final int hitPoints;
 
 	/**
 	 * Constructor
          * Check if any number that is given as a parameter is a negative value. If so throw an illegalArgumentException
+         * @param name the name of the minion
+         * @param filename the filename of the corrosponding image
+         * @param description the description of the minion [UNUSED]
 	 * @param physicalDamage The physical strength of a card
 	 * @param magicalDamage The magical strength of a card
 	 * @param hitPoints The amount of health a minion has 
