@@ -61,7 +61,7 @@ public class GUIMatchController implements Initializable {
         match = new Match(player_1);
         match.addPlayer2(player_2);
         
-        for(Card card : CardDeckController.allCards){
+        for(Card card : CardDeckController.getAllCards()){
             if(card instanceof HeroCard){
                 cards.add((HeroCard)card);
             }
