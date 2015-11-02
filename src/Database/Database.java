@@ -30,33 +30,6 @@ public class Database {
     private static Database instance;
 
     /**
-     * Open Database connection for the First time Searches driver Searches URL
-     * tests connection Keeps connection open
-     */
-    private Database() {
-        log.info("Orcle JDBC Connection Initializing");
-        try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-        } catch (ClassNotFoundException e) {
-            log.severe("Failed to find driver.");
-            return;
-        }
-
-        try {
-            connection = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            log.severe("Failed to find server: " + url + " (Denk aan secLab)");
-            return;
-        }
-
-        if (connection != null) {
-            log.info("Succes.");
-        } else {
-            log.severe("Failed to make connection!");
-        }
-    }
-
-    /**
      * Opens connection
      */
     public static void openConnection() {

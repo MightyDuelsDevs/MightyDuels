@@ -134,4 +134,19 @@ public class PlayerTest {
         x.changeIcon(i2);
         assertEquals("Iconid's zijn ongelijk",x.getIconId(), i2.getId());
     }
+    
+    @Test
+    public void testgetID() {
+        Player x = new Player(1, "Username", 0, 0, 0, 0, 0);
+        int result = x.getId();
+        assertEquals("player ID's zijn ongelijk", result, 1);
+    }
+    
+    @Test
+    public void testsetID() {
+        Player x = new Player(1, "Username", 0, 0, 0, 0, 0);
+        x.setId(2);
+        int result = x.getId();
+        assertEquals("player ID's zijn ongelijk", result, 2);
+    }
 }

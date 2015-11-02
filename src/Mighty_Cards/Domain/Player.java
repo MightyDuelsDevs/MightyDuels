@@ -147,10 +147,4 @@ public class Player {
     public void setId(int id) {
         this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "Username: " + this.getUsername() + " IconID: " + this.getIconId() + " Rating: " + this.getRating() + " Wins: " + this.getWins() + " Losses: " + this.getLosses();
-    }
-
 }

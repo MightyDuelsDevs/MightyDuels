@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Game {
 
     private static Game instance;
-    private Render render;
     private ArrayList<Icon> icons;
     private ArrayList<Card> cards;
     private Player player;

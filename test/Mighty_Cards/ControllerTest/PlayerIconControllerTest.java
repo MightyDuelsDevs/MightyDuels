@@ -49,7 +49,7 @@ public class PlayerIconControllerTest {
         System.out.println("changePlayerIcon");
 
         PlayerIconController.changePlayerIcon(1, 2);
-        PlayerIconController.changePlayerIcon(1, 1);
+        //PlayerIconController.changePlayerIcon(1, 1);
     }
     
     /**
