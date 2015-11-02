@@ -250,7 +250,7 @@ public class Match {
             determineGameState();
             if(gameState != GameState.Active){
                 if(gameState == GameState.Defined || gameState == GameState.Tie){
-                    System.exit(0);
+                    // TODO
                 }
             }
             if(hero1.getFinished() && hero2.getFinished()){
