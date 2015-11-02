@@ -1,5 +1,8 @@
 package Mighty_Cards.Domain;
 
+/**
+ * An class containing attributes of an player
+ */
 public class Player {
 
     private int id;
@@ -9,19 +12,19 @@ public class Player {
     private int matches;
     private int wins;
     private int losses;
-
-    /**
-     *
-     * @param id
-     * @param username
-     * @param iconId
-     * @param rating
-     * @param wins
-     * @param losses
-     */
-    /*
+/*
      Moet er een methode komen die het wachtwoord wegschrijft naar de database? 
      Of willen we het wachtwoord opslaan op de player?
+     */
+    /**
+     * creates an new instace of player
+     * @param id the player id
+     * @param username the payers username
+     * @param iconId the players icon
+     * @param rating the players rating
+     * @param wins the players wins
+     * @param losses the players losses
+     * @param matches the players matches
      */
     public Player(int id, String username, int iconId, int rating, int wins, int losses, int matches) /* throws UnkownUsername, IncorrectPassword */ {
         this.id = id;
@@ -35,8 +38,7 @@ public class Player {
 
     /**
      * Returns the username of the player
-     *
-     * @return
+     * @return the username
      */
     public String getUsername() {
         return this.username;
@@ -44,34 +46,30 @@ public class Player {
 
     /**
      * Returns the IconID of the player
-     *
-     * @return
+     * @return get the icon id
      */
     public int getIconId() {
         return this.iconId;
     }
 
     /**
-     ** Sets the IconID of the player
-     *
-     * @param iconId, Sets the parameter icon id.
+     * Sets the IconID of the player
+     * @param iconId Sets the parameter icon id.
      */
     public void setIconId(int iconId) {
         this.iconId = iconId;
     }
 
     /**
-     * * Returns the Rating of the player
-     *
-     * @return
+     * Returns the Rating of the player
+     * @return the rating
      */
     public int getRating() {
         return this.rating;
     }
 
     /**
-     * * Sets the rating of the player
-     *
+     * Sets the rating of the player
      * @param rating Sets the rating of the player
      */
     public void setRating(int rating) {
@@ -79,30 +77,31 @@ public class Player {
     }
 
     /**
-     * * Returns the number of matches the player has played
-     *
-     * @return
+     * Returns the number of matches the player has played
+     * @return the amount of matches played
      */
     public int getMatches() {
         return this.matches;
     }
 
-    public void setMatches(int numberofmatches) {
+    /**
+     * set increment the amount of matches played
+     */
+    public void setMatches() {
         this.matches++;
 
     }
 
     /**
      * Returns the number of wins te player has made in the past
-     *
-     * @return
+     * @return the amount of wins
      */
     public int getWins() {
         return this.wins;
     }
 
     /**
-     * Sets the number op wins of the player
+     * increment the number op wins of the player
      */
     public void setWins() {
         this.wins++;
@@ -110,15 +109,14 @@ public class Player {
 
     /**
      * Gets the number of losses the player has made
-     *
-     * @return
+     * @return the amount of losses
      */
     public int getLosses() {
         return this.losses;
     }
 
     /**
-     * adds the number of losses the player has made to total.
+     * increment the number of losses the player has made to total.
      *
      */
     public void setLoses() {
@@ -126,23 +124,24 @@ public class Player {
     }
 
     /**
-     *
+     * Change the icon of the player
+     * @param icon the new icon
      */
     public void changeIcon(Icon icon) {
         this.iconId = icon.getId();
     }
 
     /**
-     *
-     * @return
+     * get the id of the player
+     * @return the id
      */
     public int getId() {
         return id;
     }
 
     /**
-     *
-     * @param id
+     * set the id of the player
+     * @param id the id
      */
     public void setId(int id) {
         this.id = id;
