@@ -112,6 +112,24 @@ public class MatchTest {
         assertEquals(0,m.getHero1().getHitPoints());//check if helth is 0
     }
     
+    /**
+     * Test of processTurn method, of class Match.
+     */
+    @Test
+    public void testprocessTurn() {
+        
+        Match testMatch = new Match(p1);
+        testMatch.addPlayer2(p2);
+        
+        testMatch.StartTurn();
+        
+        testMatch.getHero1().setFinished(true);
+        testMatch.getHero2().setFinished(true);
+        
+        testMatch.StartTurn();
+    }
+    
+    
      /**
      * Test of startTurn method, of class Match.
      */
@@ -123,8 +141,15 @@ public class MatchTest {
         
         testMatch.StartTurn();
         
-        Hero testHero = testMatch.getHero1();
+        Hero testHero1 = testMatch.getHero1();
+        Hero testHero2 = testMatch.getHero2();
         
-        testHero.SetHitPoints(0);
+        testHero1.SetHitPoints(0);
+        testHero2.SetHitPoints(0);
+        
+        testHero1.setFinished(true);
+        testHero2.setFinished(true);
+        
+        testMatch.StartTurn();
     }
 }
