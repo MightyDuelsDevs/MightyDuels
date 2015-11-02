@@ -74,8 +74,7 @@ public class AccountFXMLController implements Initializable {
     private void btnSaveIcon_OnClick(ActionEvent event) throws IOException {
         // Set the selected icon into the database.
         PlayerIconController.changePlayerIcon(loggedInPlayer.getId(), selectedIcon);
-        File file = new File("/Images/I" + selectedIcon + ".png");
-        Image image = new Image(file.toPath().toString(), 120, 120, false, false);
+        Image image = new Image("/Images/I" + selectedIcon + ".png", 120, 120, false, false);
         ivSelectedIcon.setImage(image);
         MightyDuels.loggedInPlayer.setIconId(selectedIcon);
         //JOptionPane.showMessageDialog(null, "You have succesfully changed your icon to Icon number: " + selectedIcon + ".", "Icon saved", JOptionPane.INFORMATION_MESSAGE);
@@ -98,8 +97,7 @@ public class AccountFXMLController implements Initializable {
         lblAmountOfWins.setText(" " + loggedInPlayer.getWins());
         lblAmountOfLosses.setText(" " + loggedInPlayer.getLosses());
 
-        File fileSI = new File("/Images/I" + loggedInPlayer.getIconId() + ".png");
-        Image imageSI = new Image(fileSI.toPath().toString(), 120, 120, false, false);
+        Image imageSI = new Image("/Images/I" + loggedInPlayer.getIconId()+ ".png", 120, 120, false, false);
         ivSelectedIcon.setImage(imageSI);
 
         // Load all the Icons from the Database. Set them into a list.
@@ -111,8 +109,7 @@ public class AccountFXMLController implements Initializable {
         int j = 0; // Row
         for (Icon icon : icons) {
             // Icon Image
-            File file = new File(icon.getFileName() + ".png");
-            Image image = new Image(file.toPath().toString(), 180, 180, false, false);
+            Image image = new Image(icon.getFileName() + ".png", 180, 180, false, false);
             ImageView ivIcon = new ImageView(image);
             ivIcon.setId("" + l);
             ivIcon.setOnMouseClicked((javafx.scene.input.MouseEvent event) -> {

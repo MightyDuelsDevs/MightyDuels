@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -34,9 +35,6 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private Button btnNewDeck;
-
-    @FXML
-    private Button btnSpectate;
 
     @FXML
     private Button btnAccount;
@@ -71,7 +69,7 @@ public class MainScreenFXMLController implements Initializable {
     @FXML
     private void btnAccount_OnClick(ActionEvent event) throws IOException {
         String title = "Mighty Duels";
-        stage = (Stage) btnAccount.getScene().getWindow();
+        stage = (Stage) btnLogOut.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("AccountFXML.fxml"));
         mightyduels.MightyDuels.navigate(stage, root, title);
     }
