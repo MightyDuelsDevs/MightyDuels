@@ -7,7 +7,6 @@ package Database;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -26,8 +25,7 @@ public class Database {
     private static final String url = "jdbc:oracle:thin:@192.168.2.14:1521/orcl";
     private static final String user = "MightyDuels";
     private static final String password = "MDPW";
-    private static Connection connection = null;
-    private static Database instance;
+    private static volatile Connection connection = null;
 
     /**
      * Opens connection
@@ -38,7 +36,6 @@ public class Database {
                 connection = DriverManager.getConnection(url, user, password);
             } catch (SQLException e) {
                 log.severe("Failed to find server: " + url);
-                return;
             }
             if (connection != null) {
                 log.info("Succes.");
@@ -84,17 +81,11 @@ public class Database {
      * @throws SQLException
      */
     public static void DMLRecordIntoTable(String statement) throws SQLException {
-        Statement DMLstatement = null;
-        try {
-            //openConnection();
-            DMLstatement = connection.createStatement();
-            DMLstatement.executeQuery(statement);
+        try (Statement DMLstatement = connection.createStatement()) {
+            ResultSet executeQuery = DMLstatement.executeQuery(statement);
+            executeQuery.close();
         } catch (SQLException e) {
             log.severe(e.getMessage());
-        } finally {
-            if (DMLstatement != null) {
-                DMLstatement.close();
-            }
         }
     }
 
@@ -109,9 +100,11 @@ public class Database {
         Statement selectStatement = null;
         ArrayList<ArrayList> dataSet = new ArrayList<>();
         
+        ResultSet resultSet = null;
+        
         try {
             selectStatement = connection.createStatement();
-            ResultSet resultSet = selectStatement.executeQuery(statement);
+            resultSet = selectStatement.executeQuery(statement);
             
             ResultSetMetaData data = resultSet.getMetaData();
             while (resultSet.next()) {
@@ -129,6 +122,9 @@ public class Database {
         } finally {
             if (selectStatement != null) {
                 selectStatement.close();
+            }
+            if(resultSet != null){
+                resultSet.close();
             }
         }
         return dataSet;
