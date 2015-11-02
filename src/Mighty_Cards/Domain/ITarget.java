@@ -6,7 +6,7 @@ public interface ITarget {
 	 * 
 	 * @param hitPoints
 	 */
-	void SetHitPoints(int hitPoints);
+	void setHitPoints(int hitPoints);
 
 	int getHitPoints();
 

@@ -123,7 +123,7 @@ public class MinionTest {
 
     @Test
     public void testSetHitPoints() {
-        m1.SetHitPoints(2);
+        m1.setHitPoints(2);
         Assert.assertEquals("Fout, verwacht 2", 2, m1.getHitPoints());
     }
 }

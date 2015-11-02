@@ -125,6 +125,6 @@ public class MatchTest {
         
         Hero testHero = testMatch.getHero1();
         
-        testHero.SetHitPoints(0);
+        testHero.setHitPoints(0);
     }
 }

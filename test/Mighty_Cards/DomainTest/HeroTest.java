@@ -383,7 +383,7 @@ public class HeroTest {
         int result = testHero.getHitPoints();
         assertEquals(expResult, result);
 
-        testHero.SetHitPoints(40);
+        testHero.setHitPoints(40);
 
         expResult = 40;
         result = testHero.getHitPoints();
@@ -391,7 +391,7 @@ public class HeroTest {
     }
 
     /**
-     * Test of SetHitPoints method, of class Hero.
+     * Test of setHitPoints method, of class Hero.
      */
     @Test
     public void testSetHitPoints() {
@@ -400,7 +400,7 @@ public class HeroTest {
         Match testMatch = new Match(testPlayer);
         Deck testDeck = new Deck();
         Hero testHero = new Hero(testMatch, testPlayer, testDeck);
-        testHero.SetHitPoints(40);
+        testHero.setHitPoints(40);
 
         int expResult = 40;
         int result = testHero.getHitPoints();

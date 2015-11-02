@@ -21,11 +21,11 @@ public class Minion implements ITarget {
 
 	public void Attack() {
 		ITarget target = this.getITarget();
-                target.SetHitPoints(target.getHitPoints() - this.getPhysicalDamage() - this.getMagicalDamage());
+                target.setHitPoints(target.getHitPoints() - this.getPhysicalDamage() - this.getMagicalDamage());
                 if(target instanceof Minion)
                 {
                     //It's strange that he gets the damage from the minion he attacks. He can get twice the damage because the 'turns' are on the same moment.
-                    this.SetHitPoints(this.getHitPoints()); // Can't get the target's Damage;
+                    this.setHitPoints(this.getHitPoints()); // Can't get the target's Damage;
                 }
 
                 //self.SetHitPoint(hp-target.etc) //zie I.23 van Analyzedocument.docx
@@ -63,7 +63,7 @@ public class Minion implements ITarget {
             return hitPoints;
         }
         
-        public void SetHitPoints(int hitPoints){
+        public void setHitPoints(int hitPoints){
             this.hitPoints = hitPoints;
         }
 }

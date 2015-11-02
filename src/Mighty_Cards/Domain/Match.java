@@ -115,10 +115,10 @@ public class Match {
                 }
                 totalValue = (physicalDamageDone + magicalDamageDone) + healing;
                 if(hp - totalValue > 50){
-                    hero2.SetHitPoints(50);
+                    hero2.setHitPoints(50);
                 }
                 else{
-                    hero2.SetHitPoints(hp - totalValue);
+                    hero2.setHitPoints(hp - totalValue);
                 }
                 
                 System.out.println("hero 2 heeft "+ hero2.getHitPoints() + " hp over");
@@ -147,10 +147,10 @@ public class Match {
                 }
                 totalValue = (physicalDamageDone + magicalDamageDone) + healing;
                 if(hp - totalValue > 50){
-                    hero1.SetHitPoints(50);
+                    hero1.setHitPoints(50);
                 }
                 else{
-                    hero1.SetHitPoints(hp - totalValue);
+                    hero1.setHitPoints(hp - totalValue);
                 }
                 System.out.println("hero 1 heeft "+ hero1.getHitPoints() + " hp over");
                 //Matthijs
@@ -242,7 +242,7 @@ public class Match {
 	 */
 	public void concede(Hero hero) {
             //gameState = GameState.Defined;
-            hero.SetHitPoints(0);
+            hero.setHitPoints(0);
             determineGameState();
 	}
         
