@@ -112,7 +112,7 @@ public class Match {
                 if(magicalDamageDone < 0){
                     magicalDamageDone = 0;
                 }
-                totalValue = (physicalDamageDone + magicalDamageDone) + healing;
+                totalValue = (physicalDamageDone + magicalDamageDone) - healing;
                 if(hp - totalValue > 50){
                     hero2.setHitPoints(50);
                 }
@@ -144,7 +144,7 @@ public class Match {
                 if(magicalDamageDone < 0){
                     magicalDamageDone = 0;
                 }
-                totalValue = (physicalDamageDone + magicalDamageDone) + healing;
+                totalValue = (physicalDamageDone + magicalDamageDone) - healing;
                 if(hp - totalValue > 50){
                     hero1.setHitPoints(50);
                 }

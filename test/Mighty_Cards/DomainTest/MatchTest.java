@@ -121,12 +121,12 @@ public class MatchTest {
         Match testMatch = new Match(p1);
         testMatch.addPlayer2(p2);
         
-        testMatch.StartTurn();
+        testMatch.startTurn();
         
         testMatch.getHero1().setFinished(true);
         testMatch.getHero2().setFinished(true);
         
-        testMatch.StartTurn();
+        testMatch.startTurn();
     }
     
     
@@ -144,12 +144,12 @@ public class MatchTest {
         Hero testHero1 = testMatch.getHero1();
         Hero testHero2 = testMatch.getHero2();
         
-        testHero1.SetHitPoints(0);
-        testHero2.SetHitPoints(0);
+        testHero1.setHitPoints(0);
+        testHero2.setHitPoints(0);
         
         testHero1.setFinished(true);
         testHero2.setFinished(true);
         
-        testMatch.StartTurn();
+        testMatch.startTurn();
     }
 }

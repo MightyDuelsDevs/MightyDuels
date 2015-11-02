@@ -12,7 +12,7 @@ public class Minion implements ITarget {
         private ITarget target;
         
 	/**
-	 * Create an new instace of minion and set its attributes according to the minionCard
+	 * Create an new instance of minion and set its attributes according to the minionCard
 	 * @param minionCard the minion card
 	 */
 	public Minion(MinionCard minionCard) {
@@ -23,7 +23,7 @@ public class Minion implements ITarget {
 	}
 
         /**
-         * Attac the stored target
+         * Attack the stored target
          */
 	public void attack() {
 		ITarget target = this.getITarget();
