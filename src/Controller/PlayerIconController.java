@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -21,8 +22,11 @@ public class PlayerIconController {
 
     static private ArrayList<Icon> icons;
 
-    public PlayerIconController() {
-        this.icons = new ArrayList<>();
+    /**
+     * Initialise the PlayerIcon Controller
+     */
+    public static void playerIconControllerInit() {
+        icons = new ArrayList<>();
         createIcons();
     }
 
@@ -30,7 +34,7 @@ public class PlayerIconController {
      * Function that gets all existing icons from the database This function
      * fills the ArrayList of Icon 'icons'
      */
-    private void createIcons() {
+    private static void createIcons() {
         String statement = "SELECT * FROM ICON";
 
         try {
@@ -52,7 +56,12 @@ public class PlayerIconController {
         }
     }
 
-    static public void changePlayerIcon(int playerID, int iconID) {
+    /**
+     * Change the icon of an player in the database
+     * @param playerID the id of the player
+     * @param iconID the id of the icon the player wants
+     */
+    public static void changePlayerIcon(int playerID, int iconID) {
         String statement = "UPDATE PLAYER SET ICONID = " + iconID + " WHERE ID = " + playerID;
         try {
             if (Database.checkConnection()) {
@@ -72,7 +81,7 @@ public class PlayerIconController {
      * @return boolean true if there is nu existing player with the same
      * displayname. False if there is an existing player.
      */
-    static private boolean checkIfPlayerExists(String displayname) {
+    private static boolean checkIfPlayerExists(String displayname) {
         String statement = "SELECT * FROM PLAYER WHERE DISPLAYNAME = '" + displayname.toUpperCase() + "'";
         try {
             if (Database.checkConnection()) {
@@ -100,7 +109,7 @@ public class PlayerIconController {
      * error. 1 = passcheck is not the same as password. 2 = username already in
      * use. 3 = successfully created a new player!
      */
-    static public int signUpPlayer(String email, String displayname, String password, String passcheck) {
+    public static int signUpPlayer(String email, String displayname, String password, String passcheck) {
         String statement = "INSERT INTO PLAYER(ID, ICONID, EMAIL, DISPLAYNAME, PASSWORD, RATING, MATCHES, WINS, LOSSES) VALUES (null, 1, '"
                 + email + "','" + displayname.toUpperCase() + "','" + password + "',1200,0,0,0)";
         try {
@@ -135,7 +144,7 @@ public class PlayerIconController {
      * @return Player the player information from the person that just logged
      * in.
      */
-    static public Player logInPlayer(String displayname, String password) {
+    public static Player logInPlayer(String displayname, String password) {
         Player player = null;
         String statement = "SELECT * FROM PLAYER WHERE DISPLAYNAME = '" + displayname.toUpperCase() + "' AND PASSWORD = '" + password + "'";
         try {
@@ -169,8 +178,9 @@ public class PlayerIconController {
      * future reference
      *
      * @param displayname
+     * @return the instance of the player
      */
-    static public Player createPlayer(String displayname) {
+    public static Player createPlayer(String displayname) {
         Player player = null;
         String statement = "SELECT * FROM PLAYER WHERE DISPLAYNAME = '" + displayname.toUpperCase() + "'";
         try {
@@ -204,13 +214,14 @@ public class PlayerIconController {
      * @param rating Current rating of the player
      * @return Returns all unlocked icons according to rating
      */
-    static public ArrayList<Icon> getIcons(int rating) {
+    public static ArrayList<Icon> getIcons(int rating) {
         ArrayList<Icon> unlockedIcons = new ArrayList<>();
-        for (Icon icon : icons) {
-            if (icon.getRatingLock() <= rating) {
-                unlockedIcons.add(icon);
-            }
-        }
+        unlockedIcons.addAll(icons.stream().filter((i)->i.getRatingLock()<= rating).collect(Collectors.toList()));
+//        for (Icon icon : icons) {
+//            if (icon.getRatingLock() <= rating) {
+//                unlockedIcons.add(icon);
+//            }
+//        }
         return unlockedIcons;
     }
 }
