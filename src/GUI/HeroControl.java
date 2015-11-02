@@ -37,11 +37,11 @@ public class HeroControl {
         img.setX(40);
         img.setY(10);
 
-        Font font = new Font("Matura MT Script Capitals", 22.0);
+        Font font = new Font("Calibri", 22.0);
 
         Label lName = new Label();
         lName.setText(player.getUsername());
-        lName.setLayoutY(225-80);
+        lName.setLayoutY(225-75);
         lName.setLayoutX(0);
         lName.setPrefWidth(225);
         lName.setAlignment(Pos.CENTER);

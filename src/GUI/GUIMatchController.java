@@ -18,6 +18,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -83,7 +84,7 @@ public class GUIMatchController implements Initializable {
 
     public void InitialiseHeroes() {
         player_1 = mightyduels.MightyDuels.loggedInPlayer;
-        player_2 = new Player(2, player_1.getUsername() + "Clone", player_1.getIconId(), player_1.getRating(), player_1.getWins(), player_1.getLosses(), player_1.getMatches());// TODO
+        player_2 = new Player(2, player_1.getUsername() + "Clone".toUpperCase(), player_1.getIconId(), player_1.getRating(), player_1.getWins(), player_1.getLosses(), player_1.getMatches());// TODO
 
         Random random = new Random();
 
@@ -136,40 +137,61 @@ public class GUIMatchController implements Initializable {
 
                         gridOpponentSide.add(pane, 1, 0);
                         boolean proceed = false;
-                        while (!proceed) {
-                            if (gridOpponentSide.getChildren().contains(pane)) {
-                                proceed = true;
-                            }
-                            gridChooseCard.getChildren().clear();
 
-                            match.getHero2().setCardPlayed((Card)heroCardControls.get(count).getHeroCard());
-                            match.getHero2().setFinished(true);
-                            
-                            match.startTurn();
-
-                            
-                            gridYourSide.getChildren().remove(2);
-                            gridOpponentSide.getChildren().remove(2);
-                            
-                            yourHero.setHealth(match.getHero1().getHitPoints());
-                            opponentsHero.setHealth(match.getHero1().getHitPoints());
+                        if (gridOpponentSide.getChildren().contains(pane)) {
+                            proceed = true;
                         }
+                        gridChooseCard.getChildren().clear();
 
-                        // Determine Gamestate
-                        if (match.getGameState() == GameState.Defined || match.getGameState() == GameState.Tie) {
-                            if (match.getHero1().getHitPoints() <= 0 && match.getHero2().getHitPoints() <= 0) {
-                                JOptionPane.showMessageDialog(null, "It's a tie between " + player_1.getUsername() + " and " + player_2.getUsername() + ".", "Tie", JOptionPane.PLAIN_MESSAGE);
-                                backToMainScreen();
-                            } else if (match.getHero1().getHitPoints() <= 0) {
-                                JOptionPane.showMessageDialog(null, player_1.getUsername() + " is victorious!", "Victory", JOptionPane.PLAIN_MESSAGE);
-                                backToMainScreen();
-                            } else if (match.getHero2().getHitPoints() <= 0) {
-                                JOptionPane.showMessageDialog(null, player_2.getUsername() + " is victorious!", "Victory", JOptionPane.PLAIN_MESSAGE);
-                                backToMainScreen();
+                        match.getHero2().setCardPlayed((Card) heroCardControls.get(count).getHeroCard());
+                        match.getHero2().setFinished(true);
+
+                        Thread t = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    match.startTurn();
+
+                                    Platform.runLater(() -> {
+
+                                        yourHero.setHealth(match.getHero1().getHitPoints());
+                                        opponentsHero.setHealth(match.getHero2().getHitPoints());
+
+                                    });
+                                    sleep(2000);
+                                    Platform.runLater(() -> {
+                                        gridYourSide.getChildren().remove(2);
+                                        gridOpponentSide.getChildren().remove(2);
+                                        drawCards();
+                                    });
+
+                                    // Determine Gamestate
+                                    if (match.getGameState() == GameState.Defined || match.getGameState() == GameState.Tie) {
+                                        if (match.getHero1().getHitPoints() <= 0 && match.getHero2().getHitPoints() <= 0) {
+                                            Platform.runLater(() -> {
+                                                JOptionPane.showMessageDialog(null, "It's a tie between " + player_1.getUsername() + " and " + player_2.getUsername() + ".", "Tie", JOptionPane.PLAIN_MESSAGE);
+                                                backToMainScreen();
+                                            });
+
+                                        } else if (match.getHero1().getHitPoints() <= 0) {
+                                            Platform.runLater(() -> {
+                                                JOptionPane.showMessageDialog(null, player_2.getUsername() + " is victorious!", "Victory", JOptionPane.PLAIN_MESSAGE);
+                                                backToMainScreen();
+                                            });
+                                        } else if (match.getHero2().getHitPoints() <= 0) {
+                                            Platform.runLater(() -> {
+                                                JOptionPane.showMessageDialog(null, player_1.getUsername() + " is victorious!", "Victory", JOptionPane.PLAIN_MESSAGE);
+                                                backToMainScreen();
+                                            });
+                                        }
+                                    }
+
+                                } catch (InterruptedException ex) {
+                                    Logger.getLogger(GUIMatchController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
                             }
-                        }
-
-                        drawCards();
+                        };
+                        t.start();
                     }
                 }
             };
@@ -179,13 +201,13 @@ public class GUIMatchController implements Initializable {
     }
 
     private void backToMainScreen() {
-        String title = "Mighty Duels";
-        stage = (Stage) gridChooseCard.getScene().getWindow();
         try {
+            String title = "Mighty Duels";
+            stage = (Stage) gridChooseCard.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
+            mightyduels.MightyDuels.navigate(stage, root, title);
         } catch (IOException ex) {
             Logger.getLogger(GUIMatchController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        mightyduels.MightyDuels.navigate(stage, root, title);
     }
 }

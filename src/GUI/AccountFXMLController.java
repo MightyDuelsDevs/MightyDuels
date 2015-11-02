@@ -39,7 +39,7 @@ public class AccountFXMLController implements Initializable {
     private Stage stage;
     private Parent root;
     private Player loggedInPlayer;
-    private static int selectedIcon = 0;
+    private static int selectedIcon = 1;
 
     @FXML
     private Label lblAccountName;
@@ -101,8 +101,7 @@ public class AccountFXMLController implements Initializable {
         File fileSI = new File("/Images/I" + loggedInPlayer.getIconId() + ".png");
         Image imageSI = new Image(fileSI.toPath().toString(), 120, 120, false, false);
         ivSelectedIcon.setImage(imageSI);
-        
-        
+
         // Load all the Icons from the Database. Set them into a list.
         icons = PlayerIconController.getIcons(loggedInPlayer.getRating());
 
@@ -118,7 +117,9 @@ public class AccountFXMLController implements Initializable {
             ivIcon.setId("" + l);
             ivIcon.setOnMouseClicked((javafx.scene.input.MouseEvent event) -> {
                 ImageView iv = (ImageView) event.getSource();
-                JOptionPane.showMessageDialog(null, "You have selected Icon number: " + iv.getId() + ".", "Icon selected", JOptionPane.INFORMATION_MESSAGE);
+                if (AccountFXMLController.selectedIcon != Integer.parseInt(iv.getId())) {
+                    JOptionPane.showMessageDialog(null, "You have selected Icon number: " + iv.getId() + ".", "Icon selected", JOptionPane.INFORMATION_MESSAGE);
+                }
                 AccountFXMLController.setSelectedIcon(Integer.parseInt(iv.getId()));
             });
             gpIcons.setHalignment(ivIcon, HPos.CENTER);
