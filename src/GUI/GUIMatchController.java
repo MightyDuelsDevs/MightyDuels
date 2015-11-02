@@ -72,7 +72,7 @@ public class GUIMatchController implements Initializable {
         match.addPlayer2(player_2);
 
         CardDeckController cdc = new CardDeckController();
-        for (Card card : CardDeckController.allCards) {
+        for (Card card : CardDeckController.getAllCards()) {
             if (card instanceof HeroCard) {
                 cards.add((HeroCard) card);
             }
@@ -160,7 +160,7 @@ public class GUIMatchController implements Initializable {
                         match.getHero2().setCardPlayed((Card) heroCardControls.get(count).getHeroCard());
                         match.getHero2().setFinished(true);
 
-                        match.StartTurn();
+                        match.startTurn();
 
                         gridYourSide.getChildren().remove(2);
                         gridOpponentSide.getChildren().remove(2);
