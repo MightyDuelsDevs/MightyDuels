@@ -1,13 +1,16 @@
 package Mighty_Cards.Domain;
 
+/**
+ * An class contianing basic information about an icon
+ */
 public class Icon {
 
-    private int id;
-    private int ratingLock;
-    private String fileName;
+    private final int id;
+    private final int ratingLock;
+    private final String fileName;
 
     /**
-     *
+     * Create a new instance of Icon
      * @param id the icon id
      * @param ratinglock the icon rating cap
      * @param filename the icon filename
@@ -19,7 +22,7 @@ public class Icon {
     }
 
     /**
-     * 
+     * Get the icon id
      * @return the ID from the icon
      */
     public int getId() {
@@ -27,7 +30,7 @@ public class Icon {
     }
 
     /**
-     * 
+     * Get the ratingLock of the card
      * @return the rating cap from the icon
      */
     public int getRatingLock() {
@@ -35,7 +38,7 @@ public class Icon {
     }
 
     /**
-     * 
+     * Get the filename of the image of the card(inside the jar)
      * @return the filename of the icon
      */
     public String getFileName() {

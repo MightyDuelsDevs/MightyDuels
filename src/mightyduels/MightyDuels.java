@@ -11,9 +11,7 @@ import Mighty_Cards.Domain.Game;
 import Mighty_Cards.Domain.Player;
 import java.awt.SplashScreen;
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -55,7 +53,7 @@ public class MightyDuels {
         log.info("Creating CardDeckController");
         CardDeckController.cardDeckControllerInit();
         log.info("Creating PlayerIconController");
-        new PlayerIconController();
+        PlayerIconController.playerIconControllerInit();
         log.info("Starting main application");
         SplashScreen splash = SplashScreen.getSplashScreen();
         if (splash != null) {
@@ -64,6 +62,12 @@ public class MightyDuels {
         LogOn.main(args);
     }
 
+    /**
+     * Navigate to another scene
+     * @param stage the source stage
+     * @param root the root scene
+     * @param title the window title
+     */
     public static void navigate(Stage stage, Parent root, String title) {
         Scene scene = new Scene(root);
         stage.setScene(scene);

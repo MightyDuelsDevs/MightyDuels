@@ -40,7 +40,7 @@ public class DeckFXMLController implements Initializable {
     private void btnPlay_OnClick(ActionEvent event) throws IOException {
         String title = "Let the Duel begin!!!";
         stage = (Stage) btnPlay.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));// Todo duel
+        root = FXMLLoader.load(getClass().getResource("GUIMatch.fxml"));
         mightyduels.MightyDuels.navigate(stage, root, title);
     }
 

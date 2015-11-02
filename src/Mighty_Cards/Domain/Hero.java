@@ -3,24 +3,27 @@ package Mighty_Cards.Domain;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * An class containin info about an Hero and metods what he can do
+ */
 public class Hero implements ITarget {
 
-    private Match match;
+    private final Match match;
     private int hitPoints = 50;
     private boolean finished;
     private Deck deck;
-    private Player player;
+    private final Player player;
     
     private ArrayList<Minion> minions;
     private ArrayList<Card> cardsInHand;
     private Card cardPlayed;
-    private Random randomCard = new Random();
+    private final Random randomCard = new Random();
 
     /**
-     *
-     * @param match
-     * @param player
-     * @param deck
+     * Create an new intace of Hero
+     * @param match the match in which he exists
+     * @param player the player he represents
+     * @param deck the deck the player wants to play with
      */
     public Hero(Match match, Player player, Deck deck) {
         // TODO - implement Hero.Hero
@@ -71,7 +74,7 @@ public class Hero implements ITarget {
     /**
      * returns the minions of the player
      *
-     * @return the minions of the Hero in an ArrayList<Minion>
+     * @return the minions of the Hero in an ArrayList&lt;Minion&gt;
      */
     public ArrayList<Minion> getMinions() {
         return minions;
@@ -89,7 +92,7 @@ public class Hero implements ITarget {
     /**
      * returns the cards of the player
      *
-     * @return the cards of the Hero in an ArrayList<Card>
+     * @return the cards of the Hero in an ArrayList&lt;Card&gt;
      */
     public ArrayList<Card> getInHand() {
         return cardsInHand;
@@ -184,7 +187,7 @@ public class Hero implements ITarget {
      * @param hitPoints
      */
     @Override
-    public void SetHitPoints(int hitPoints) {
+    public void setHitPoints(int hitPoints) {
         this.hitPoints = hitPoints;
     }
 }
