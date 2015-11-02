@@ -83,22 +83,28 @@ public class RegisterFXMLController implements Initializable {
                 case 0:
                     JOptionPane.showMessageDialog(null, "An unexpected error occurred.", "Error", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("An unexpected error occurred.");
+                    break;
                 case 1:
                     JOptionPane.showMessageDialog(null, "The two inserted passwords do NOT match.", "Error", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("The two inserted passwords do NOT match.");
+                    break;
                 case 2:
                     JOptionPane.showMessageDialog(null, "Account already exists.", "Error", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Account already exists in the datbase.");
+                    break;
                 case 3:
                     //Add the Player to the database.
                     String title = "Mighty Duels";
                     stage = (Stage) btnRegisterAccount.getScene().getWindow();
                     root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
                     mightyduels.MightyDuels.navigate(stage, root, title);
+                    JOptionPane.showMessageDialog(null, "Account succesfully registered.", "Error", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Account succesfully registered");
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null, "An unexpected error occurred.", "Error", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("An unexpected error occurred.");
+                    break;
             }
         }
     }
