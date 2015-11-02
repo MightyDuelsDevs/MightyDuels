@@ -2,6 +2,9 @@ package Mighty_Cards.Domain;
 
 import java.util.ArrayList;
 
+/**
+ * An class for storing info about the current game instance
+ */
 public class Game {
 
     private static Game instance;
@@ -10,10 +13,18 @@ public class Game {
     private Player player;
     private Match match;
 
+    /**
+     * Initialise the game instace
+     */
     public Game() {
         // Exists only to defeat instantiation.        
     }
 
+    /**
+     * get the icons the game knows of
+     * @return the list of icons
+     * @deprecated moved to Controller.PlayerIconController
+     */
     public ArrayList<Icon> getIcon() {
         return this.icons;
     }
@@ -23,7 +34,7 @@ public class Game {
      *
      * @return this game instance
      */
-    public static Game getInstance() {
+    public synchronized static Game getInstance() {
         if (instance == null) {
             instance = new Game();
         }
@@ -42,8 +53,9 @@ public class Game {
     }
 
     /**
-     *
+     * Get all the cards the game knows off
      * @return the list of 30 cards
+     * @deprecated moved to Controller.CardDeckController
      */
     public ArrayList<Card> getCards() {
         return this.cards;
