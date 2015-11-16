@@ -24,6 +24,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -92,13 +94,9 @@ public class GUIMatchController implements Initializable {
         gridYourSide.add(yourHero.getHeroControl(), 0, 0);
 
         opponentsHero = new HeroControl(50, player_2);
-        gridOpponentSide.add(opponentsHero.getHeroControl(), 4, 0);
+        gridOpponentSide.add(opponentsHero.getHeroControl(), 5, 0);
 
-        ImageView imageViewYourDeck = new ImageView("/Images/card stack.png");
-        ImageView imageViewOpponentsDeck = new ImageView("/Images/card stack.png");
 
-        gridYourSide.add(imageViewYourDeck, 4, 0);
-        gridOpponentSide.add(imageViewOpponentsDeck, 0, 0);
     }
 
     private void drawCards() {
@@ -125,8 +123,10 @@ public class GUIMatchController implements Initializable {
                 public void handle(Event event) {
                     if (!yourCardPlayed) {
                         yourCardPlayed = true;
-
+                        
+            
                         gridYourSide.add(pane, 1, 0);
+                        gridYourSide.setAlignment(Pos.BASELINE_LEFT);
                         gridChooseCard.getChildren().clear();
                         match.getHero1().setCardPlayed((Card) heroCardControls.get(count).getHeroCard());
                         match.getHero1().setFinished(true);
@@ -135,7 +135,7 @@ public class GUIMatchController implements Initializable {
 
                         yourCardPlayed = false;
 
-                        gridOpponentSide.add(pane, 1, 0);
+                        gridOpponentSide.add(pane, 4, 0);
                         boolean proceed = false;
 
                         if (gridOpponentSide.getChildren().contains(pane)) {
@@ -160,8 +160,8 @@ public class GUIMatchController implements Initializable {
                                     });
                                     sleep(2000);
                                     Platform.runLater(() -> {
-                                        gridYourSide.getChildren().remove(2);
-                                        gridOpponentSide.getChildren().remove(2);
+                                        gridYourSide.getChildren().remove(1);
+                                        gridOpponentSide.getChildren().remove(1);
                                         drawCards();
                                     });
 
