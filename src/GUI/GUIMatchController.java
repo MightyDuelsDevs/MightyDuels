@@ -24,6 +24,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -125,8 +127,10 @@ public class GUIMatchController implements Initializable {
                 public void handle(Event event) {
                     if (!yourCardPlayed) {
                         yourCardPlayed = true;
-
-                        gridYourSide.add(pane, 1, 0);
+                        
+            
+                        gridYourSide.add(pane, 2, 0);
+                        gridYourSide.setAlignment(Pos.BASELINE_LEFT);
                         gridChooseCard.getChildren().clear();
                         match.getHero1().setCardPlayed((Card) heroCardControls.get(count).getHeroCard());
                         match.getHero1().setFinished(true);
@@ -135,7 +139,7 @@ public class GUIMatchController implements Initializable {
 
                         yourCardPlayed = false;
 
-                        gridOpponentSide.add(pane, 1, 0);
+                        gridOpponentSide.add(pane, 2, 0);
                         boolean proceed = false;
 
                         if (gridOpponentSide.getChildren().contains(pane)) {
