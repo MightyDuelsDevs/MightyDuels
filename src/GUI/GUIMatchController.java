@@ -11,6 +11,8 @@ import Mighty_Cards.Domain.GameState;
 import Mighty_Cards.Domain.HeroCard;
 import Mighty_Cards.Domain.Match;
 import Mighty_Cards.Domain.Player;
+import Sound.AudioPlayerMightyDuels;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -66,6 +68,18 @@ public class GUIMatchController implements Initializable {
 
     private Match match;
 
+    //Variables for playing sound.
+    private AudioPlayerMightyDuels audioPlayer;
+
+    private String endTurnSoundFilePath;
+    private String healSoundFilePath;
+    private String magicalAttackSoundFilePath;
+    private String magicalBlockSoundFilePath;
+    private String minionSoundFilePath;
+    private String physicalAttackSoundFilePath;
+    private String physicalBlockSoundFilePath;
+    private String startTurnSoundFilePath;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         heroCardControls = new ArrayList<>();
@@ -81,6 +95,17 @@ public class GUIMatchController implements Initializable {
             }
         }
 
+        audioPlayer = new AudioPlayerMightyDuels();
+
+        endTurnSoundFilePath = "src/Sound/endTurn.wav";
+        healSoundFilePath = "src/Sound/heal.wav";
+        magicalAttackSoundFilePath = "src/Sound/magicalAttack.wav";
+        magicalBlockSoundFilePath = "src/Sound/magicalBlock.wav";
+        minionSoundFilePath = "src/Sound/minion.wav";
+        physicalAttackSoundFilePath = "src/Sound/physicalAttack.wav";
+        physicalBlockSoundFilePath = "src/Sound/physicalBlock.wav";
+        startTurnSoundFilePath = "src/Sound/startTurn.wav";
+        
         drawCards();
     }
 
@@ -127,8 +152,7 @@ public class GUIMatchController implements Initializable {
                 public void handle(Event event) {
                     if (!yourCardPlayed) {
                         yourCardPlayed = true;
-                        
-            
+
                         gridYourSide.add(pane, 2, 0);
                         gridYourSide.setAlignment(Pos.BASELINE_LEFT);
                         gridChooseCard.getChildren().clear();
@@ -187,11 +211,13 @@ public class GUIMatchController implements Initializable {
                                                 JOptionPane.showMessageDialog(null, player_1.getUsername() + " is victorious!", "Victory", JOptionPane.PLAIN_MESSAGE);
                                                 backToMainScreen();
                                             });
+
                                         }
                                     }
 
                                 } catch (InterruptedException ex) {
-                                    Logger.getLogger(GUIMatchController.class.getName()).log(Level.SEVERE, null, ex);
+                                    Logger.getLogger(GUIMatchController.class
+                                            .getName()).log(Level.SEVERE, null, ex);
                                 }
                             }
                         };
@@ -210,8 +236,10 @@ public class GUIMatchController implements Initializable {
             stage = (Stage) gridChooseCard.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
             mightyduels.MightyDuels.navigate(stage, root, title);
+
         } catch (IOException ex) {
-            Logger.getLogger(GUIMatchController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUIMatchController.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
