@@ -10,6 +10,8 @@ import Mighty_Cards.Domain.Player;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,24 +56,8 @@ public class LogOnFXMLController implements Initializable {
      * @throws IOException
      */
     @FXML
-    private void btnLogOn_OnClick(ActionEvent event) throws IOException {
-
-        if (tfUserName.getText().isEmpty() || tfPassWord.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Fill both fields.", "Error", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            Player player = PlayerIconController.logInPlayer(tfUserName.getText(), tfPassWord.getText());
-            if (player == null) {
-                JOptionPane.showMessageDialog(null, "Username & Password do not match.", "Error", JOptionPane.INFORMATION_MESSAGE);
-                tfPassWord.setText("");
-            } else {
-                mightyduels.MightyDuels.loggedInPlayer = player;
-                //Give the player to the next page;
-                String title = "Mighty Duels Welcome: " + player.getUsername();
-                stage = (Stage) btnLogOn.getScene().getWindow();
-                root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-                mightyduels.MightyDuels.navigate(stage, root, title);
-            }
-        }
+    private void btnLogOn_OnClick(ActionEvent event) {
+        login();
     }
 
     /**
@@ -90,6 +76,31 @@ public class LogOnFXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        tfUserName.setOnAction((evt)->{login();});
+        tfPassWord.setOnAction((evt)->{login();});
+    }
+    
+    private void login(){
+        if (tfUserName.getText().isEmpty() || tfPassWord.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fill both fields.", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            Player player = PlayerIconController.logInPlayer(tfUserName.getText(), tfPassWord.getText());
+            if (player == null) {
+                JOptionPane.showMessageDialog(null, "Username & Password do not match.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                tfPassWord.setText("");
+            } else {
+                try {
+                    mightyduels.MightyDuels.loggedInPlayer = player;
+                    //Give the player to the next page;
+                    String title = "Mighty Duels Welcome: " + player.getUsername();
+                    stage = (Stage) btnLogOn.getScene().getWindow();
+                    root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
+                    mightyduels.MightyDuels.navigate(stage, root, title);
+                } catch (IOException ex) {
+                    Logger.getLogger(LogOnFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
 
 }

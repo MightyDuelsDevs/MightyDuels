@@ -6,6 +6,7 @@
 package GUI;
 
 import Mighty_Cards.Domain.Player;
+import java.awt.Color;
 import java.text.DecimalFormat;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -13,7 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.text.Font;
+import javax.swing.UIManager;
+import javax.swing.plaf.synth.ColorType;
+
 
 /**
  *
