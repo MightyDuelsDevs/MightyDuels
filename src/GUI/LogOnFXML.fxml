@@ -30,7 +30,7 @@
                <font>
                   <Font size="18.0" />
                </font></TextField>
-                <PasswordField fx:id="tfPassWord" prefHeight="41.0" prefWidth="317.0" promptText="wachtwoord" GridPane.rowIndex="1">
+                <PasswordField fx:id="tfPassWord" prefHeight="41.0" prefWidth="317.0" promptText="Password" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font></PasswordField>
