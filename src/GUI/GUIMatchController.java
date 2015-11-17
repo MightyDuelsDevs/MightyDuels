@@ -11,7 +11,7 @@ import Mighty_Cards.Domain.GameState;
 import Mighty_Cards.Domain.HeroCard;
 import Mighty_Cards.Domain.Match;
 import Mighty_Cards.Domain.Player;
-import Sound.AudioPlayerMightyDuels;
+import Controller.SoundController;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -69,8 +69,6 @@ public class GUIMatchController implements Initializable {
     private Match match;
 
     //Variables for playing sound.
-    private AudioPlayerMightyDuels audioPlayer;
-
     private String endTurnSoundFilePath;
     private String healSoundFilePath;
     private String magicalAttackSoundFilePath;
@@ -94,8 +92,6 @@ public class GUIMatchController implements Initializable {
                 cards.add((HeroCard) card);
             }
         }
-
-        audioPlayer = new AudioPlayerMightyDuels();
 
         endTurnSoundFilePath = "src/Sound/endTurn.wav";
         healSoundFilePath = "src/Sound/heal.wav";

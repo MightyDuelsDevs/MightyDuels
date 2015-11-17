@@ -1,8 +1,12 @@
-package Sound;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Controller;
 
 import java.io.File;
 import java.io.IOException;
-
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -14,18 +18,16 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
- * Source :
- * http://www.codejava.net/coding/how-to-play-back-audio-in-java-with-examples
- * Class that manages the audio of Mighty Duels.
+ *
+ * @author Martijn
  */
-public class AudioPlayerMightyDuels {
-
+public class SoundController {
     /**
      * Play a given audio file.
      *
      * @param audioFilePath Path of the audio file.
      */
-    public void play(String audioFilePath) {
+    public static void play(String audioFilePath) {
         
         class playAudioRunnable implements Runnable, LineListener {
 
