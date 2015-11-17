@@ -11,8 +11,6 @@ import Mighty_Cards.Domain.GameState;
 import Mighty_Cards.Domain.HeroCard;
 import Mighty_Cards.Domain.Match;
 import Mighty_Cards.Domain.Player;
-import Controller.SoundController;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
