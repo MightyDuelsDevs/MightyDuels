@@ -78,7 +78,7 @@ public class AccountFXMLController implements Initializable {
         
         // Set the selected icon into the database.
         PlayerIconController.changePlayerIcon(loggedInPlayer.getId(), selectedIcon);
-        Image image = new Image("/Images/I" + selectedIcon + ".png", 120, 120, false, false);
+        Image image = new Image("../Images/I" + selectedIcon + ".png", 120, 120, false, false);
         ivSelectedIcon.setImage(image);
         MightyDuels.loggedInPlayer.setIconId(selectedIcon);
         //JOptionPane.showMessageDialog(null, "You have succesfully changed your icon to Icon number: " + selectedIcon + ".", "Icon saved", JOptionPane.INFORMATION_MESSAGE);
@@ -103,7 +103,7 @@ public class AccountFXMLController implements Initializable {
         lblAmountOfWins.setText(" " + loggedInPlayer.getWins());
         lblAmountOfLosses.setText(" " + loggedInPlayer.getLosses());
 
-        Image imageSI = new Image("/Images/I" + loggedInPlayer.getIconId()+ ".png", 120, 120, false, false);
+        Image imageSI = new Image("../Images/I" + loggedInPlayer.getIconId()+ ".png", 120, 120, false, false);
         ivSelectedIcon.setImage(imageSI);
 
         // Load all the Icons from the Database. Set them into a list.
