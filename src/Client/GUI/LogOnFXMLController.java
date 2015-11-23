@@ -61,7 +61,7 @@ public class LogOnFXMLController implements Initializable {
      */
     @FXML
     private void btnLogOn_OnClick(ActionEvent event) {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         login();
     }
@@ -74,7 +74,7 @@ public class LogOnFXMLController implements Initializable {
      */
     @FXML
     private void btnRegister_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Mighty Duels";
         stage = (Stage) btnRegister.getScene().getWindow();

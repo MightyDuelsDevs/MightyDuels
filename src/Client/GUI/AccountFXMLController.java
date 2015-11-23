@@ -71,12 +71,10 @@ public class AccountFXMLController implements Initializable {
 
     private ArrayList<Icon> icons = new ArrayList<>();
     
-    //Variables for playing sound.
-    private final String buttonPressFilePath = "src/Sound/buttonPress.wav";
 
     @FXML
     private void btnSaveIcon_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         // Set the selected icon into the database.
         PlayerIconController.changePlayerIcon(loggedInPlayer.getId(), selectedIcon);
@@ -88,7 +86,7 @@ public class AccountFXMLController implements Initializable {
 
     @FXML
     private void btnBack_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();

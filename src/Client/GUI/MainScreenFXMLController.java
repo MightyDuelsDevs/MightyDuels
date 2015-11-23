@@ -48,7 +48,7 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnDuel_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Let the Duel begin!!!";
         stage = (Stage) btnDuel.getScene().getWindow();
@@ -58,7 +58,7 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnNewDeck_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Mighty Duels";
         stage = (Stage) btnNewDeck.getScene().getWindow();
@@ -68,7 +68,7 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnLogOut_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Mighty Duels";
         stage = (Stage) btnLogOut.getScene().getWindow();
@@ -78,7 +78,7 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnAccount_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Mighty Duels";
         stage = (Stage) btnLogOut.getScene().getWindow();

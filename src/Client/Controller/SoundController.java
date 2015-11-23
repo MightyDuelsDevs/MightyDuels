@@ -22,13 +22,38 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  * @author Martijn
  */
 public class SoundController {
+
+    //Enumerator for all the different sound files.
+    public static enum SoundFile {
+
+        BUTTONPRESS("src/Client.Sound/buttonPress.wav"),
+        ENDTURN("src/Client.Sound/buttonPress.wav"),
+        HEAL("src/Client.Sound/buttonPress.wav"),
+        MAGICALATTACK("src/Client.Sound/buttonPress.wav"),
+        MAGICALBLOCK("src/Client.Sound/buttonPress.wav"),
+        MINION("src/Client.Sound/buttonPress.wav"),
+        PHYSICALATTACK("src/Client.Sound/buttonPress.wav"),
+        PHYSICALBLOCK("src/Client.Sound/buttonPress.wav"),
+        STARTTURN("src/Client.Sound/buttonPress.wav");
+
+        private final String audioFilePath;
+
+        private SoundFile(String audioFilePath) {
+            this.audioFilePath = audioFilePath;
+        }
+
+        public String getAudioFilePath() {
+            return audioFilePath;
+        }
+    }
+
     /**
      * Play a given audio file.
      *
-     * @param audioFilePath Path of the audio file.
+     * @param audioFile the audio file.
      */
-    public static void play(String audioFilePath) {
-        
+    public static void play(SoundFile audioFile) {
+
         class playAudioRunnable implements Runnable, LineListener {
 
             /**
@@ -37,11 +62,10 @@ public class SoundController {
             boolean playCompleted;
             String audioFilePath;
 
-            playAudioRunnable (String audioFilePath)
-            {
+            playAudioRunnable(String audioFilePath) {
                 this.audioFilePath = audioFilePath;
             }
-            
+
             @Override
             public void run() {
                 File audioFile = new File(audioFilePath);
@@ -95,7 +119,7 @@ public class SoundController {
             }
         }
 
-        Thread audioPlayThread = new Thread(new playAudioRunnable(audioFilePath));
+        Thread audioPlayThread = new Thread(new playAudioRunnable(audioFile.getAudioFilePath()));
         audioPlayThread.start();
     }
 }

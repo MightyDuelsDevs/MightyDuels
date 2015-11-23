@@ -42,7 +42,7 @@ public class DeckFXMLController implements Initializable {
     //Set the right deck as 'selected' into the database when pressed on 'Play'.
     @FXML
     private void btnPlay_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Let the Duel begin!!!";
         stage = (Stage) btnPlay.getScene().getWindow();
@@ -52,7 +52,7 @@ public class DeckFXMLController implements Initializable {
 
     @FXML
     private void btnBack_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();

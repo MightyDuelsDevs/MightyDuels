@@ -76,7 +76,7 @@ public class RegisterFXMLController implements Initializable {
      */
     @FXML
     private void btnRegisterAccount_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         //Check  if  the UserName already exists
         //If not, Check if the 2 inserted passwords match. If they do, Make the Account.
@@ -116,7 +116,7 @@ public class RegisterFXMLController implements Initializable {
 
     @FXML
     private void btnBack_OnClick(ActionEvent event) throws IOException {
-        SoundController.play(buttonPressFilePath);
+        SoundController.play(SoundController.SoundFile.BUTTONPRESS);
         
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();
