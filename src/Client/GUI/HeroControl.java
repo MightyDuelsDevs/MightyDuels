@@ -19,26 +19,27 @@ import javafx.scene.text.Font;
 import javax.swing.UIManager;
 import javax.swing.plaf.synth.ColorType;
 
-
 /**
  *
  * @author Matthijs
  */
 public class HeroControl {
+
     private int health;
     private ProgressBar pHealth;
     private Label lHealt;
     private Player player;
-    
-    public HeroControl(int health,Player player){
+
+    public HeroControl(int health, Player player) {
         this.health = health;
         this.player = player;
     }
-    
-    public AnchorPane getHeroControl(){
-        ImageView img = new ImageView("../Images/I" + player.getIconId()+ ".png");
-        img.setFitWidth(225-80);
-        img.setFitHeight(225-80);
+
+    public AnchorPane getHeroControl() {
+        ImageView img = new ImageView("/Client/Images/I" + player.getIconId() + ".png");
+
+        img.setFitWidth(225 - 80);
+        img.setFitHeight(225 - 80);
         img.setX(40);
         img.setY(10);
 
@@ -46,7 +47,7 @@ public class HeroControl {
 
         Label lName = new Label();
         lName.setText(player.getUsername());
-        lName.setLayoutY(225-75);
+        lName.setLayoutY(225 - 75);
         lName.setLayoutX(0);
         lName.setPrefWidth(225);
         lName.setAlignment(Pos.CENTER);
@@ -54,26 +55,26 @@ public class HeroControl {
 
         lHealt = new Label();
         lHealt.setText("60");
-        lHealt.setLayoutY(225-50);
+        lHealt.setLayoutY(225 - 50);
         lHealt.setLayoutX(10);
         lHealt.setFont(font);
 
         pHealth = new ProgressBar(0.6);
         pHealth.setLayoutX(50);
-        pHealth.setLayoutY(255-60);
-        pHealth.setPrefWidth(255-90);
+        pHealth.setLayoutY(255 - 60);
+        pHealth.setPrefWidth(255 - 90);
         pHealth.setStyle("-fx-accent: red;");
 
         setHealth(50);
 
         AnchorPane root = new AnchorPane();
-        root.getChildren().addAll(img,lName,lHealt,pHealth);
+        root.getChildren().addAll(img, lName, lHealt, pHealth);
         return root;
     }
-    
-    public void setHealth(int health){
-        Platform.runLater(()->{
-            pHealth.setProgress(health/50.0);
+
+    public void setHealth(int health) {
+        Platform.runLater(() -> {
+            pHealth.setProgress(health / 50.0);
             lHealt.setText(health + "");
         });
     }

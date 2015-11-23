@@ -7,6 +7,7 @@ package Client.GUI;
 
 import Server.Controller.PlayerIconController;
 import Client.Controller.SoundController;
+import Client.Start.MightyDuelsClient;
 import Server.Domain.Icon;
 import java.io.IOException;
 import java.net.URL;
@@ -21,14 +22,13 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.geometry.HPos;
 import Server.Domain.Player;
-import java.io.File;
 import java.util.ArrayList;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javax.swing.JOptionPane;
-import mightyduels.MightyDuels;
+import Server.Start.MightyDuelsServer;
 
 /**
  * FXML Controller class
@@ -78,9 +78,9 @@ public class AccountFXMLController implements Initializable {
         
         // Set the selected icon into the database.
         PlayerIconController.changePlayerIcon(loggedInPlayer.getId(), selectedIcon);
-        Image image = new Image("../Images/I" + selectedIcon + ".png", 120, 120, false, false);
+        Image image = new Image("/Client/Images/I" + selectedIcon + ".png", 120, 120, false, false);
         ivSelectedIcon.setImage(image);
-        MightyDuels.loggedInPlayer.setIconId(selectedIcon);
+        MightyDuelsServer.loggedInPlayer.setIconId(selectedIcon);
         //JOptionPane.showMessageDialog(null, "You have succesfully changed your icon to Icon number: " + selectedIcon + ".", "Icon saved", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -91,19 +91,19 @@ public class AccountFXMLController implements Initializable {
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        MightyDuelsClient.navigate(stage, root, title);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.loggedInPlayer = mightyduels.MightyDuels.loggedInPlayer;
+        this.loggedInPlayer = MightyDuelsServer.loggedInPlayer;
         lblAccountName.setText(" " + loggedInPlayer.getUsername());
         lblTheRating.setText(" " + loggedInPlayer.getRating());
         lblAmountOfGames.setText(" " + loggedInPlayer.getMatches());
         lblAmountOfWins.setText(" " + loggedInPlayer.getWins());
         lblAmountOfLosses.setText(" " + loggedInPlayer.getLosses());
 
-        Image imageSI = new Image("../Images/I" + loggedInPlayer.getIconId()+ ".png", 120, 120, false, false);
+        Image imageSI = new Image("/Client/Images/I" + loggedInPlayer.getIconId()+ ".png", 120, 120, false, false);
         ivSelectedIcon.setImage(imageSI);
 
         // Load all the Icons from the Database. Set them into a list.

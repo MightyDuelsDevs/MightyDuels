@@ -79,7 +79,7 @@ public class LogOnFXMLController implements Initializable {
         String title = "Mighty Duels";
         stage = (Stage) btnRegister.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("RegisterFXML.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
     @Override
@@ -98,12 +98,12 @@ public class LogOnFXMLController implements Initializable {
                 tfPassWord.setText("");
             } else {
                 try {
-                    mightyduels.MightyDuels.loggedInPlayer = player;
+                    Server.Start.MightyDuelsServer.loggedInPlayer = player;
                     //Give the player to the next page;
                     String title = "Mighty Duels Welcome: " + player.getUsername();
                     stage = (Stage) btnLogOn.getScene().getWindow();
                     root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-                    mightyduels.MightyDuels.navigate(stage, root, title);
+                    Client.Start.MightyDuelsClient.navigate(stage, root, title);
                 } catch (IOException ex) {
                     Logger.getLogger(LogOnFXMLController.class.getName()).log(Level.SEVERE, null, ex);
                 }

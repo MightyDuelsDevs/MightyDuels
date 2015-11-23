@@ -42,7 +42,7 @@ public class Icon {
      * @return the filename of the icon
      */
     public String getFileName() {
-        return this.fileName;
+        return "/Client" + this.fileName;
     }
 
 }

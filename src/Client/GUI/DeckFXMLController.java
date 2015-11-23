@@ -47,7 +47,7 @@ public class DeckFXMLController implements Initializable {
         String title = "Let the Duel begin!!!";
         stage = (Stage) btnPlay.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("GUIMatch.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
     @FXML
@@ -57,7 +57,7 @@ public class DeckFXMLController implements Initializable {
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
     @Override

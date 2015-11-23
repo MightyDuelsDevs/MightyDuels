@@ -102,7 +102,7 @@ public class RegisterFXMLController implements Initializable {
                     String title = "Mighty Duels";
                     stage = (Stage) btnRegisterAccount.getScene().getWindow();
                     root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
-                    mightyduels.MightyDuels.navigate(stage, root, title);
+                    Client.Start.MightyDuelsClient.navigate(stage, root, title);
                     JOptionPane.showMessageDialog(null, "Account succesfully registered.", "Error", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println("Account succesfully registered");
                     break;
@@ -121,7 +121,7 @@ public class RegisterFXMLController implements Initializable {
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
 }

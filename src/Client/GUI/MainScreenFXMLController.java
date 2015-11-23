@@ -53,7 +53,7 @@ public class MainScreenFXMLController implements Initializable {
         String title = "Let the Duel begin!!!";
         stage = (Stage) btnDuel.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("GUIMatch.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class MainScreenFXMLController implements Initializable {
         String title = "Mighty Duels";
         stage = (Stage) btnNewDeck.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("DeckFXML.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
     @FXML
@@ -73,7 +73,7 @@ public class MainScreenFXMLController implements Initializable {
         String title = "Mighty Duels";
         stage = (Stage) btnLogOut.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
     @FXML
@@ -83,7 +83,7 @@ public class MainScreenFXMLController implements Initializable {
         String title = "Mighty Duels";
         stage = (Stage) btnLogOut.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("AccountFXML.fxml"));
-        mightyduels.MightyDuels.navigate(stage, root, title);
+        Client.Start.MightyDuelsClient.navigate(stage, root, title);
     }
 
     @Override

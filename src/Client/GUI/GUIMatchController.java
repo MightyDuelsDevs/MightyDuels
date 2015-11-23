@@ -5,13 +5,14 @@
  */
 package Client.GUI;
 
+import Client.Start.MightyDuelsClient;
 import Server.Controller.CardDeckController;
-import Client.Controller.SoundController;
 import Server.Domain.Card;
 import Server.Domain.GameState;
 import Server.Domain.HeroCard;
 import Server.Domain.Match;
 import Server.Domain.Player;
+import Server.Start.MightyDuelsServer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -25,10 +26,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -67,16 +66,6 @@ public class GUIMatchController implements Initializable {
 
     private Match match;
 
-    //Variables for playing sound.
-    private final String endTurnSoundFilePath = "src/Sound/endTurn.wav";
-    private final String healSoundFilePath = "src/Sound/heal.wav";
-    private final String magicalAttackSoundFilePath = "src/Sound/magicalAttack.wav";
-    private final String magicalBlockSoundFilePath = "src/Sound/magicalBlock.wav";
-    private final String minionSoundFilePath = "src/Sound/minion.wav";
-    private final String physicalAttackSoundFilePath = "src/Sound/physicalAttack.wav";
-    private final String physicalBlockSoundFilePath = "src/Sound/physicalBlock.wav";
-    private final String startTurnSoundFilePath = "src/Sound/startTurn.wav";
-    private final String buttonPressFilePath = "src/Sound/buttonPress.wav";
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -97,7 +86,7 @@ public class GUIMatchController implements Initializable {
     }
 
     public void InitialiseHeroes() {
-        player_1 = mightyduels.MightyDuels.loggedInPlayer;
+        player_1 = MightyDuelsServer.loggedInPlayer;
         player_2 = new Player(2, player_1.getUsername() + "Clone".toUpperCase(), player_1.getIconId(), player_1.getRating(), player_1.getWins(), player_1.getLosses(), player_1.getMatches());// TODO
 
         Random random = new Random();
@@ -219,7 +208,7 @@ public class GUIMatchController implements Initializable {
             String title = "Mighty Duels";
             stage = (Stage) gridChooseCard.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));
-            mightyduels.MightyDuels.navigate(stage, root, title);
+            MightyDuelsClient.navigate(stage, root, title);
 
         } catch (IOException ex) {
             Logger.getLogger(GUIMatchController.class
