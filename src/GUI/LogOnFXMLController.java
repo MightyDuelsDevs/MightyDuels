@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.PlayerIconController;
+import Controller.SoundController;
 import Mighty_Cards.Domain.Player;
 import java.io.IOException;
 import java.net.URL;
@@ -47,6 +48,9 @@ public class LogOnFXMLController implements Initializable {
     @FXML
     private Button btnRegister;
 
+    //Variables for playing sound.
+    private final String buttonPressFilePath = "src/Sound/buttonPress.wav";
+    
     /**
      * If the Username already exists, give a message. If the Username and
      * Password do not match. give a message. When The username and password
@@ -57,6 +61,8 @@ public class LogOnFXMLController implements Initializable {
      */
     @FXML
     private void btnLogOn_OnClick(ActionEvent event) {
+        SoundController.play(buttonPressFilePath);
+        
         login();
     }
 
@@ -68,6 +74,8 @@ public class LogOnFXMLController implements Initializable {
      */
     @FXML
     private void btnRegister_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Mighty Duels";
         stage = (Stage) btnRegister.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("RegisterFXML.fxml"));

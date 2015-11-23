@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.PlayerIconController;
+import Controller.SoundController;
 import Mighty_Cards.Domain.Icon;
 import java.io.IOException;
 import java.net.URL;
@@ -69,9 +70,14 @@ public class AccountFXMLController implements Initializable {
     private ImageView ivSelectedIcon;
 
     private ArrayList<Icon> icons = new ArrayList<>();
+    
+    //Variables for playing sound.
+    private final String buttonPressFilePath = "src/Sound/buttonPress.wav";
 
     @FXML
     private void btnSaveIcon_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         // Set the selected icon into the database.
         PlayerIconController.changePlayerIcon(loggedInPlayer.getId(), selectedIcon);
         Image image = new Image("/Images/I" + selectedIcon + ".png", 120, 120, false, false);
@@ -82,6 +88,8 @@ public class AccountFXMLController implements Initializable {
 
     @FXML
     private void btnBack_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));

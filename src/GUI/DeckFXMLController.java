@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Controller.SoundController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,10 +35,15 @@ public class DeckFXMLController implements Initializable {
 
     @FXML
     private Button btnPlay;
+    
+    //Variables for playing sound.
+    private final String buttonPressFilePath = "src/Sound/buttonPress.wav";
 
     //Set the right deck as 'selected' into the database when pressed on 'Play'.
     @FXML
     private void btnPlay_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Let the Duel begin!!!";
         stage = (Stage) btnPlay.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("GUIMatch.fxml"));
@@ -46,6 +52,8 @@ public class DeckFXMLController implements Initializable {
 
     @FXML
     private void btnBack_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Mighty Duels";
         stage = (Stage) btnBack.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("MainScreenFXML.fxml"));

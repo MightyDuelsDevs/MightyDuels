@@ -6,6 +6,7 @@
 package GUI;
 
 import Controller.CardDeckController;
+import Controller.SoundController;
 import Mighty_Cards.Domain.Card;
 import Mighty_Cards.Domain.GameState;
 import Mighty_Cards.Domain.HeroCard;
@@ -67,15 +68,16 @@ public class GUIMatchController implements Initializable {
     private Match match;
 
     //Variables for playing sound.
-    private String endTurnSoundFilePath;
-    private String healSoundFilePath;
-    private String magicalAttackSoundFilePath;
-    private String magicalBlockSoundFilePath;
-    private String minionSoundFilePath;
-    private String physicalAttackSoundFilePath;
-    private String physicalBlockSoundFilePath;
-    private String startTurnSoundFilePath;
-
+    private final String endTurnSoundFilePath = "src/Sound/endTurn.wav";
+    private final String healSoundFilePath = "src/Sound/heal.wav";
+    private final String magicalAttackSoundFilePath = "src/Sound/magicalAttack.wav";
+    private final String magicalBlockSoundFilePath = "src/Sound/magicalBlock.wav";
+    private final String minionSoundFilePath = "src/Sound/minion.wav";
+    private final String physicalAttackSoundFilePath = "src/Sound/physicalAttack.wav";
+    private final String physicalBlockSoundFilePath = "src/Sound/physicalBlock.wav";
+    private final String startTurnSoundFilePath = "src/Sound/startTurn.wav";
+    private final String buttonPressFilePath = "src/Sound/buttonPress.wav";
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         heroCardControls = new ArrayList<>();
@@ -90,15 +92,6 @@ public class GUIMatchController implements Initializable {
                 cards.add((HeroCard) card);
             }
         }
-
-        endTurnSoundFilePath = "src/Sound/endTurn.wav";
-        healSoundFilePath = "src/Sound/heal.wav";
-        magicalAttackSoundFilePath = "src/Sound/magicalAttack.wav";
-        magicalBlockSoundFilePath = "src/Sound/magicalBlock.wav";
-        minionSoundFilePath = "src/Sound/minion.wav";
-        physicalAttackSoundFilePath = "src/Sound/physicalAttack.wav";
-        physicalBlockSoundFilePath = "src/Sound/physicalBlock.wav";
-        startTurnSoundFilePath = "src/Sound/startTurn.wav";
         
         drawCards();
     }

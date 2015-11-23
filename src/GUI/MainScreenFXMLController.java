@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Controller.SoundController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,9 +42,14 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private Button btnLogOut;
+    
+    //Variables for playing sound.
+    private final String buttonPressFilePath = "src/Sound/buttonPress.wav";
 
     @FXML
     private void btnDuel_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Let the Duel begin!!!";
         stage = (Stage) btnDuel.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("GUIMatch.fxml"));
@@ -52,6 +58,8 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnNewDeck_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Mighty Duels";
         stage = (Stage) btnNewDeck.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("DeckFXML.fxml"));
@@ -60,6 +68,8 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnLogOut_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Mighty Duels";
         stage = (Stage) btnLogOut.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
@@ -68,6 +78,8 @@ public class MainScreenFXMLController implements Initializable {
 
     @FXML
     private void btnAccount_OnClick(ActionEvent event) throws IOException {
+        SoundController.play(buttonPressFilePath);
+        
         String title = "Mighty Duels";
         stage = (Stage) btnLogOut.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("AccountFXML.fxml"));
