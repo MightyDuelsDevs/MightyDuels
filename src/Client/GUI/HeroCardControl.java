@@ -42,9 +42,9 @@ public class HeroCardControl {
     }
     
     public StackPane HeroCardControlPane(){
-        ImageView imOverlay = new ImageView("/Images/Card Template.png");
+        ImageView imOverlay = new ImageView("../Images/Card Template.png");
         //ImageView imNic = new ImageView(heroCard.getFilename());
-        ImageView imNic = new ImageView("/Images/question-mark.jpg");
+        ImageView imNic = new ImageView("../Images/question-mark.jpg");
         imOverlay.setPreserveRatio(true);
         imNic.setPreserveRatio(true);
         imOverlay.setFitWidth(width);
