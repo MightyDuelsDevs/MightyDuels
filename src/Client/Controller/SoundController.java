@@ -26,15 +26,15 @@ public class SoundController {
     //Enumerator for all the different sound files.
     public static enum SoundFile {
 
-        BUTTONPRESS("src/Client.Sound/buttonPress.wav"),
-        ENDTURN("src/Client.Sound/buttonPress.wav"),
-        HEAL("src/Client.Sound/buttonPress.wav"),
-        MAGICALATTACK("src/Client.Sound/buttonPress.wav"),
-        MAGICALBLOCK("src/Client.Sound/buttonPress.wav"),
-        MINION("src/Client.Sound/buttonPress.wav"),
-        PHYSICALATTACK("src/Client.Sound/buttonPress.wav"),
-        PHYSICALBLOCK("src/Client.Sound/buttonPress.wav"),
-        STARTTURN("src/Client.Sound/buttonPress.wav");
+        BUTTONPRESS("src/Client/Sound/buttonPress.wav"),
+        ENDTURN("src/Client/Sound/endTurn.wav"),
+        HEAL("src/Client/Sound/heal.wav"),
+        MAGICALATTACK("src/Client/Sound/magicalAttack.wav"),
+        MAGICALBLOCK("src/Client/Sound/magicalBlock.wav"),
+        MINION("src/Client/Sound/minion.wav"),
+        PHYSICALATTACK("src/Client/Sound/physicalAttack.wav"),
+        PHYSICALBLOCK("src/Client/Sound/physicalBlock.wav"),
+        STARTTURN("src/Client/Sound/startTurn.wav");
 
         private final String audioFilePath;
 
