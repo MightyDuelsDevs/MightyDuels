@@ -5,7 +5,7 @@
  */
 package DatabaseTest;
 
-import Database.Database;
+import Server.Database.Database;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

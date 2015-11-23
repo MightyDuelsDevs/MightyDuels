@@ -5,9 +5,9 @@
  */
 package Mighty_Cards.DomainTest;
 
-import Mighty_Cards.Domain.Card;
-import Mighty_Cards.Domain.Deck;
-import Mighty_Cards.Domain.MinionCard;
+import Server.Domain.Card;
+import Server.Domain.Deck;
+import Server.Domain.MinionCard;
 import java.util.ArrayList;
 import junit.framework.Assert;
 import org.junit.After;

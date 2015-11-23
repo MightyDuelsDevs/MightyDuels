@@ -5,7 +5,7 @@
  */
 package Mighty_Cards.DomainTest;
 
-import Mighty_Cards.Domain.HeroCard;
+import Server.Domain.HeroCard;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -5,10 +5,11 @@
  */
 package mightyduels;
 
-import Controller.*;
-import GUI.LogOn;
-import Mighty_Cards.Domain.Game;
-import Mighty_Cards.Domain.Player;
+import Server.Controller.CardDeckController;
+import Server.Controller.PlayerIconController;
+import Client.GUI.LogOn;
+import Server.Domain.Game;
+import Server.Domain.Player;
 import java.awt.SplashScreen;
 import java.sql.SQLException;
 import java.util.logging.Logger;
@@ -35,9 +36,9 @@ public class MightyDuels {
     public static void main(String[] args) {
         log.info("Starting MightyDuels client application");
         log.info("Initialising database");
-        Database.Database.openConnection();
+        Server.Database.Database.openConnection();
         try {
-            if (!Database.Database.checkConnection()) {
+            if (!Server.Database.Database.checkConnection()) {
                 log.severe("Connection was not opened!");
                 log.severe("Exiting...");
                 System.exit(1000);

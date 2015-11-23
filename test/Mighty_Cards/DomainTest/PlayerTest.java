@@ -6,8 +6,8 @@
 package Mighty_Cards.DomainTest;
 
 
-import Mighty_Cards.Domain.Icon;
-import Mighty_Cards.Domain.Player;
+import Server.Domain.Icon;
+import Server.Domain.Player;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

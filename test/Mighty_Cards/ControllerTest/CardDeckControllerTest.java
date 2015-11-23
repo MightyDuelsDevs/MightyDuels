@@ -5,9 +5,9 @@
  */
 package Mighty_Cards.ControllerTest;
 
-import Controller.CardDeckController;
-import Mighty_Cards.Domain.Card;
-import Mighty_Cards.Domain.Deck;
+import Server.Controller.CardDeckController;
+import Server.Domain.Card;
+import Server.Domain.Deck;
 import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.ArrayList;

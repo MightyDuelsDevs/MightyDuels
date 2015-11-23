@@ -5,7 +5,7 @@
  */
 package Mighty_Cards.DomainTest;
 
-import Mighty_Cards.Domain.Card;
+import Server.Domain.Card;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;

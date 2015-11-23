@@ -5,9 +5,9 @@
  */
 package Mighty_Cards.ControllerTest;
 
-import Controller.PlayerIconController;
-import Mighty_Cards.Domain.Icon;
-import Mighty_Cards.Domain.Player;
+import Server.Controller.PlayerIconController;
+import Server.Domain.Icon;
+import Server.Domain.Player;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;

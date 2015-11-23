@@ -5,14 +5,14 @@
  */
 package Mighty_Cards.DomainTest;
 
-import Mighty_Cards.Domain.MinionCard;
-import Mighty_Cards.Domain.Card;
-import Mighty_Cards.Domain.Player;
-import Mighty_Cards.Domain.Hero;
-import Mighty_Cards.Domain.Minion;
-import Mighty_Cards.Domain.HeroCard;
-import Mighty_Cards.Domain.Deck;
-import Mighty_Cards.Domain.Match;
+import Server.Domain.MinionCard;
+import Server.Domain.Card;
+import Server.Domain.Player;
+import Server.Domain.Hero;
+import Server.Domain.Minion;
+import Server.Domain.HeroCard;
+import Server.Domain.Deck;
+import Server.Domain.Match;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

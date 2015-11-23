@@ -5,10 +5,10 @@
  */
 package Mighty_Cards.DomainTest;
 
-import Mighty_Cards.Domain.GameState;
-import Mighty_Cards.Domain.Player;
-import Mighty_Cards.Domain.Hero;
-import Mighty_Cards.Domain.Match;
+import Server.Domain.GameState;
+import Server.Domain.Player;
+import Server.Domain.Hero;
+import Server.Domain.Match;
 import java.lang.reflect.Field;
 import java.util.logging.Level;
 import java.util.logging.Logger;
