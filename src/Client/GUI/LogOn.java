@@ -18,12 +18,12 @@ import javafx.stage.Screen;
  * @author Stan
  */
 public class LogOn extends Application {
-    
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStages) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("LogOnFXML.fxml"));
         Scene scene = new Scene(root);
+        Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setTitle("Mighty Duels");

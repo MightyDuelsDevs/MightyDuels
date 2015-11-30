@@ -37,21 +37,4 @@ public class MightyDuelsClient {
         }
         LogOn.main(args);
     }
-
-    /**
-     * Navigate to another scene
-     * @param stage the source stage
-     * @param root the root scene
-     * @param title the window title
-     */
-    public static void navigate(Stage stage, Parent root, String title) {
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        title = title == null ? "Mighty Duels" : title;
-        stage.setTitle(title);
-        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
-        stage.setX((primScreenBounds.getWidth() - stage.getWidth()) / 2);
-        stage.setY((primScreenBounds.getHeight() - stage.getHeight()) / 2);
-    }
 }
